@@ -1,0 +1,4080 @@
+object DmdFm: TDmdFm
+  OnCreate = DataModuleCreate
+  Height = 1009
+  Width = 1545
+  PixelsPerInch = 120
+  object DB1: TUniConnection
+    ProviderName = 'MySQL'
+    Port = 3306
+    Database = 'porte'
+    SpecificOptions.Strings = (
+      'MySQL.UseUnicode=False'
+      'MySQL.ConnectionTimeout=15'
+      'MySQL.Compress=False'
+      'MySQL.Protocol=mpDefault'
+      'MySQL.Embedded=False'
+      'MySQL.IPVersion=ivIPv4'
+      'MySQL.Interactive=False'
+      'MySQL.HttpTrustServerCertificate=False'
+      'MySQL.ProxyPort=0')
+    Username = 'root'
+    Server = '10.10.100.100'
+    Connected = True
+    Left = 270
+    Top = 20
+    EncryptedPassword = '9EFF9BFF92FF96FF91FF'
+  end
+  object MySQLUniProvider1: TMySQLUniProvider
+    Left = 390
+    Top = 20
+  end
+  object Perm: TUniTable
+    TableName = 'perm'
+    Connection = DB1
+    LockMode = lmNone
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Options.FullRefresh = True
+    Options.AutoPrepare = True
+    Options.UpdateAllFields = True
+    Left = 720
+    Top = 20
+    object PermUserNum: TIntegerField
+      FieldName = 'UserNum'
+    end
+    object PermUserName: TStringField
+      FieldName = 'UserName'
+      Size = 15
+    end
+    object PermPass: TStringField
+      FieldName = 'Pass'
+      Size = 10
+    end
+    object PermShipData: TBooleanField
+      FieldName = 'ShipData'
+      Required = True
+    end
+    object PermAgent: TBooleanField
+      FieldName = 'Agent'
+      Required = True
+    end
+    object PermHelp: TBooleanField
+      FieldName = 'Help'
+      Required = True
+    end
+    object PermIncome: TBooleanField
+      FieldName = 'Income'
+      Required = True
+    end
+    object PermShipp: TBooleanField
+      FieldName = 'Shipp'
+      Required = True
+    end
+    object PermAdmis: TBooleanField
+      FieldName = 'Admis'
+      Required = True
+    end
+    object PermAcList: TBooleanField
+      FieldName = 'AcList'
+      Required = True
+    end
+    object PermPerm: TBooleanField
+      FieldName = 'Perm'
+      Required = True
+    end
+    object PermReports: TBooleanField
+      FieldName = 'Reports'
+      Required = True
+    end
+    object PermConst: TBooleanField
+      FieldName = 'Const'
+      Required = True
+    end
+    object PermLockList: TBooleanField
+      FieldName = 'LockList'
+      Required = True
+    end
+    object PermCommList: TBooleanField
+      FieldName = 'CommList'
+      Required = True
+    end
+    object PermRsomList: TBooleanField
+      FieldName = 'RsomList'
+      Required = True
+    end
+    object PermRga: TBooleanField
+      FieldName = 'Rga'
+      Required = True
+    end
+    object Permpyan1: TBooleanField
+      FieldName = 'pyan1'
+      Required = True
+    end
+    object Permpyan2: TBooleanField
+      FieldName = 'pyan2'
+      Required = True
+    end
+    object PermpyanD: TBooleanField
+      FieldName = 'pyanD'
+      Required = True
+    end
+    object PermDrevle: TBooleanField
+      FieldName = 'Drevle'
+      Required = True
+    end
+    object Permpoapa: TBooleanField
+      FieldName = 'poapa'
+      Required = True
+    end
+    object PermAdorfrze: TBooleanField
+      FieldName = 'Adorfrze'
+      Required = True
+    end
+    object Permkzena: TBooleanField
+      FieldName = 'kzena'
+      Required = True
+    end
+    object Permdelload: TBooleanField
+      FieldName = 'delload'
+      Required = True
+    end
+    object Permdelbillload: TBooleanField
+      FieldName = 'delbillload'
+      Required = True
+    end
+    object Permdeltrans: TBooleanField
+      FieldName = 'deltrans'
+      Required = True
+    end
+    object PermCarry: TBooleanField
+      FieldName = 'Carry'
+      Required = True
+    end
+    object PermArchive: TBooleanField
+      FieldName = 'Archive'
+      Required = True
+    end
+    object PermRsomBill: TBooleanField
+      FieldName = 'RsomBill'
+      Required = True
+    end
+    object PermDelList: TBooleanField
+      FieldName = 'DelList'
+      Required = True
+    end
+    object PermEnbEdit: TBooleanField
+      FieldName = 'EnbEdit'
+      Required = True
+    end
+    object PermCarryRsom: TBooleanField
+      FieldName = 'CarryRsom'
+      Required = True
+    end
+    object PermDailyClose: TBooleanField
+      FieldName = 'DailyClose'
+    end
+    object PermDailyView: TBooleanField
+      FieldName = 'DailyView'
+    end
+    object PermUnlockBill: TBooleanField
+      FieldName = 'UnlockBill'
+    end
+    object PermAlterBill: TBooleanField
+      FieldName = 'AlterBill'
+    end
+    object PermShipRsom: TBooleanField
+      FieldName = 'ShipRsom'
+    end
+    object PermAgentRsom: TBooleanField
+      FieldName = 'AgentRsom'
+    end
+    object PermHelpRsom: TBooleanField
+      FieldName = 'HelpRsom'
+    end
+    object PermCarryDRsom: TBooleanField
+      FieldName = 'CarryDRsom'
+    end
+    object PermCloseRsom: TBooleanField
+      FieldName = 'CloseRsom'
+    end
+    object PermUnlockRsom: TBooleanField
+      FieldName = 'UnlockRsom'
+    end
+    object PermAlterBillR: TBooleanField
+      FieldName = 'AlterBillR'
+    end
+    object PermDelBillR: TBooleanField
+      FieldName = 'DelBillR'
+    end
+    object PermReportsRsom: TBooleanField
+      FieldName = 'ReportsRsom'
+    end
+    object PermDailyViewR: TBooleanField
+      FieldName = 'DailyViewR'
+    end
+    object PermChType: TBooleanField
+      FieldName = 'ChType'
+    end
+    object PermRetDaily: TBooleanField
+      FieldName = 'RetDaily'
+    end
+    object PermPrepRep: TBooleanField
+      FieldName = 'PrepRep'
+    end
+    object PermIncoRep: TBooleanField
+      FieldName = 'IncoRep'
+    end
+    object PermDelRep: TBooleanField
+      FieldName = 'DelRep'
+    end
+    object PermFinalRep: TBooleanField
+      FieldName = 'FinalRep'
+    end
+    object PermGenRep: TBooleanField
+      FieldName = 'GenRep'
+    end
+    object PermGenRepEnt: TBooleanField
+      FieldName = 'GenRepEnt'
+    end
+    object PermChTypeR: TBooleanField
+      FieldName = 'ChTypeR'
+    end
+    object PermReCalc: TBooleanField
+      FieldName = 'ReCalc'
+    end
+    object PermTgValue: TBooleanField
+      FieldName = 'TgValue'
+    end
+    object PermEsalTr: TBooleanField
+      FieldName = 'EsalTr'
+    end
+    object PermAgentsTr: TBooleanField
+      FieldName = 'AgentsTr'
+    end
+    object PermConsTr: TBooleanField
+      FieldName = 'ConsTr'
+    end
+    object PermSrchTr: TBooleanField
+      FieldName = 'SrchTr'
+    end
+    object PermRepTr: TBooleanField
+      FieldName = 'RepTr'
+    end
+    object PermPermTr: TBooleanField
+      FieldName = 'PermTr'
+    end
+    object PermCurrent: TBooleanField
+      FieldName = 'Current'
+    end
+    object PermDebit: TBooleanField
+      FieldName = 'Debit'
+    end
+    object PermLockEsal: TBooleanField
+      FieldName = 'LockEsal'
+    end
+    object PermUnLockEsal: TBooleanField
+      FieldName = 'UnLockEsal'
+    end
+    object PermAdmArchive: TBooleanField
+      FieldName = 'AdmArchive'
+    end
+    object PermAcclistArch: TBooleanField
+      FieldName = 'AcclistArch'
+    end
+    object PermCreDataBase: TBooleanField
+      FieldName = 'CreDataBase'
+    end
+    object Permoutport: TBooleanField
+      FieldName = 'outport'
+    end
+    object PermTransit: TBooleanField
+      FieldName = 'Transit'
+    end
+    object PermTrHelp: TBooleanField
+      FieldName = 'TrHelp'
+    end
+    object PermTrRep: TBooleanField
+      FieldName = 'TrRep'
+    end
+    object PermTrIncome: TBooleanField
+      FieldName = 'TrIncome'
+    end
+    object PermFreezing: TBooleanField
+      FieldName = 'Freezing'
+    end
+    object PermPers_Name: TStringField
+      FieldName = 'Pers_Name'
+      Size = 60
+    end
+    object PermDelBill: TBooleanField
+      FieldName = 'DelBill'
+    end
+    object Perminvoice_print: TBooleanField
+      FieldName = 'invoice_print'
+    end
+    object Permmain_options: TBooleanField
+      FieldName = 'main_options'
+    end
+    object Permsubordination: TSmallintField
+      FieldName = 'subordination'
+    end
+    object Permnumbring: TBooleanField
+      FieldName = 'numbring'
+    end
+    object PermBills_Reviewer: TIntegerField
+      FieldName = 'Bills_Reviewer'
+    end
+    object PermReview: TBooleanField
+      FieldName = 'Review'
+    end
+    object PermDirect_Delivery: TBooleanField
+      FieldName = 'Direct_Delivery'
+    end
+    object PermHandling: TBooleanField
+      FieldName = 'Handling'
+    end
+    object PermHandling_Delete: TBooleanField
+      FieldName = 'Handling_Delete'
+    end
+    object PermHandling_Edit: TBooleanField
+      FieldName = 'Handling_Edit'
+    end
+    object PermHandling_Status: TBooleanField
+      FieldName = 'Handling_Status'
+    end
+    object PermHandling_New: TBooleanField
+      FieldName = 'Handling_New'
+    end
+  end
+  object DPerm: TDataSource
+    DataSet = Perm
+    Left = 800
+    Top = 20
+  end
+  object Lsortingtrip: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `sortingtrip`'
+      
+        '  (`numAuto`, `AutoUID`, `FlightNumber`, `ShipName`, `ShippingAg' +
+        'ent`, `DateArrival`, `DischargeStartDate`, `EndDischargeDate`, `' +
+        'UserDate`, `EnterDate`, `FlightStatus`, `StatusH`, `Share`, `N_s' +
+        'idewalk`, `Crane`, `N_bandsupervisor`, `Nort`)'
+      'VALUES'
+      
+        '  (:`numAuto`, :`AutoUID`, :`FlightNumber`, :`ShipName`, :`Shipp' +
+        'ingAgent`, :`DateArrival`, :`DischargeStartDate`, :`EndDischarge' +
+        'Date`, :`UserDate`, :`EnterDate`, :`FlightStatus`, :`StatusH`, :' +
+        '`Share`, :`N_sidewalk`, :`Crane`, :`N_bandsupervisor`, :`Nort`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `sortingtrip` ;')
+    SQLUpdate.Strings = (
+      'UPDATE `sortingtrip`'
+      'SET'
+      
+        '  `numAuto` = :`numAuto`, `AutoUID` = :`AutoUID`, `FlightNumber`' +
+        ' = :`FlightNumber`, `ShipName` = :`ShipName`, `ShippingAgent` = ' +
+        ':`ShippingAgent`, `DateArrival` = :`DateArrival`, `DischargeStar' +
+        'tDate` = :`DischargeStartDate`, `EndDischargeDate` = :`EndDischa' +
+        'rgeDate`, `UserDate` = :`UserDate`, `EnterDate` = :`EnterDate`, ' +
+        '`FlightStatus` = :`FlightStatus`, `StatusH` = :`StatusH`, `Share' +
+        '` = :`Share`, `N_sidewalk` = :`N_sidewalk`, `Crane` = :`Crane`, ' +
+        '`N_bandsupervisor` = :`N_bandsupervisor`, `Nort` = :`Nort`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `numAuto`, `AutoUID`, `FlightNumber`, `ShipName`, `Shippi' +
+        'ngAgent`, `DateArrival`, `DischargeStartDate`, `EndDischargeDate' +
+        '`, `UserDate`, `EnterDate`, `FlightStatus`, `StatusH`, `Share`, ' +
+        '`N_sidewalk`, `Crane`, `N_bandsupervisor`, `Nort` FROM `sortingt' +
+        'rip`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `numAuto`, `AutoUID`, `FlightNumber`, `ShipName`, `Shippi' +
+        'ngAgent`, `DateArrival`, `DischargeStartDate`, `EndDischargeDate' +
+        '`, `UserDate`, `EnterDate`, `FlightStatus`, `StatusH`, `Share`, ' +
+        '`N_sidewalk`, `Crane`, `N_bandsupervisor`, `Nort` FROM `sortingt' +
+        'rip`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM sortingtrip')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Lsortingtrip(:VNum)')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Left = 380
+    Top = 220
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'VNum'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'Lsortingtrip'
+    object LsortingtripnumAuto: TIntegerField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'numAuto'
+      Visible = False
+    end
+    object LsortingtripFlightNumber: TStringField
+      DisplayLabel = #1585#1602#1605' '#1575#1604#1585#1581#1604#1577
+      FieldName = 'FlightNumber'
+      Size = 25
+    end
+    object LsortingtripAutoUID: TStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LsortingtripShipName: TStringField
+      DisplayLabel = #1575#1587#1605' '#1575#1604#1587#1601#1610#1606#1577
+      FieldName = 'ShipName'
+      Size = 150
+    end
+    object LsortingtripShippingAgent: TStringField
+      DisplayLabel = #1575#1604#1608#1603#1610#1604
+      FieldName = 'ShippingAgent'
+      Size = 150
+    end
+    object LsortingtripDateArrival: TDateField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1575#1604#1608#1589#1608#1604
+      FieldName = 'DateArrival'
+    end
+    object LsortingtripDischargeStartDate: TDateField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1576#1583#1575#1610#1577' '#1575#1604#1578#1601#1585#1610#1594
+      FieldName = 'DischargeStartDate'
+      Visible = False
+    end
+    object LsortingtripEndDischargeDate: TDateField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1606#1607#1575#1610#1577' '#1575#1604#1578#1601#1585#1610#1594
+      FieldName = 'EndDischargeDate'
+      Visible = False
+    end
+    object LsortingtripUserDate: TStringField
+      DisplayLabel = #1605#1583#1582#1604' '#1575#1604#1576#1610#1575#1606#1575#1578
+      FieldName = 'UserDate'
+      Size = 15
+    end
+    object LsortingtripEnterDate: TDateField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1575#1583#1582#1575#1604' '#1575#1604#1585#1581#1604#1577
+      FieldName = 'EnterDate'
+      Visible = False
+    end
+    object LsortingtripFlightStatus: TSmallintField
+      DisplayLabel = #1581#1575#1604#1577' '#1575#1604#1585#1581#1604#1577' ('#1593#1583' '#1608#1601#1585#1586' - '#1605#1572#1585#1588#1601#1577')'
+      FieldName = 'FlightStatus'
+      Required = True
+      Visible = False
+    end
+    object LsortingtripStatusH: TSmallintField
+      DisplayLabel = #1581#1575#1604#1577' ('#1593#1583#1608#1601#1585#1586' - '#1576#1610#1575#1606')'
+      FieldName = 'StatusH'
+      Required = True
+      Visible = False
+    end
+    object LsortingtripShare: TSmallintField
+      DisplayLabel = #1605#1588#1575#1585#1603#1577' ('#1610#1602#1583#1585' '#1604#1575#1576' '#1610#1581#1605#1604' '#1575#1608' '#1604#1575')'
+      FieldName = 'Share'
+      Visible = False
+    end
+    object LsortingtripN_sidewalk: TIntegerField
+      FieldName = 'N_sidewalk'
+    end
+    object LsortingtripCrane: TSmallintField
+      FieldName = 'Crane'
+    end
+    object LsortingtripN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LsortingtripTransaction_Type: TSmallintField
+      FieldName = 'Transaction_Type'
+    end
+    object LsortingtripNort: TStringField
+      FieldName = 'Nort'
+      Size = 220
+    end
+    object Lsortingtripggg: TIntegerField
+      FieldName = 'ggg'
+    end
+    object Lsortingtripstar_time: TTimeField
+      FieldName = 'star_time'
+    end
+    object LsortingtripEnd_time: TTimeField
+      FieldName = 'End_time'
+    end
+    object LsortingtripNumLoadList: TIntegerField
+      FieldName = 'NumLoadList'
+    end
+    object LsortingtripsideWalk: TStringField
+      FieldName = 'sideWalk'
+      Size = 50
+    end
+    object LsortingtripGantry_Cranes: TSmallintField
+      FieldName = 'Gantry_Cranes'
+    end
+    object Lsortingtripground_cranes: TSmallintField
+      FieldName = 'ground_cranes'
+    end
+    object Lsortingtripforklifts: TSmallintField
+      FieldName = 'forklifts'
+    end
+  end
+  object DLsortingtrip: TUniDataSource
+    AutoEdit = False
+    DataSet = Lsortingtrip
+    Left = 550
+    Top = 220
+  end
+  object DLsubmenucounter: TUniDataSource
+    AutoEdit = False
+    DataSet = Lsubmenucounter
+    Left = 550
+    Top = 320
+  end
+  object Lsubmenucounter: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `submenucounter`'
+      
+        '  (`NumAuto`, `NumMainList`, `TagNumber`, `ContainerType`, `Harm' +
+        '`, `CauseDamage`, `swelling`, `rupture`, `bruises`, `other`, `ri' +
+        'ght`, `left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `Ot' +
+        'herAspects`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Ente' +
+        'r_Date`, `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N' +
+        '_thecounter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, ' +
+        '`condition`, `Status_type`, `Handling_type`, `IS_CHEMICAL_MATERI' +
+        'AL`, `goood_description`, `HazMat`, `latitude`, `longitude`, `lo' +
+        'cation_source`, `location_accuracy`, `location_level`, `location' +
+        '_user`, `location_datetime`, `MoveReason`)'
+      'VALUES'
+      
+        '  (:`NumAuto`, :`NumMainList`, :`TagNumber`, :`ContainerType`, :' +
+        '`Harm`, :`CauseDamage`, :`swelling`, :`rupture`, :`bruises`, :`o' +
+        'ther`, :`right`, :`left`, :`Door`, :`behind`, :`Roof`, :`floor`,' +
+        ' :`existing`, :`OtherAspects`, :`RF`, :`Nort1`, :`NumAdmH`, :`Au' +
+        'toUID`, :`Marks`, :`Enter_Date`, :`Enter_Time`, :`Enter_User`, :' +
+        '`N_Amber`, :`N_sidewalk`, :`N_thecounter`, :`N_bandsupervisor`, ' +
+        ':`N_crane`, :`N_craneoperator`, :`condition`, :`Status_type`, :`' +
+        'Handling_type`, :`IS_CHEMICAL_MATERIAL`, :`goood_description`, :' +
+        '`HazMat`, :`latitude`, :`longitude`, :`location_source`, :`locat' +
+        'ion_accuracy`, :`location_level`, :`location_user`, :`location_d' +
+        'atetime`, :`MoveReason`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `submenucounter`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`')
+    SQLUpdate.Strings = (
+      'UPDATE `submenucounter`'
+      'SET'
+      
+        '  `NumAuto` = :`NumAuto`, `NumMainList` = :`NumMainList`, `TagNu' +
+        'mber` = :`TagNumber`, `ContainerType` = :`ContainerType`, `Harm`' +
+        ' = :`Harm`, `CauseDamage` = :`CauseDamage`, `swelling` = :`swell' +
+        'ing`, `rupture` = :`rupture`, `bruises` = :`bruises`, `other` = ' +
+        ':`other`, `right` = :`right`, `left` = :`left`, `Door` = :`Door`' +
+        ', `behind` = :`behind`, `Roof` = :`Roof`, `floor` = :`floor`, `e' +
+        'xisting` = :`existing`, `OtherAspects` = :`OtherAspects`, `RF` =' +
+        ' :`RF`, `Nort1` = :`Nort1`, `NumAdmH` = :`NumAdmH`, `AutoUID` = ' +
+        ':`AutoUID`, `Marks` = :`Marks`, `Enter_Date` = :`Enter_Date`, `E' +
+        'nter_Time` = :`Enter_Time`, `Enter_User` = :`Enter_User`, `N_Amb' +
+        'er` = :`N_Amber`, `N_sidewalk` = :`N_sidewalk`, `N_thecounter` =' +
+        ' :`N_thecounter`, `N_bandsupervisor` = :`N_bandsupervisor`, `N_c' +
+        'rane` = :`N_crane`, `N_craneoperator` = :`N_craneoperator`, `con' +
+        'dition` = :`condition`, `Status_type` = :`Status_type`, `Handlin' +
+        'g_type` = :`Handling_type`, `IS_CHEMICAL_MATERIAL` = :`IS_CHEMIC' +
+        'AL_MATERIAL`, `goood_description` = :`goood_description`, `HazMa' +
+        't` = :`HazMat`, `latitude` = :`latitude`, `longitude` = :`longit' +
+        'ude`, `location_source` = :`location_source`, `location_accuracy' +
+        '` = :`location_accuracy`, `location_level` = :`location_level`, ' +
+        '`location_user` = :`location_user`, `location_datetime` = :`loca' +
+        'tion_datetime`, `MoveReason` = :`MoveReason`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`')
+    SQLLock.Strings = (
+      
+        'SELECT `NumAuto`, `NumMainList`, `TagNumber`, `ContainerType`, `' +
+        'Harm`, `CauseDamage`, `swelling`, `rupture`, `bruises`, `other`,' +
+        ' `right`, `left`, `Door`, `behind`, `Roof`, `floor`, `existing`,' +
+        ' `OtherAspects`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `' +
+        'Enter_Date`, `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`' +
+        ', `N_thecounter`, `N_bandsupervisor`, `N_crane`, `N_craneoperato' +
+        'r`, `condition`, `Status_type`, `Handling_type`, `IS_CHEMICAL_MA' +
+        'TERIAL`, `goood_description`, `HazMat`, `latitude`, `longitude`,' +
+        ' `location_source`, `location_accuracy`, `location_level`, `loca' +
+        'tion_user`, `location_datetime`, `MoveReason` FROM `submenucount' +
+        'er`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `NumAuto`, `NumMainList`, `TagNumber`, `ContainerType`, `' +
+        'Harm`, `CauseDamage`, `swelling`, `rupture`, `bruises`, `other`,' +
+        ' `right`, `left`, `Door`, `behind`, `Roof`, `floor`, `existing`,' +
+        ' `OtherAspects`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `' +
+        'Enter_Date`, `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`' +
+        ', `N_thecounter`, `N_bandsupervisor`, `N_crane`, `N_craneoperato' +
+        'r`, `condition`, `Status_type`, `Handling_type`, `IS_CHEMICAL_MA' +
+        'TERIAL`, `goood_description`, `HazMat`, `latitude`, `longitude`,' +
+        ' `location_source`, `location_accuracy`, `location_level`, `loca' +
+        'tion_user`, `location_datetime`, `MoveReason` FROM `submenucount' +
+        'er`'
+      'WHERE'
+      '  `NumAuto` = :`NumAuto`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM submenucounter')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Lsubmenucounter(:VNum)')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    BeforeEdit = LsubmenucounterBeforeEdit
+    BeforePost = LsubmenucounterBeforePost
+    AfterPost = LsubmenucounterAfterPost
+    OnCalcFields = LsubmenucounterCalcFields
+    Left = 380
+    Top = 320
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'VNum'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'Lsubmenucounter'
+    object LsubmenucounterNumMainList: TIntegerField
+      DisplayLabel = #1585#1602#1605' '#1585#1581#1604#1577' '#1585#1574#1610#1587#1610
+      FieldName = 'NumMainList'
+    end
+    object LsubmenucounterTagNumber: TStringField
+      DisplayLabel = #1578#1575#1602' '#1575#1604#1581#1575#1608#1610#1577
+      FieldName = 'TagNumber'
+      Size = 75
+    end
+    object LsubmenucounterContainerType: TStringField
+      DisplayLabel = #1606#1608#1593' '#1575#1604#1581#1575#1608#1610#1577
+      FieldName = 'ContainerType'
+      Size = 25
+    end
+    object LsubmenucounterCauseDamage: TSmallintField
+      FieldName = 'CauseDamage'
+    end
+    object LsubmenucounterNort1: TStringField
+      DisplayLabel = #1605#1604#1575#1581#1592#1575#1578
+      FieldName = 'Nort1'
+      Size = 100
+    end
+    object LsubmenucounterAutoUID: TStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LsubmenucounterHarm: TBooleanField
+      FieldName = 'Harm'
+    end
+    object LsubmenucounterRF: TSmallintField
+      FieldName = 'RF'
+    end
+    object LsubmenucounterNumAdmH: TIntegerField
+      FieldName = 'NumAdmH'
+    end
+    object Lsubmenucounterswelling: TBooleanField
+      FieldName = 'swelling'
+    end
+    object Lsubmenucounterrupture: TBooleanField
+      FieldName = 'rupture'
+    end
+    object Lsubmenucounterbruises: TBooleanField
+      FieldName = 'bruises'
+    end
+    object Lsubmenucounterother: TBooleanField
+      FieldName = 'other'
+    end
+    object Lsubmenucounterright: TBooleanField
+      FieldName = 'right'
+    end
+    object Lsubmenucounterleft: TBooleanField
+      FieldName = 'left'
+    end
+    object LsubmenucounterDoor: TBooleanField
+      FieldName = 'Door'
+    end
+    object Lsubmenucounterbehind: TBooleanField
+      FieldName = 'behind'
+    end
+    object LsubmenucounterRoof: TBooleanField
+      FieldName = 'Roof'
+    end
+    object Lsubmenucounterfloor: TBooleanField
+      FieldName = 'floor'
+    end
+    object Lsubmenucounterexisting: TBooleanField
+      FieldName = 'existing'
+    end
+    object LsubmenucounterOtherAspects: TBooleanField
+      FieldName = 'OtherAspects'
+    end
+    object LsubmenucounterEnter_User: TStringField
+      DisplayLabel = #1605#1583#1582#1604' '#1575#1604#1576#1610#1575#1606#1575#1578
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LsubmenucounterMarks: TSmallintField
+      FieldName = 'Marks'
+    end
+    object LsubmenucounterEnter_Date: TDateField
+      FieldName = 'Enter_Date'
+    end
+    object LsubmenucounterEnter_Time: TTimeField
+      FieldName = 'Enter_Time'
+    end
+    object LsubmenucounterN_Amber: TIntegerField
+      FieldName = 'N_Amber'
+    end
+    object LsubmenucounterN_sidewalk: TIntegerField
+      FieldName = 'N_sidewalk'
+    end
+    object LsubmenucounterN_thecounter: TIntegerField
+      FieldName = 'N_thecounter'
+    end
+    object LsubmenucounterN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LsubmenucounterN_crane: TIntegerField
+      FieldName = 'N_crane'
+    end
+    object LsubmenucounterN_craneoperator: TIntegerField
+      FieldName = 'N_craneoperator'
+    end
+    object Lsubmenucountercondition: TSmallintField
+      DisplayLabel = #1581#1575#1604#1577' '#1575#1604#1581#1575#1608#1610#1577
+      FieldName = 'condition'
+    end
+    object LsubmenucounterStatus_type: TSmallintField
+      FieldName = 'Status_type'
+      Required = True
+    end
+    object LsubmenucounterHandling_type: TSmallintField
+      FieldName = 'Handling_type'
+      Required = True
+    end
+    object LsubmenucounternumAuto: TIntegerField
+      FieldName = 'numAuto'
+    end
+    object LsubmenucounterIS_CHEMICAL_MATERIAL: TIntegerField
+      FieldName = 'IS_CHEMICAL_MATERIAL'
+    end
+    object Lsubmenucountergoood_description: TStringField
+      DisplayLabel = #1608#1589#1601' '#1575#1604#1576#1590#1575#1593#1577
+      FieldName = 'goood_description'
+      Size = 250
+    end
+    object LsubmenucounterN_AmberNm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_AmberNm'
+      LookupDataSet = Lamber
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameAmber'
+      KeyFields = 'N_Amber'
+      Size = 150
+      Lookup = True
+    end
+    object LsubmenucounterN_sidewalkNm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_sidewalkNm'
+      LookupDataSet = Lsidewalk
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameSidewalk'
+      KeyFields = 'N_sidewalk'
+      Size = 150
+      Lookup = True
+    end
+    object LsubmenucounterN_thecounterNm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_thecounterNm'
+      LookupDataSet = Lcounters
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameTheCounter'
+      KeyFields = 'N_thecounter'
+      Size = 150
+      Lookup = True
+    end
+    object LsubmenucounterN_bandsupervisorNm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_bandsupervisorNm'
+      LookupDataSet = Lbandsupervisor
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameBandSupervisor'
+      KeyFields = 'N_bandsupervisor'
+      Size = 200
+      Lookup = True
+    end
+    object LsubmenucounterN_craneNm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_craneNm'
+      LookupDataSet = Lcrane
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameCrane'
+      KeyFields = 'N_crane'
+      Size = 150
+      Lookup = True
+    end
+    object LsubmenucounterN_craneoperatorNm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_craneoperatorNm'
+      LookupDataSet = Lcraneoperator
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameCraneOperator'
+      KeyFields = 'N_craneoperator'
+      Size = 200
+      Lookup = True
+    end
+    object LsubmenucounterHandling_typeNm: TStringField
+      DisplayLabel = #1581#1575#1604#1577' '#1575#1604#1605#1606#1575#1608#1604#1577
+      FieldKind = fkCalculated
+      FieldName = 'Handling_typeNm'
+      Size = 10
+      Calculated = True
+    end
+    object LsubmenucounterStatus_typeNm: TStringField
+      DisplayLabel = #1581#1575#1604#1577' '#1575#1604#1581#1575#1608#1610#1577
+      FieldKind = fkCalculated
+      FieldName = 'Status_typeNm'
+      Size = 25
+      Calculated = True
+    end
+    object LsubmenucounterHazMat: TSmallintField
+      FieldName = 'HazMat'
+    end
+    object Lsubmenucounterlatitude: TFloatField
+      FieldName = 'latitude'
+    end
+    object Lsubmenucounterlongitude: TFloatField
+      FieldName = 'longitude'
+    end
+    object Lsubmenucounterlocation_source: TStringField
+      FieldName = 'location_source'
+    end
+    object Lsubmenucounterlocation_accuracy: TFloatField
+      FieldName = 'location_accuracy'
+    end
+    object Lsubmenucounterlocation_level: TShortintField
+      FieldName = 'location_level'
+    end
+    object Lsubmenucounterlocation_user: TStringField
+      FieldName = 'location_user'
+      Size = 50
+    end
+    object Lsubmenucounterlocation_datetime: TDateTimeField
+      FieldName = 'location_datetime'
+    end
+    object LsubmenucounterMoveReason: TIntegerField
+      FieldName = 'MoveReason'
+    end
+    object Lsubmenucounterlocation_inside_outside: TShortintField
+      FieldName = 'location_inside_outside'
+    end
+  end
+  object DLsubmenucounterForServer: TUniDataSource
+    DataSet = LsubmenucounterForServer
+    Left = 620
+    Top = 540
+  end
+  object LsubmenucounterForServer: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `submenucounter`'
+      
+        '  (`NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `CauseDa' +
+        'mage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `left' +
+        '`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspects`' +
+        ', `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`, `E' +
+        'nter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecounter' +
+        '`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condition`' +
+        ', `numAuto`, `isdataChanged`)'
+      'VALUES'
+      
+        '  (:`NumMainList`, :`TagNumber`, :`ContainerType`, :`Harm`, :`Ca' +
+        'useDamage`, :`swelling`, :`rupture`, :`bruises`, :`other`, :`rig' +
+        'ht`, :`left`, :`Door`, :`behind`, :`Roof`, :`floor`, :`existing`' +
+        ', :`OtherAspects`, :`RF`, :`Nort1`, :`NumAdmH`, :`AutoUID`, :`Ma' +
+        'rks`, :`Enter_Date`, :`Enter_Time`, :`Enter_User`, :`N_Amber`, :' +
+        '`N_sidewalk`, :`N_thecounter`, :`N_bandsupervisor`, :`N_crane`, ' +
+        ':`N_craneoperator`, :`condition`, :`numAuto`, :`isdataChanged`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `submenucounter` ;')
+    SQLUpdate.Strings = (
+      'UPDATE `submenucounter`'
+      'SET'
+      
+        '  `NumMainList` = :`NumMainList`, `TagNumber` = :`TagNumber`, `C' +
+        'ontainerType` = :`ContainerType`, `Harm` = :`Harm`, `CauseDamage' +
+        '` = :`CauseDamage`, `swelling` = :`swelling`, `rupture` = :`rupt' +
+        'ure`, `bruises` = :`bruises`, `other` = :`other`, `right` = :`ri' +
+        'ght`, `left` = :`left`, `Door` = :`Door`, `behind` = :`behind`, ' +
+        '`Roof` = :`Roof`, `floor` = :`floor`, `existing` = :`existing`, ' +
+        '`OtherAspects` = :`OtherAspects`, `RF` = :`RF`, `Nort1` = :`Nort' +
+        '1`, `NumAdmH` = :`NumAdmH`, `AutoUID` = :`AutoUID`, `Marks` = :`' +
+        'Marks`, `Enter_Date` = :`Enter_Date`, `Enter_Time` = :`Enter_Tim' +
+        'e`, `Enter_User` = :`Enter_User`, `N_Amber` = :`N_Amber`, `N_sid' +
+        'ewalk` = :`N_sidewalk`, `N_thecounter` = :`N_thecounter`, `N_ban' +
+        'dsupervisor` = :`N_bandsupervisor`, `N_crane` = :`N_crane`, `N_c' +
+        'raneoperator` = :`N_craneoperator`, `condition` = :`condition`, ' +
+        '`numAuto` = :`numAuto`, `isdataChanged` = :`isdataChanged`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `Cau' +
+        'seDamage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `' +
+        'left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspe' +
+        'cts`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`' +
+        ', `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecou' +
+        'nter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condit' +
+        'ion`, `numAuto`, `isdataChanged` FROM `submenucounter`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `Cau' +
+        'seDamage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `' +
+        'left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspe' +
+        'cts`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`' +
+        ', `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecou' +
+        'nter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condit' +
+        'ion`, `numAuto`, `isdataChanged` FROM `submenucounter`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM submenucounter')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL LsubmenucounterForServer(:VNum)')
+    Left = 400
+    Top = 540
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'VNum'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'LsubmenucounterForServer'
+    object LsubmenucounterForServerNumMainList: TIntegerField
+      DisplayLabel = #1585#1602#1605' '#1575#1604#1585#1581#1604#1577
+      FieldName = 'NumMainList'
+    end
+    object LsubmenucounterForServerTagNumber: TWideStringField
+      DisplayLabel = #1585#1602#1605' '#1575#1604#1581#1575#1608#1610#1577' '#1608#1593#1604#1575#1605#1578#1607#1575
+      FieldName = 'TagNumber'
+      Size = 75
+    end
+    object LsubmenucounterForServerContainerType: TWideStringField
+      FieldName = 'ContainerType'
+      Size = 25
+    end
+    object LsubmenucounterForServerHarm: TBooleanField
+      FieldName = 'Harm'
+    end
+    object LsubmenucounterForServerCauseDamage: TSmallintField
+      FieldName = 'CauseDamage'
+    end
+    object LsubmenucounterForServerswelling: TBooleanField
+      FieldName = 'swelling'
+    end
+    object LsubmenucounterForServerrupture: TBooleanField
+      FieldName = 'rupture'
+    end
+    object LsubmenucounterForServerbruises: TBooleanField
+      FieldName = 'bruises'
+    end
+    object LsubmenucounterForServerother: TBooleanField
+      FieldName = 'other'
+    end
+    object LsubmenucounterForServerright: TBooleanField
+      FieldName = 'right'
+    end
+    object LsubmenucounterForServerleft: TBooleanField
+      FieldName = 'left'
+    end
+    object LsubmenucounterForServerDoor: TBooleanField
+      FieldName = 'Door'
+    end
+    object LsubmenucounterForServerbehind: TBooleanField
+      FieldName = 'behind'
+    end
+    object LsubmenucounterForServerRoof: TBooleanField
+      FieldName = 'Roof'
+    end
+    object LsubmenucounterForServerfloor: TBooleanField
+      FieldName = 'floor'
+    end
+    object LsubmenucounterForServerexisting: TBooleanField
+      FieldName = 'existing'
+    end
+    object LsubmenucounterForServerOtherAspects: TBooleanField
+      FieldName = 'OtherAspects'
+    end
+    object LsubmenucounterForServerRF: TSmallintField
+      FieldName = 'RF'
+    end
+    object LsubmenucounterForServerNort1: TWideStringField
+      FieldName = 'Nort1'
+      Size = 100
+    end
+    object LsubmenucounterForServerNumAdmH: TIntegerField
+      FieldName = 'NumAdmH'
+    end
+    object LsubmenucounterForServerMarks: TSmallintField
+      FieldName = 'Marks'
+    end
+    object LsubmenucounterForServerEnter_Date: TDateField
+      FieldName = 'Enter_Date'
+    end
+    object LsubmenucounterForServerEnter_Time: TTimeField
+      FieldName = 'Enter_Time'
+    end
+    object LsubmenucounterForServerEnter_User: TWideStringField
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LsubmenucounterForServerN_Amber: TIntegerField
+      FieldName = 'N_Amber'
+    end
+    object LsubmenucounterForServerN_sidewalk: TIntegerField
+      FieldName = 'N_sidewalk'
+    end
+    object LsubmenucounterForServerN_thecounter: TIntegerField
+      FieldName = 'N_thecounter'
+    end
+    object LsubmenucounterForServerN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LsubmenucounterForServerN_crane: TIntegerField
+      FieldName = 'N_crane'
+    end
+    object LsubmenucounterForServerN_craneoperator: TIntegerField
+      FieldName = 'N_craneoperator'
+    end
+    object LsubmenucounterForServercondition: TSmallintField
+      FieldName = 'condition'
+    end
+    object LsubmenucounterForServerisdataChanged: TIntegerField
+      FieldName = 'isdataChanged'
+      Required = True
+    end
+    object LsubmenucounterForServerAutoUID: TWideStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LsubmenucounterForServerStatus_type: TSmallintField
+      FieldName = 'Status_type'
+      Required = True
+    end
+    object LsubmenucounterForServerHandling_type: TSmallintField
+      FieldName = 'Handling_type'
+      Required = True
+    end
+    object LsubmenucounterForServerIS_CHEMICAL_MATERIAL: TIntegerField
+      FieldName = 'IS_CHEMICAL_MATERIAL'
+    end
+    object LsubmenucounterForServergoood_description: TWideStringField
+      FieldName = 'goood_description'
+      Size = 250
+    end
+  end
+  object LsortingtripFromServer: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `sortingtrip`'
+      
+        '  (`numAuto`, `AutoUID`, `FlightNumber`, `ShipName`, `ShippingAg' +
+        'ent`, `DateArrival`, `DischargeStartDate`, `EndDischargeDate`, `' +
+        'UserDate`, `EnterDate`, `FlightStatus`, `StatusH`, `Share`, `N_s' +
+        'idewalk`, `Crane`, `N_bandsupervisor`, `Nort`)'
+      'VALUES'
+      
+        '  (:`numAuto`, :`AutoUID`, :`FlightNumber`, :`ShipName`, :`Shipp' +
+        'ingAgent`, :`DateArrival`, :`DischargeStartDate`, :`EndDischarge' +
+        'Date`, :`UserDate`, :`EnterDate`, :`FlightStatus`, :`StatusH`, :' +
+        '`Share`, :`N_sidewalk`, :`Crane`, :`N_bandsupervisor`, :`Nort`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `sortingtrip`'
+      'WHERE'
+      '  `numAuto` = :`Old_numAuto`')
+    SQLUpdate.Strings = (
+      'UPDATE `sortingtrip`'
+      'SET'
+      
+        '  `numAuto` = :`numAuto`, `AutoUID` = :`AutoUID`, `FlightNumber`' +
+        ' = :`FlightNumber`, `ShipName` = :`ShipName`, `ShippingAgent` = ' +
+        ':`ShippingAgent`, `DateArrival` = :`DateArrival`, `DischargeStar' +
+        'tDate` = :`DischargeStartDate`, `EndDischargeDate` = :`EndDischa' +
+        'rgeDate`, `UserDate` = :`UserDate`, `EnterDate` = :`EnterDate`, ' +
+        '`FlightStatus` = :`FlightStatus`, `StatusH` = :`StatusH`, `Share' +
+        '` = :`Share`, `N_sidewalk` = :`N_sidewalk`, `Crane` = :`Crane`, ' +
+        '`N_bandsupervisor` = :`N_bandsupervisor`, `Nort` = :`Nort`'
+      'WHERE'
+      '  `numAuto` = :`Old_numAuto`')
+    SQLLock.Strings = (
+      
+        'SELECT `numAuto`, `AutoUID`, `FlightNumber`, `ShipName`, `Shippi' +
+        'ngAgent`, `DateArrival`, `DischargeStartDate`, `EndDischargeDate' +
+        '`, `UserDate`, `EnterDate`, `FlightStatus`, `StatusH`, `Share`, ' +
+        '`N_sidewalk`, `Crane`, `N_bandsupervisor`, `Nort` FROM `sortingt' +
+        'rip`'
+      'WHERE'
+      '  `numAuto` = :`Old_numAuto`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `numAuto`, `AutoUID`, `FlightNumber`, `ShipName`, `Shippi' +
+        'ngAgent`, `DateArrival`, `DischargeStartDate`, `EndDischargeDate' +
+        '`, `UserDate`, `EnterDate`, `FlightStatus`, `StatusH`, `Share`, ' +
+        '`N_sidewalk`, `Crane`, `N_bandsupervisor`, `Nort` FROM `sortingt' +
+        'rip`'
+      'WHERE'
+      '  `numAuto` = :`numAuto`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM sortingtrip')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL LsortingtripFromServer(:VNum)')
+    BeforeInsert = LsortingtripFromServerBeforeInsert
+    Left = 360
+    Top = 140
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'VNum'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'LsortingtripFromServer'
+    object LsortingtripFromServernumAuto: TIntegerField
+      FieldName = 'numAuto'
+      Required = True
+    end
+    object LsortingtripFromServerAutoUID: TWideStringField
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LsortingtripFromServerFlightNumber: TWideStringField
+      FieldName = 'FlightNumber'
+      Size = 25
+    end
+    object LsortingtripFromServerShipName: TWideStringField
+      FieldName = 'ShipName'
+      Size = 150
+    end
+    object LsortingtripFromServerShippingAgent: TWideStringField
+      FieldName = 'ShippingAgent'
+      Size = 150
+    end
+    object LsortingtripFromServerDateArrival: TDateField
+      FieldName = 'DateArrival'
+    end
+    object LsortingtripFromServerDischargeStartDate: TDateField
+      FieldName = 'DischargeStartDate'
+    end
+    object LsortingtripFromServerEndDischargeDate: TDateField
+      FieldName = 'EndDischargeDate'
+    end
+    object LsortingtripFromServerUserDate: TWideStringField
+      FieldName = 'UserDate'
+      Size = 15
+    end
+    object LsortingtripFromServerEnterDate: TDateField
+      FieldName = 'EnterDate'
+    end
+    object LsortingtripFromServerFlightStatus: TSmallintField
+      FieldName = 'FlightStatus'
+      Required = True
+    end
+    object LsortingtripFromServerStatusH: TSmallintField
+      FieldName = 'StatusH'
+      Required = True
+    end
+    object LsortingtripFromServerShare: TSmallintField
+      FieldName = 'Share'
+    end
+    object LsortingtripFromServerN_sidewalk: TIntegerField
+      FieldName = 'N_sidewalk'
+    end
+    object LsortingtripFromServerCrane: TSmallintField
+      FieldName = 'Crane'
+    end
+    object LsortingtripFromServerN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LsortingtripFromServerNort: TWideStringField
+      FieldName = 'Nort'
+      Size = 220
+    end
+  end
+  object DLsortingtripFromServer: TUniDataSource
+    DataSet = LsortingtripFromServer
+    Left = 550
+    Top = 150
+  end
+  object LsubmenucounterForMigrate: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `submenucounter`'
+      
+        '  (`NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `CauseDa' +
+        'mage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `left' +
+        '`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspects`' +
+        ', `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`, `E' +
+        'nter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecounter' +
+        '`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condition`' +
+        ', `numAuto`, `isdataChanged`)'
+      'VALUES'
+      
+        '  (:`NumMainList`, :`TagNumber`, :`ContainerType`, :`Harm`, :`Ca' +
+        'useDamage`, :`swelling`, :`rupture`, :`bruises`, :`other`, :`rig' +
+        'ht`, :`left`, :`Door`, :`behind`, :`Roof`, :`floor`, :`existing`' +
+        ', :`OtherAspects`, :`RF`, :`Nort1`, :`NumAdmH`, :`AutoUID`, :`Ma' +
+        'rks`, :`Enter_Date`, :`Enter_Time`, :`Enter_User`, :`N_Amber`, :' +
+        '`N_sidewalk`, :`N_thecounter`, :`N_bandsupervisor`, :`N_crane`, ' +
+        ':`N_craneoperator`, :`condition`, :`numAuto`, :`isdataChanged`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `submenucounter`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `submenucounter`'
+      'SET'
+      
+        '  `NumMainList` = :`NumMainList`, `TagNumber` = :`TagNumber`, `C' +
+        'ontainerType` = :`ContainerType`, `Harm` = :`Harm`, `CauseDamage' +
+        '` = :`CauseDamage`, `swelling` = :`swelling`, `rupture` = :`rupt' +
+        'ure`, `bruises` = :`bruises`, `other` = :`other`, `right` = :`ri' +
+        'ght`, `left` = :`left`, `Door` = :`Door`, `behind` = :`behind`, ' +
+        '`Roof` = :`Roof`, `floor` = :`floor`, `existing` = :`existing`, ' +
+        '`OtherAspects` = :`OtherAspects`, `RF` = :`RF`, `Nort1` = :`Nort' +
+        '1`, `NumAdmH` = :`NumAdmH`, `AutoUID` = :`AutoUID`, `Marks` = :`' +
+        'Marks`, `Enter_Date` = :`Enter_Date`, `Enter_Time` = :`Enter_Tim' +
+        'e`, `Enter_User` = :`Enter_User`, `N_Amber` = :`N_Amber`, `N_sid' +
+        'ewalk` = :`N_sidewalk`, `N_thecounter` = :`N_thecounter`, `N_ban' +
+        'dsupervisor` = :`N_bandsupervisor`, `N_crane` = :`N_crane`, `N_c' +
+        'raneoperator` = :`N_craneoperator`, `condition` = :`condition`, ' +
+        '`numAuto` = :`numAuto`, `isdataChanged` = :`isdataChanged`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `Cau' +
+        'seDamage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `' +
+        'left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspe' +
+        'cts`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`' +
+        ', `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecou' +
+        'nter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condit' +
+        'ion`, `numAuto`, `isdataChanged` FROM `submenucounter`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `Cau' +
+        'seDamage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `' +
+        'left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspe' +
+        'cts`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`' +
+        ', `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecou' +
+        'nter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condit' +
+        'ion`, `numAuto`, `isdataChanged` FROM `submenucounter`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM submenucounter')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL LsubmenucounterForMigrate(:VNum)')
+    Left = 350
+    Top = 710
+    ParamData = <
+      item
+        DataType = ftWideString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'LsubmenucounterForMigrate'
+    object LsubmenucounterForMigratenumAuto: TIntegerField
+      FieldName = 'numAuto'
+    end
+    object LsubmenucounterForMigrateNumMainList: TIntegerField
+      FieldName = 'NumMainList'
+    end
+    object LsubmenucounterForMigrateTagNumber: TWideStringField
+      FieldName = 'TagNumber'
+      Size = 75
+    end
+    object LsubmenucounterForMigrateContainerType: TWideStringField
+      FieldName = 'ContainerType'
+      Size = 25
+    end
+    object LsubmenucounterForMigrateHarm: TBooleanField
+      FieldName = 'Harm'
+    end
+    object LsubmenucounterForMigrateCauseDamage: TSmallintField
+      FieldName = 'CauseDamage'
+    end
+    object LsubmenucounterForMigrateswelling: TBooleanField
+      FieldName = 'swelling'
+    end
+    object LsubmenucounterForMigraterupture: TBooleanField
+      FieldName = 'rupture'
+    end
+    object LsubmenucounterForMigratebruises: TBooleanField
+      FieldName = 'bruises'
+    end
+    object LsubmenucounterForMigrateother: TBooleanField
+      FieldName = 'other'
+    end
+    object LsubmenucounterForMigrateright: TBooleanField
+      FieldName = 'right'
+    end
+    object LsubmenucounterForMigrateleft: TBooleanField
+      FieldName = 'left'
+    end
+    object LsubmenucounterForMigrateDoor: TBooleanField
+      FieldName = 'Door'
+    end
+    object LsubmenucounterForMigratebehind: TBooleanField
+      FieldName = 'behind'
+    end
+    object LsubmenucounterForMigrateRoof: TBooleanField
+      FieldName = 'Roof'
+    end
+    object LsubmenucounterForMigratefloor: TBooleanField
+      FieldName = 'floor'
+    end
+    object LsubmenucounterForMigrateexisting: TBooleanField
+      FieldName = 'existing'
+    end
+    object LsubmenucounterForMigrateOtherAspects: TBooleanField
+      FieldName = 'OtherAspects'
+    end
+    object LsubmenucounterForMigrateRF: TSmallintField
+      FieldName = 'RF'
+    end
+    object LsubmenucounterForMigrateNort1: TWideStringField
+      FieldName = 'Nort1'
+      Size = 100
+    end
+    object LsubmenucounterForMigrateNumAdmH: TIntegerField
+      FieldName = 'NumAdmH'
+    end
+    object LsubmenucounterForMigrateAutoUID: TWideStringField
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LsubmenucounterForMigrateMarks: TSmallintField
+      FieldName = 'Marks'
+    end
+    object LsubmenucounterForMigrateEnter_Date: TDateField
+      FieldName = 'Enter_Date'
+    end
+    object LsubmenucounterForMigrateEnter_Time: TTimeField
+      FieldName = 'Enter_Time'
+    end
+    object LsubmenucounterForMigrateEnter_User: TWideStringField
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LsubmenucounterForMigrateN_Amber: TIntegerField
+      FieldName = 'N_Amber'
+    end
+    object LsubmenucounterForMigrateN_sidewalk: TIntegerField
+      FieldName = 'N_sidewalk'
+    end
+    object LsubmenucounterForMigrateN_thecounter: TIntegerField
+      FieldName = 'N_thecounter'
+    end
+    object LsubmenucounterForMigrateN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LsubmenucounterForMigrateN_crane: TIntegerField
+      FieldName = 'N_crane'
+    end
+    object LsubmenucounterForMigrateN_craneoperator: TIntegerField
+      FieldName = 'N_craneoperator'
+    end
+    object LsubmenucounterForMigratecondition: TSmallintField
+      FieldName = 'condition'
+    end
+    object LsubmenucounterForMigrateisdataChanged: TIntegerField
+      FieldName = 'isdataChanged'
+    end
+    object LsubmenucounterForMigrateIS_CHEMICAL_MATERIAL: TIntegerField
+      FieldName = 'IS_CHEMICAL_MATERIAL'
+    end
+    object LsubmenucounterForMigrategoood_description: TWideStringField
+      FieldName = 'goood_description'
+      Size = 250
+    end
+  end
+  object DLsubmenucounterForMigrate: TUniDataSource
+    DataSet = LsubmenucounterForMigrate
+    Left = 570
+    Top = 720
+  end
+  object LStopsForThisShip: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `stops`'
+      
+        '  (`AutoUID`, `Start_Date`, `End_Date`, `Stop_Notes`, `Enter_Use' +
+        'r`, `Enter_Date`, `M_AutoUID`, `Start_Time`, `End_Time`, `Reason' +
+        '_Suspension`, `isUpdated`, `Handling_type`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`Start_Date`, :`End_Date`, :`Stop_Notes`, :`Ente' +
+        'r_User`, :`Enter_Date`, :`M_AutoUID`, :`Start_Time`, :`End_Time`' +
+        ', :`Reason_Suspension`, :`isUpdated`, :`Handling_type`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `stops`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `stops`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `Start_Date` = :`Start_Date`, `End_Dat' +
+        'e` = :`End_Date`, `Stop_Notes` = :`Stop_Notes`, `Enter_User` = :' +
+        '`Enter_User`, `Enter_Date` = :`Enter_Date`, `M_AutoUID` = :`M_Au' +
+        'toUID`, `Start_Time` = :`Start_Time`, `End_Time` = :`End_Time`, ' +
+        '`Reason_Suspension` = :`Reason_Suspension`, `isUpdated` = :`isUp' +
+        'dated`, `Handling_type` = :`Handling_type`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `Start_Date`, `End_Date`, `Stop_Notes`, `Enter' +
+        '_User`, `Enter_Date`, `M_AutoUID`, `Start_Time`, `End_Time`, `Re' +
+        'ason_Suspension`, `isUpdated`, `Handling_type` FROM `stops`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `Start_Date`, `End_Date`, `Stop_Notes`, `Enter' +
+        '_User`, `Enter_Date`, `M_AutoUID`, `Start_Time`, `End_Time`, `Re' +
+        'ason_Suspension`, `isUpdated`, `Handling_type` FROM `stops`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM stops')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL StopsForThisShip(:VNum)')
+    AfterInsert = LStopsForThisShipAfterInsert
+    BeforePost = LStopsForThisShipBeforePost
+    Left = 800
+    Top = 240
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'StopsForThisShip'
+    object LStopsForThisShipAutoUID: TStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LStopsForThisShipM_AutoUID: TStringField
+      DisplayLabel = #1585#1602#1605' '#1575#1604#1585#1581#1604#1577
+      FieldName = 'M_AutoUID'
+      FixedChar = True
+      Size = 36
+    end
+    object LStopsForThisShipEnter_User: TStringField
+      DisplayLabel = #1605#1583#1582#1604' '#1575#1604#1576#1610#1575#1606#1575#1578
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LStopsForThisShipEnter_Date: TDateTimeField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1575#1604#1575#1583#1582#1575#1604
+      FieldName = 'Enter_Date'
+    end
+    object LStopsForThisShipStart_Date: TDateTimeField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1576#1583#1575#1610#1577' '#1575#1604#1578#1608#1602#1601
+      FieldName = 'Start_Date'
+    end
+    object LStopsForThisShipEnd_Date: TDateTimeField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1606#1607#1575#1610#1577' '#1575#1604#1578#1608#1602#1601
+      FieldName = 'End_Date'
+    end
+    object LStopsForThisShipStart_Time: TTimeField
+      DisplayLabel = #1608#1602#1578' '#1576#1583#1575#1610#1577' '#1575#1604#1578#1608#1602#1601
+      FieldName = 'Start_Time'
+    end
+    object LStopsForThisShipEnd_Time: TTimeField
+      DisplayLabel = #1608#1602#1578' '#1606#1607#1575#1610#1577' '#1575#1604#1578#1608#1602#1601
+      FieldName = 'End_Time'
+    end
+    object LStopsForThisShipStop_Notes: TStringField
+      DisplayLabel = #1575#1604#1605#1604#1575#1581#1592#1575#1578
+      FieldName = 'Stop_Notes'
+      Size = 200
+    end
+    object LStopsForThisShipReason_Suspension: TSmallintField
+      DisplayLabel = #1605#1587#1576#1576' '#1575#1604#1573#1610#1602#1575#1601' ('#1605#1610#1606#1575#1569' - '#1608#1603#1575#1604#1577' - '#1575#1604#1587#1601#1610#1606#1577' - '#1575#1582#1585#1609')'
+      FieldName = 'Reason_Suspension'
+      Required = True
+    end
+    object LStopsForThisShipisUpdated: TIntegerField
+      FieldName = 'isUpdated'
+      Required = True
+    end
+    object LStopsForThisShipHandling_type: TSmallintField
+      FieldName = 'Handling_type'
+    end
+  end
+  object DLStopsForThisShip: TUniDataSource
+    AutoEdit = False
+    DataSet = LStopsForThisShip
+    Left = 790
+    Top = 370
+  end
+  object GetKey: TUniQuery
+    Connection = DB1
+    SQL.Strings = (
+      'CALL createNewKey(@new_uuid); SELECT @new_uuid AS '#39'@new_uuid'#39)
+    Left = 810
+    Top = 570
+    ParamData = <
+      item
+        DataType = ftWideString
+        Name = 'new_uuid'
+        ParamType = ptOutput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'createNewKey'
+  end
+  object DGetKey: TUniDataSource
+    DataSet = GetKey
+    Left = 780
+    Top = 640
+  end
+  object LStopsForShipsForServer: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `stops`'
+      
+        '  (`AutoUID`, `Start_Date`, `End_Date`, `Stop_Notes`, `Enter_Use' +
+        'r`, `Enter_Date`, `M_AutoUID`, `Start_Time`, `End_Time`, `Reason' +
+        '_Suspension`, `Handling_type`, `isUpdated`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`Start_Date`, :`End_Date`, :`Stop_Notes`, :`Ente' +
+        'r_User`, :`Enter_Date`, :`M_AutoUID`, :`Start_Time`, :`End_Time`' +
+        ', :`Reason_Suspension`, :`Handling_type`, :`isUpdated`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `stops`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `stops`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `Start_Date` = :`Start_Date`, `End_Dat' +
+        'e` = :`End_Date`, `Stop_Notes` = :`Stop_Notes`, `Enter_User` = :' +
+        '`Enter_User`, `Enter_Date` = :`Enter_Date`, `M_AutoUID` = :`M_Au' +
+        'toUID`, `Start_Time` = :`Start_Time`, `End_Time` = :`End_Time`, ' +
+        '`Reason_Suspension` = :`Reason_Suspension`, `Handling_type` = :`' +
+        'Handling_type`, `isUpdated` = :`isUpdated`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `Start_Date`, `End_Date`, `Stop_Notes`, `Enter' +
+        '_User`, `Enter_Date`, `M_AutoUID`, `Start_Time`, `End_Time`, `Re' +
+        'ason_Suspension`, `Handling_type`, `isUpdated` FROM `stops`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `Start_Date`, `End_Date`, `Stop_Notes`, `Enter' +
+        '_User`, `Enter_Date`, `M_AutoUID`, `Start_Time`, `End_Time`, `Re' +
+        'ason_Suspension`, `Handling_type`, `isUpdated` FROM `stops`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM stops')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL StopsForShipsForServer(:VNum, :NM)')
+    Left = 520
+    Top = 440
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'VNum'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'NM'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'StopsForShipsForServer'
+    object LStopsForShipsForServerStart_Date: TDateTimeField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1576#1583#1575#1610#1577' '#1575#1604#1578#1601#1585#1610#1594
+      FieldName = 'Start_Date'
+    end
+    object LStopsForShipsForServerEnd_Date: TDateTimeField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1606#1607#1575#1610#1577' '#1575#1604#1578#1601#1585#1610#1594
+      FieldName = 'End_Date'
+    end
+    object LStopsForShipsForServerStop_Notes: TWideStringField
+      DisplayLabel = #1605#1604#1575#1581#1592#1575#1578' '#1575#1604#1578#1601#1585#1610#1594
+      FieldName = 'Stop_Notes'
+      Size = 200
+    end
+    object LStopsForShipsForServerEnter_User: TWideStringField
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LStopsForShipsForServerEnter_Date: TDateTimeField
+      FieldName = 'Enter_Date'
+    end
+    object LStopsForShipsForServerM_AutoUID: TWideStringField
+      FieldName = 'M_AutoUID'
+      FixedChar = True
+      Size = 36
+    end
+    object LStopsForShipsForServerStart_Time: TTimeField
+      FieldName = 'Start_Time'
+    end
+    object LStopsForShipsForServerEnd_Time: TTimeField
+      FieldName = 'End_Time'
+    end
+    object LStopsForShipsForServerReason_Suspension: TSmallintField
+      FieldName = 'Reason_Suspension'
+      Required = True
+    end
+    object LStopsForShipsForServerAutoUID: TWideStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LStopsForShipsForServerHandling_type: TSmallintField
+      FieldName = 'Handling_type'
+    end
+    object LStopsForShipsForServerisUpdated: TIntegerField
+      FieldName = 'isUpdated'
+    end
+  end
+  object DLStopsForShipsForServer: TUniDataSource
+    DataSet = LStopsForShipsForServer
+    Left = 690
+    Top = 450
+  end
+  object Lunits: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `units`'
+      
+        '  (`NumAuto`, `UName`, `StateValue`, `TrtepNum`, `Kyass`, `Group' +
+        'No`)'
+      'VALUES'
+      
+        '  (:`NumAuto`, :`UName`, :`StateValue`, :`TrtepNum`, :`Kyass`, :' +
+        '`GroupNo`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `units`'
+      'WHERE'
+      '  `TrtepNum` = :`Old_TrtepNum`')
+    SQLUpdate.Strings = (
+      'UPDATE `units`'
+      'SET'
+      
+        '  `NumAuto` = :`NumAuto`, `UName` = :`UName`, `StateValue` = :`S' +
+        'tateValue`, `TrtepNum` = :`TrtepNum`, `Kyass` = :`Kyass`, `Group' +
+        'No` = :`GroupNo`'
+      'WHERE'
+      '  `TrtepNum` = :`Old_TrtepNum`')
+    SQLLock.Strings = (
+      'SELECT * FROM units'
+      'WHERE'
+      '  `TrtepNum` = :`Old_TrtepNum`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `NumAuto`, `UName`, `StateValue`, `TrtepNum`, `Kyass`, `G' +
+        'roupNo` FROM `units`'
+      'WHERE'
+      '  `TrtepNum` = :`TrtepNum`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM units')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Lunits()')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Left = 1040
+    Top = 20
+    object LunitsNumAuto: TIntegerField
+      FieldName = 'NumAuto'
+      Required = True
+    end
+    object LunitsUName: TWideStringField
+      FieldName = 'UName'
+      Size = 50
+    end
+    object LunitsStateValue: TFloatField
+      FieldName = 'StateValue'
+    end
+    object LunitsTrtepNum: TIntegerField
+      FieldName = 'TrtepNum'
+    end
+    object LunitsKyass: TFloatField
+      FieldName = 'Kyass'
+    end
+    object LunitsGroupNo: TSmallintField
+      FieldName = 'GroupNo'
+    end
+  end
+  object DLunits: TUniDataSource
+    DataSet = Lunits
+    Left = 1110
+    Top = 20
+  end
+  object Lbandsupervisor: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `bandsupervisor`'
+      '  (`NumAuto`, `NameBandSupervisor`)'
+      'VALUES'
+      '  (:`NumAuto`, :`NameBandSupervisor`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `bandsupervisor`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`')
+    SQLUpdate.Strings = (
+      'UPDATE `bandsupervisor`'
+      'SET'
+      
+        '  `NumAuto` = :`NumAuto`, `NameBandSupervisor` = :`NameBandSuper' +
+        'visor`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`')
+    SQLLock.Strings = (
+      'SELECT `NumAuto`, `NameBandSupervisor` FROM `bandsupervisor`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      'SELECT `NumAuto`, `NameBandSupervisor` FROM `bandsupervisor`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM bandsupervisor')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Lbandsupervisor()')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Left = 1030
+    Top = 90
+    CommandStoredProcName = 'Lbandsupervisor'
+    object LbandsupervisorNumAuto: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'NumAuto'
+      Required = True
+    end
+    object LbandsupervisorNameBandSupervisor: TStringField
+      FieldName = 'NameBandSupervisor'
+      Size = 200
+    end
+  end
+  object DLbandsupervisor: TUniDataSource
+    DataSet = Lbandsupervisor
+    Left = 1160
+    Top = 90
+  end
+  object Lcounters: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `thecounter`'
+      '  (`NumAuto`, `NameTheCounter`, `NumEmp`)'
+      'VALUES'
+      '  (:`NumAuto`, :`NameTheCounter`, :`NumEmp`)')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM thecounter')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Lcounters()')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Left = 1020
+    Top = 170
+    CommandStoredProcName = 'Lcounters'
+    object LcountersNumAuto: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'NumAuto'
+    end
+    object LcountersNameTheCounter: TStringField
+      FieldName = 'NameTheCounter'
+      Size = 250
+    end
+    object LcountersNumEmp: TStringField
+      FieldName = 'NumEmp'
+      Size = 25
+    end
+  end
+  object DLcounters: TUniDataSource
+    DataSet = Lcounters
+    Left = 1150
+    Top = 180
+  end
+  object Lcrane: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `crane`'
+      '  (`NumAuto`, `NameCrane`)'
+      'VALUES'
+      '  (:`NumAuto`, :`NameCrane`)')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM crane')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Lcrane()')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Left = 1020
+    Top = 250
+    CommandStoredProcName = 'Lcrane'
+    object LcraneNumAuto: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'NumAuto'
+    end
+    object LcraneNameCrane: TStringField
+      FieldName = 'NameCrane'
+      Size = 200
+    end
+  end
+  object DLcrane: TUniDataSource
+    DataSet = Lcrane
+    Left = 1140
+    Top = 280
+  end
+  object Lcraneoperator: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `craneoperator`'
+      '  (`NumAuto`, `NameCraneOperator`, `NumEmp`)'
+      'VALUES'
+      '  (:`NumAuto`, :`NameCraneOperator`, :`NumEmp`)')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM craneoperator')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Lcraneoperator()')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Left = 1010
+    Top = 370
+    CommandStoredProcName = 'Lcraneoperator'
+    object LcraneoperatorNumAuto: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'NumAuto'
+    end
+    object LcraneoperatorNameCraneOperator: TStringField
+      FieldName = 'NameCraneOperator'
+      Size = 200
+    end
+    object LcraneoperatorNumEmp: TStringField
+      FieldName = 'NumEmp'
+      Size = 25
+    end
+  end
+  object DLcraneoperator: TUniDataSource
+    DataSet = Lcraneoperator
+    Left = 1140
+    Top = 400
+  end
+  object LHARM: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `harm`'
+      '  (`NumAuto`, `NameHarm`)'
+      'VALUES'
+      '  (:`NumAuto`, :`NameHarm`)')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM harm')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL LHARM()')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Left = 1000
+    Top = 470
+    CommandStoredProcName = 'LHARM'
+    object LHARMNumAuto: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'NumAuto'
+    end
+    object LHARMNameHarm: TStringField
+      FieldName = 'NameHarm'
+      Size = 200
+    end
+  end
+  object DLHARM: TUniDataSource
+    DataSet = LHARM
+    Left = 1140
+    Top = 490
+  end
+  object Lsidewalk: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `sidewalk`'
+      '  (`NumAuto`, `NameSidewalk`)'
+      'VALUES'
+      '  (:`NumAuto`, :`NameSidewalk`)')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM sidewalk')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Lsidewalk()')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Left = 1000
+    Top = 580
+    CommandStoredProcName = 'Lsidewalk'
+    object LsidewalkNumAuto: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'NumAuto'
+    end
+    object LsidewalkNameSidewalk: TStringField
+      FieldName = 'NameSidewalk'
+      Size = 200
+    end
+  end
+  object DLsidewalk: TUniDataSource
+    DataSet = Lsidewalk
+    Left = 1140
+    Top = 600
+  end
+  object Lamber: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `amber`'
+      '  (`NumAuto`, `NameAmber`)'
+      'VALUES'
+      '  (:`NumAuto`, :`NameAmber`)')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM amber')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Lamber()')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Left = 980
+    Top = 670
+    CommandStoredProcName = 'Lamber'
+    object LamberNumAuto: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'NumAuto'
+      Required = True
+    end
+    object LamberNameAmber: TStringField
+      FieldName = 'NameAmber'
+      Size = 200
+    end
+  end
+  object DLamber: TUniDataSource
+    DataSet = Lamber
+    Left = 1130
+    Top = 690
+  end
+  object Dcraneoperator: TUniDataSource
+    Left = 165
+    Top = 680
+  end
+  object LsubmenucounterForLocalCheck: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `submenucounter`'
+      
+        '  (`NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `CauseDa' +
+        'mage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `left' +
+        '`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspects`' +
+        ', `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`, `E' +
+        'nter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecounter' +
+        '`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condition`' +
+        ', `numAuto`, `isdataChanged`, `Status_type`, `Handling_type`, `I' +
+        'S_CHEMICAL_MATERIAL`, `goood_description`)'
+      'VALUES'
+      
+        '  (:`NumMainList`, :`TagNumber`, :`ContainerType`, :`Harm`, :`Ca' +
+        'useDamage`, :`swelling`, :`rupture`, :`bruises`, :`other`, :`rig' +
+        'ht`, :`left`, :`Door`, :`behind`, :`Roof`, :`floor`, :`existing`' +
+        ', :`OtherAspects`, :`RF`, :`Nort1`, :`NumAdmH`, :`AutoUID`, :`Ma' +
+        'rks`, :`Enter_Date`, :`Enter_Time`, :`Enter_User`, :`N_Amber`, :' +
+        '`N_sidewalk`, :`N_thecounter`, :`N_bandsupervisor`, :`N_crane`, ' +
+        ':`N_craneoperator`, :`condition`, :`numAuto`, :`isdataChanged`, ' +
+        ':`Status_type`, :`Handling_type`, :`IS_CHEMICAL_MATERIAL`, :`goo' +
+        'od_description`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `submenucounter`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `submenucounter`'
+      'SET'
+      
+        '  `NumMainList` = :`NumMainList`, `TagNumber` = :`TagNumber`, `C' +
+        'ontainerType` = :`ContainerType`, `Harm` = :`Harm`, `CauseDamage' +
+        '` = :`CauseDamage`, `swelling` = :`swelling`, `rupture` = :`rupt' +
+        'ure`, `bruises` = :`bruises`, `other` = :`other`, `right` = :`ri' +
+        'ght`, `left` = :`left`, `Door` = :`Door`, `behind` = :`behind`, ' +
+        '`Roof` = :`Roof`, `floor` = :`floor`, `existing` = :`existing`, ' +
+        '`OtherAspects` = :`OtherAspects`, `RF` = :`RF`, `Nort1` = :`Nort' +
+        '1`, `NumAdmH` = :`NumAdmH`, `AutoUID` = :`AutoUID`, `Marks` = :`' +
+        'Marks`, `Enter_Date` = :`Enter_Date`, `Enter_Time` = :`Enter_Tim' +
+        'e`, `Enter_User` = :`Enter_User`, `N_Amber` = :`N_Amber`, `N_sid' +
+        'ewalk` = :`N_sidewalk`, `N_thecounter` = :`N_thecounter`, `N_ban' +
+        'dsupervisor` = :`N_bandsupervisor`, `N_crane` = :`N_crane`, `N_c' +
+        'raneoperator` = :`N_craneoperator`, `condition` = :`condition`, ' +
+        '`numAuto` = :`numAuto`, `isdataChanged` = :`isdataChanged`, `Sta' +
+        'tus_type` = :`Status_type`, `Handling_type` = :`Handling_type`, ' +
+        '`IS_CHEMICAL_MATERIAL` = :`IS_CHEMICAL_MATERIAL`, `goood_descrip' +
+        'tion` = :`goood_description`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `Cau' +
+        'seDamage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `' +
+        'left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspe' +
+        'cts`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`' +
+        ', `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecou' +
+        'nter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condit' +
+        'ion`, `numAuto`, `isdataChanged`, `Status_type`, `Handling_type`' +
+        ', `IS_CHEMICAL_MATERIAL`, `goood_description` FROM `submenucount' +
+        'er`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `Cau' +
+        'seDamage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `' +
+        'left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspe' +
+        'cts`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`' +
+        ', `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecou' +
+        'nter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condit' +
+        'ion`, `numAuto`, `isdataChanged`, `Status_type`, `Handling_type`' +
+        ', `IS_CHEMICAL_MATERIAL`, `goood_description` FROM `submenucount' +
+        'er`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM submenucounter')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL LsubmenucounterForLocalCheck(:Vnum)')
+    Left = 120
+    Top = 240
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'Vnum'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'LsubmenucounterForLocalCheck'
+    object LsubmenucounterForLocalCheckNumMainList: TIntegerField
+      FieldName = 'NumMainList'
+    end
+    object LsubmenucounterForLocalCheckTagNumber: TWideStringField
+      FieldName = 'TagNumber'
+      Size = 75
+    end
+    object LsubmenucounterForLocalCheckContainerType: TWideStringField
+      FieldName = 'ContainerType'
+      Size = 25
+    end
+    object LsubmenucounterForLocalCheckHarm: TBooleanField
+      FieldName = 'Harm'
+    end
+    object LsubmenucounterForLocalCheckCauseDamage: TSmallintField
+      FieldName = 'CauseDamage'
+    end
+    object LsubmenucounterForLocalCheckswelling: TBooleanField
+      FieldName = 'swelling'
+    end
+    object LsubmenucounterForLocalCheckrupture: TBooleanField
+      FieldName = 'rupture'
+    end
+    object LsubmenucounterForLocalCheckbruises: TBooleanField
+      FieldName = 'bruises'
+    end
+    object LsubmenucounterForLocalCheckother: TBooleanField
+      FieldName = 'other'
+    end
+    object LsubmenucounterForLocalCheckright: TBooleanField
+      FieldName = 'right'
+    end
+    object LsubmenucounterForLocalCheckleft: TBooleanField
+      FieldName = 'left'
+    end
+    object LsubmenucounterForLocalCheckDoor: TBooleanField
+      FieldName = 'Door'
+    end
+    object LsubmenucounterForLocalCheckbehind: TBooleanField
+      FieldName = 'behind'
+    end
+    object LsubmenucounterForLocalCheckRoof: TBooleanField
+      FieldName = 'Roof'
+    end
+    object LsubmenucounterForLocalCheckfloor: TBooleanField
+      FieldName = 'floor'
+    end
+    object LsubmenucounterForLocalCheckexisting: TBooleanField
+      FieldName = 'existing'
+    end
+    object LsubmenucounterForLocalCheckOtherAspects: TBooleanField
+      FieldName = 'OtherAspects'
+    end
+    object LsubmenucounterForLocalCheckRF: TSmallintField
+      FieldName = 'RF'
+    end
+    object LsubmenucounterForLocalCheckNort1: TWideStringField
+      FieldName = 'Nort1'
+      Size = 100
+    end
+    object LsubmenucounterForLocalCheckNumAdmH: TIntegerField
+      FieldName = 'NumAdmH'
+    end
+    object LsubmenucounterForLocalCheckAutoUID: TWideStringField
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LsubmenucounterForLocalCheckMarks: TSmallintField
+      FieldName = 'Marks'
+    end
+    object LsubmenucounterForLocalCheckEnter_Date: TDateField
+      FieldName = 'Enter_Date'
+    end
+    object LsubmenucounterForLocalCheckEnter_Time: TTimeField
+      FieldName = 'Enter_Time'
+    end
+    object LsubmenucounterForLocalCheckEnter_User: TWideStringField
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LsubmenucounterForLocalCheckN_Amber: TIntegerField
+      FieldName = 'N_Amber'
+    end
+    object LsubmenucounterForLocalCheckN_sidewalk: TIntegerField
+      FieldName = 'N_sidewalk'
+    end
+    object LsubmenucounterForLocalCheckN_thecounter: TIntegerField
+      FieldName = 'N_thecounter'
+    end
+    object LsubmenucounterForLocalCheckN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LsubmenucounterForLocalCheckN_crane: TIntegerField
+      FieldName = 'N_crane'
+    end
+    object LsubmenucounterForLocalCheckN_craneoperator: TIntegerField
+      FieldName = 'N_craneoperator'
+    end
+    object LsubmenucounterForLocalCheckcondition: TSmallintField
+      FieldName = 'condition'
+    end
+    object LsubmenucounterForLocalChecknumAuto: TIntegerField
+      FieldName = 'numAuto'
+    end
+    object LsubmenucounterForLocalCheckisdataChanged: TIntegerField
+      FieldName = 'isdataChanged'
+    end
+    object LsubmenucounterForLocalCheckIS_CHEMICAL_MATERIAL: TIntegerField
+      FieldName = 'IS_CHEMICAL_MATERIAL'
+    end
+    object LsubmenucounterForLocalCheckgoood_description: TWideStringField
+      FieldName = 'goood_description'
+      Size = 250
+    end
+  end
+  object DLsubmenucounterForLocalCheck: TUniDataSource
+    Left = 160
+    Top = 380
+  end
+  object LsubmenucounterForLocaloneByone: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `submenucounter`'
+      
+        '  (`NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `CauseDa' +
+        'mage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `left' +
+        '`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspects`' +
+        ', `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`, `E' +
+        'nter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecounter' +
+        '`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condition`' +
+        ', `numAuto`, `isdataChanged`)'
+      'VALUES'
+      
+        '  (:`NumMainList`, :`TagNumber`, :`ContainerType`, :`Harm`, :`Ca' +
+        'useDamage`, :`swelling`, :`rupture`, :`bruises`, :`other`, :`rig' +
+        'ht`, :`left`, :`Door`, :`behind`, :`Roof`, :`floor`, :`existing`' +
+        ', :`OtherAspects`, :`RF`, :`Nort1`, :`NumAdmH`, :`AutoUID`, :`Ma' +
+        'rks`, :`Enter_Date`, :`Enter_Time`, :`Enter_User`, :`N_Amber`, :' +
+        '`N_sidewalk`, :`N_thecounter`, :`N_bandsupervisor`, :`N_crane`, ' +
+        ':`N_craneoperator`, :`condition`, :`numAuto`, :`isdataChanged`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `submenucounter`'
+      'WHERE'
+      '  `NumMainList` = :`Old_NumMainList`')
+    SQLUpdate.Strings = (
+      'UPDATE `submenucounter`'
+      'SET'
+      
+        '  `NumMainList` = :`NumMainList`, `TagNumber` = :`TagNumber`, `C' +
+        'ontainerType` = :`ContainerType`, `Harm` = :`Harm`, `CauseDamage' +
+        '` = :`CauseDamage`, `swelling` = :`swelling`, `rupture` = :`rupt' +
+        'ure`, `bruises` = :`bruises`, `other` = :`other`, `right` = :`ri' +
+        'ght`, `left` = :`left`, `Door` = :`Door`, `behind` = :`behind`, ' +
+        '`Roof` = :`Roof`, `floor` = :`floor`, `existing` = :`existing`, ' +
+        '`OtherAspects` = :`OtherAspects`, `RF` = :`RF`, `Nort1` = :`Nort' +
+        '1`, `NumAdmH` = :`NumAdmH`, `AutoUID` = :`AutoUID`, `Marks` = :`' +
+        'Marks`, `Enter_Date` = :`Enter_Date`, `Enter_Time` = :`Enter_Tim' +
+        'e`, `Enter_User` = :`Enter_User`, `N_Amber` = :`N_Amber`, `N_sid' +
+        'ewalk` = :`N_sidewalk`, `N_thecounter` = :`N_thecounter`, `N_ban' +
+        'dsupervisor` = :`N_bandsupervisor`, `N_crane` = :`N_crane`, `N_c' +
+        'raneoperator` = :`N_craneoperator`, `condition` = :`condition`, ' +
+        '`numAuto` = :`numAuto`, `isdataChanged` = :`isdataChanged`'
+      'WHERE'
+      '  `NumMainList` = :`Old_NumMainList`')
+    SQLLock.Strings = (
+      
+        'SELECT `NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `Cau' +
+        'seDamage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `' +
+        'left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspe' +
+        'cts`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`' +
+        ', `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecou' +
+        'nter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condit' +
+        'ion`, `numAuto`, `isdataChanged` FROM `submenucounter`'
+      'WHERE'
+      '  `NumMainList` = :`Old_NumMainList`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `NumMainList`, `TagNumber`, `ContainerType`, `Harm`, `Cau' +
+        'seDamage`, `swelling`, `rupture`, `bruises`, `other`, `right`, `' +
+        'left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `OtherAspe' +
+        'cts`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Enter_Date`' +
+        ', `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N_thecou' +
+        'nter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, `condit' +
+        'ion`, `numAuto`, `isdataChanged` FROM `submenucounter`'
+      'WHERE'
+      '  `NumMainList` = :`NumMainList`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM submenucounter')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL LsubmenucounterForLocaloneByone(:id)')
+    Left = 700
+    Top = 120
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'id'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'LsubmenucounterForLocaloneByone'
+    object LsubmenucounterForLocaloneByonenumAuto: TIntegerField
+      FieldName = 'numAuto'
+    end
+    object LsubmenucounterForLocaloneByoneNumMainList: TIntegerField
+      FieldName = 'NumMainList'
+    end
+    object LsubmenucounterForLocaloneByoneTagNumber: TWideStringField
+      FieldName = 'TagNumber'
+      Size = 75
+    end
+    object LsubmenucounterForLocaloneByoneContainerType: TWideStringField
+      FieldName = 'ContainerType'
+      Size = 25
+    end
+    object LsubmenucounterForLocaloneByoneHarm: TBooleanField
+      FieldName = 'Harm'
+    end
+    object LsubmenucounterForLocaloneByoneCauseDamage: TSmallintField
+      FieldName = 'CauseDamage'
+    end
+    object LsubmenucounterForLocaloneByoneswelling: TBooleanField
+      FieldName = 'swelling'
+    end
+    object LsubmenucounterForLocaloneByonerupture: TBooleanField
+      FieldName = 'rupture'
+    end
+    object LsubmenucounterForLocaloneByonebruises: TBooleanField
+      FieldName = 'bruises'
+    end
+    object LsubmenucounterForLocaloneByoneother: TBooleanField
+      FieldName = 'other'
+    end
+    object LsubmenucounterForLocaloneByoneright: TBooleanField
+      FieldName = 'right'
+    end
+    object LsubmenucounterForLocaloneByoneleft: TBooleanField
+      FieldName = 'left'
+    end
+    object LsubmenucounterForLocaloneByoneDoor: TBooleanField
+      FieldName = 'Door'
+    end
+    object LsubmenucounterForLocaloneByonebehind: TBooleanField
+      FieldName = 'behind'
+    end
+    object LsubmenucounterForLocaloneByoneRoof: TBooleanField
+      FieldName = 'Roof'
+    end
+    object LsubmenucounterForLocaloneByonefloor: TBooleanField
+      FieldName = 'floor'
+    end
+    object LsubmenucounterForLocaloneByoneexisting: TBooleanField
+      FieldName = 'existing'
+    end
+    object LsubmenucounterForLocaloneByoneOtherAspects: TBooleanField
+      FieldName = 'OtherAspects'
+    end
+    object LsubmenucounterForLocaloneByoneRF: TSmallintField
+      FieldName = 'RF'
+    end
+    object LsubmenucounterForLocaloneByoneNort1: TWideStringField
+      FieldName = 'Nort1'
+      Size = 100
+    end
+    object LsubmenucounterForLocaloneByoneNumAdmH: TIntegerField
+      FieldName = 'NumAdmH'
+    end
+    object LsubmenucounterForLocaloneByoneAutoUID: TWideStringField
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LsubmenucounterForLocaloneByoneMarks: TSmallintField
+      FieldName = 'Marks'
+    end
+    object LsubmenucounterForLocaloneByoneEnter_Date: TDateField
+      FieldName = 'Enter_Date'
+    end
+    object LsubmenucounterForLocaloneByoneEnter_Time: TTimeField
+      FieldName = 'Enter_Time'
+    end
+    object LsubmenucounterForLocaloneByoneEnter_User: TWideStringField
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LsubmenucounterForLocaloneByoneN_Amber: TIntegerField
+      FieldName = 'N_Amber'
+    end
+    object LsubmenucounterForLocaloneByoneN_sidewalk: TIntegerField
+      FieldName = 'N_sidewalk'
+    end
+    object LsubmenucounterForLocaloneByoneN_thecounter: TIntegerField
+      FieldName = 'N_thecounter'
+    end
+    object LsubmenucounterForLocaloneByoneN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LsubmenucounterForLocaloneByoneN_crane: TIntegerField
+      FieldName = 'N_crane'
+    end
+    object LsubmenucounterForLocaloneByoneN_craneoperator: TIntegerField
+      FieldName = 'N_craneoperator'
+    end
+    object LsubmenucounterForLocaloneByonecondition: TSmallintField
+      FieldName = 'condition'
+    end
+    object LsubmenucounterForLocaloneByoneisdataChanged: TIntegerField
+      FieldName = 'isdataChanged'
+    end
+    object LsubmenucounterForLocaloneByoneIS_CHEMICAL_MATERIAL: TIntegerField
+      FieldName = 'IS_CHEMICAL_MATERIAL'
+    end
+    object LsubmenucounterForLocaloneByonegoood_description: TWideStringField
+      FieldName = 'goood_description'
+      Size = 250
+    end
+  end
+  object DLsubmenucounterForLocaloneByone: TUniDataSource
+    DataSet = LsubmenucounterForLocaloneByone
+    Left = 910
+    Top = 30
+  end
+  object LNotesForThisShip: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `shipnotes`'
+      
+        '  (`AutoUID`, `Notes`, `Enter_User`, `Enter_Date`, `M_AutoUID`, ' +
+        '`isUpdated`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`Notes`, :`Enter_User`, :`Enter_Date`, :`M_AutoU' +
+        'ID`, :`isUpdated`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `shipnotes`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `shipnotes`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `Notes` = :`Notes`, `Enter_User` = :`E' +
+        'nter_User`, `Enter_Date` = :`Enter_Date`, `M_AutoUID` = :`M_Auto' +
+        'UID`, `isUpdated` = :`isUpdated`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `Notes`, `Enter_User`, `Enter_Date`, `M_AutoUI' +
+        'D`, `isUpdated` FROM `shipnotes`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `Notes`, `Enter_User`, `Enter_Date`, `M_AutoUI' +
+        'D`, `isUpdated` FROM `shipnotes`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM shipnotes')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL NotesForThisShip(:VNum)')
+    BeforePost = LNotesForThisShipBeforePost
+    Left = 1340
+    Top = 120
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'NotesForThisShip'
+    object LNotesForThisShipAutoUID: TStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LNotesForThisShipM_AutoUID: TStringField
+      DisplayLabel = #1585#1602#1605' '#1575#1604#1585#1581#1604#1577
+      FieldName = 'M_AutoUID'
+      FixedChar = True
+      Size = 36
+    end
+    object LNotesForThisShipEnter_User: TStringField
+      DisplayLabel = #1605#1583#1582#1604' '#1575#1604#1576#1610#1575#1606#1575#1578
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LNotesForThisShipEnter_Date: TDateTimeField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1575#1604#1575#1583#1582#1575#1604
+      FieldName = 'Enter_Date'
+    end
+    object LNotesForThisShipNotes: TStringField
+      DisplayLabel = #1575#1604#1605#1604#1575#1581#1592#1575#1578
+      FieldName = 'Notes'
+      Size = 500
+    end
+    object LNotesForThisShipisUpdated: TIntegerField
+      FieldName = 'isUpdated'
+    end
+  end
+  object DLNotesForThisShip: TUniDataSource
+    AutoEdit = False
+    DataSet = LNotesForThisShip
+    Left = 1340
+    Top = 220
+  end
+  object LNotesForThisShipForServer: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `shipnotes`'
+      
+        '  (`AutoUID`, `Notes`, `Enter_User`, `Enter_Date`, `M_AutoUID`, ' +
+        '`isUpdated`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`Notes`, :`Enter_User`, :`Enter_Date`, :`M_AutoU' +
+        'ID`, :`isUpdated`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `shipnotes`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `shipnotes`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `Notes` = :`Notes`, `Enter_User` = :`E' +
+        'nter_User`, `Enter_Date` = :`Enter_Date`, `M_AutoUID` = :`M_Auto' +
+        'UID`, `isUpdated` = :`isUpdated`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `Notes`, `Enter_User`, `Enter_Date`, `M_AutoUI' +
+        'D`, `isUpdated` FROM `shipnotes`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `Notes`, `Enter_User`, `Enter_Date`, `M_AutoUI' +
+        'D`, `isUpdated` FROM `shipnotes`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM shipnotes')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL NotesForThisShipForServer(:VNum)')
+    Left = 1330
+    Top = 350
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'NotesForThisShipForServer'
+    object LNotesForThisShipForServerNotes: TWideStringField
+      DisplayLabel = #1575#1604#1605#1604#1575#1581#1592#1577
+      FieldName = 'Notes'
+      Size = 500
+    end
+    object LNotesForThisShipForServerEnter_User: TWideStringField
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LNotesForThisShipForServerEnter_Date: TDateTimeField
+      FieldName = 'Enter_Date'
+    end
+    object LNotesForThisShipForServerM_AutoUID: TWideStringField
+      FieldName = 'M_AutoUID'
+      FixedChar = True
+      Size = 36
+    end
+    object LNotesForThisShipForServerAutoUID: TWideStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LNotesForThisShipForServerisUpdated: TIntegerField
+      FieldName = 'isUpdated'
+    end
+  end
+  object DLNotesForThisShipForServer: TUniDataSource
+    DataSet = LNotesForThisShipForServer
+    Left = 1330
+    Top = 430
+  end
+  object UniDump1: TUniDump
+    Connection = DB1
+    Left = 140
+    Top = 90
+  end
+  object LNotesForThisShipForShowInList: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `shipnotes`'
+      
+        '  (`AutoUID`, `Notes`, `Enter_User`, `Enter_Date`, `M_AutoUID`, ' +
+        '`isUpdated`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`Notes`, :`Enter_User`, :`Enter_Date`, :`M_AutoU' +
+        'ID`, :`isUpdated`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `shipnotes`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `shipnotes`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `Notes` = :`Notes`, `Enter_User` = :`E' +
+        'nter_User`, `Enter_Date` = :`Enter_Date`, `M_AutoUID` = :`M_Auto' +
+        'UID`, `isUpdated` = :`isUpdated`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      'SELECT * FROM shipnotes'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `Notes`, `Enter_User`, `Enter_Date`, `M_AutoUI' +
+        'D`, `isUpdated` FROM `shipnotes`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM shipnotes')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL NotesForThisShipForShowInList(:VNum, :NM)')
+    Left = 140
+    Top = 470
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'VNum'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'NM'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'NotesForThisShipForShowInList'
+    object LNotesForThisShipForShowInListNotes: TWideStringField
+      DisplayLabel = #1605#1604#1575#1581#1592#1577
+      FieldName = 'Notes'
+      Size = 500
+    end
+    object LNotesForThisShipForShowInListEnter_User: TWideStringField
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LNotesForThisShipForShowInListEnter_Date: TDateTimeField
+      FieldName = 'Enter_Date'
+    end
+    object LNotesForThisShipForShowInListM_AutoUID: TWideStringField
+      FieldName = 'M_AutoUID'
+      FixedChar = True
+      Size = 36
+    end
+    object LNotesForThisShipForShowInListAutoUID: TWideStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LNotesForThisShipForShowInListisUpdated: TIntegerField
+      FieldName = 'isUpdated'
+    end
+  end
+  object DLNotesForThisShipForShowInList: TUniDataSource
+    DataSet = LNotesForThisShipForShowInList
+    Left = 100
+    Top = 550
+  end
+  object LLsubmenucounterForServerForEdit: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `submenucounter`'
+      
+        '  (`NumAuto`, `NumMainList`, `TagNumber`, `ContainerType`, `Harm' +
+        '`, `CauseDamage`, `swelling`, `rupture`, `bruises`, `other`, `ri' +
+        'ght`, `left`, `Door`, `behind`, `Roof`, `floor`, `existing`, `Ot' +
+        'herAspects`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `Ente' +
+        'r_Date`, `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`, `N' +
+        '_thecounter`, `N_bandsupervisor`, `N_crane`, `N_craneoperator`, ' +
+        '`condition`, `Status_type`, `Handling_type`, `IS_CHEMICAL_MATERI' +
+        'AL`, `goood_description`, `HazMat`, `latitude`, `longitude`, `lo' +
+        'cation_source`, `location_accuracy`, `location_level`, `location' +
+        '_user`, `location_datetime`, `MoveReason`)'
+      'VALUES'
+      
+        '  (:`NumAuto`, :`NumMainList`, :`TagNumber`, :`ContainerType`, :' +
+        '`Harm`, :`CauseDamage`, :`swelling`, :`rupture`, :`bruises`, :`o' +
+        'ther`, :`right`, :`left`, :`Door`, :`behind`, :`Roof`, :`floor`,' +
+        ' :`existing`, :`OtherAspects`, :`RF`, :`Nort1`, :`NumAdmH`, :`Au' +
+        'toUID`, :`Marks`, :`Enter_Date`, :`Enter_Time`, :`Enter_User`, :' +
+        '`N_Amber`, :`N_sidewalk`, :`N_thecounter`, :`N_bandsupervisor`, ' +
+        ':`N_crane`, :`N_craneoperator`, :`condition`, :`Status_type`, :`' +
+        'Handling_type`, :`IS_CHEMICAL_MATERIAL`, :`goood_description`, :' +
+        '`HazMat`, :`latitude`, :`longitude`, :`location_source`, :`locat' +
+        'ion_accuracy`, :`location_level`, :`location_user`, :`location_d' +
+        'atetime`, :`MoveReason`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `submenucounter`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`')
+    SQLUpdate.Strings = (
+      'UPDATE `submenucounter`'
+      'SET'
+      
+        '  `NumAuto` = :`NumAuto`, `NumMainList` = :`NumMainList`, `TagNu' +
+        'mber` = :`TagNumber`, `ContainerType` = :`ContainerType`, `Harm`' +
+        ' = :`Harm`, `CauseDamage` = :`CauseDamage`, `swelling` = :`swell' +
+        'ing`, `rupture` = :`rupture`, `bruises` = :`bruises`, `other` = ' +
+        ':`other`, `right` = :`right`, `left` = :`left`, `Door` = :`Door`' +
+        ', `behind` = :`behind`, `Roof` = :`Roof`, `floor` = :`floor`, `e' +
+        'xisting` = :`existing`, `OtherAspects` = :`OtherAspects`, `RF` =' +
+        ' :`RF`, `Nort1` = :`Nort1`, `NumAdmH` = :`NumAdmH`, `AutoUID` = ' +
+        ':`AutoUID`, `Marks` = :`Marks`, `Enter_Date` = :`Enter_Date`, `E' +
+        'nter_Time` = :`Enter_Time`, `Enter_User` = :`Enter_User`, `N_Amb' +
+        'er` = :`N_Amber`, `N_sidewalk` = :`N_sidewalk`, `N_thecounter` =' +
+        ' :`N_thecounter`, `N_bandsupervisor` = :`N_bandsupervisor`, `N_c' +
+        'rane` = :`N_crane`, `N_craneoperator` = :`N_craneoperator`, `con' +
+        'dition` = :`condition`, `Status_type` = :`Status_type`, `Handlin' +
+        'g_type` = :`Handling_type`, `IS_CHEMICAL_MATERIAL` = :`IS_CHEMIC' +
+        'AL_MATERIAL`, `goood_description` = :`goood_description`, `HazMa' +
+        't` = :`HazMat`, `latitude` = :`latitude`, `longitude` = :`longit' +
+        'ude`, `location_source` = :`location_source`, `location_accuracy' +
+        '` = :`location_accuracy`, `location_level` = :`location_level`, ' +
+        '`location_user` = :`location_user`, `location_datetime` = :`loca' +
+        'tion_datetime`, `MoveReason` = :`MoveReason`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`')
+    SQLLock.Strings = (
+      
+        'SELECT `NumAuto`, `NumMainList`, `TagNumber`, `ContainerType`, `' +
+        'Harm`, `CauseDamage`, `swelling`, `rupture`, `bruises`, `other`,' +
+        ' `right`, `left`, `Door`, `behind`, `Roof`, `floor`, `existing`,' +
+        ' `OtherAspects`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `' +
+        'Enter_Date`, `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`' +
+        ', `N_thecounter`, `N_bandsupervisor`, `N_crane`, `N_craneoperato' +
+        'r`, `condition`, `Status_type`, `Handling_type`, `IS_CHEMICAL_MA' +
+        'TERIAL`, `goood_description`, `HazMat`, `latitude`, `longitude`,' +
+        ' `location_source`, `location_accuracy`, `location_level`, `loca' +
+        'tion_user`, `location_datetime`, `MoveReason` FROM `submenucount' +
+        'er`'
+      'WHERE'
+      '  `NumAuto` = :`Old_NumAuto`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `NumAuto`, `NumMainList`, `TagNumber`, `ContainerType`, `' +
+        'Harm`, `CauseDamage`, `swelling`, `rupture`, `bruises`, `other`,' +
+        ' `right`, `left`, `Door`, `behind`, `Roof`, `floor`, `existing`,' +
+        ' `OtherAspects`, `RF`, `Nort1`, `NumAdmH`, `AutoUID`, `Marks`, `' +
+        'Enter_Date`, `Enter_Time`, `Enter_User`, `N_Amber`, `N_sidewalk`' +
+        ', `N_thecounter`, `N_bandsupervisor`, `N_crane`, `N_craneoperato' +
+        'r`, `condition`, `Status_type`, `Handling_type`, `IS_CHEMICAL_MA' +
+        'TERIAL`, `goood_description`, `HazMat`, `latitude`, `longitude`,' +
+        ' `location_source`, `location_accuracy`, `location_level`, `loca' +
+        'tion_user`, `location_datetime`, `MoveReason` FROM `submenucount' +
+        'er`'
+      'WHERE'
+      '  `NumAuto` = :`NumAuto`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM submenucounter')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL LsubmenucounterForServerForEdit(:VNum, :NM)')
+    Left = 700
+    Top = 795
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'VNum'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'NM'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'LsubmenucounterForServerForEdit'
+    object LLsubmenucounterForServerForEditNumMainList: TIntegerField
+      DisplayLabel = #1585#1602#1605' '#1575#1604#1585#1581#1604#1577
+      FieldName = 'NumMainList'
+    end
+    object LLsubmenucounterForServerForEditTagNumber: TWideStringField
+      DisplayLabel = #1585#1602#1605' '#1575#1604#1581#1575#1608#1610#1577
+      FieldName = 'TagNumber'
+      Size = 75
+    end
+    object LLsubmenucounterForServerForEditContainerType: TWideStringField
+      FieldName = 'ContainerType'
+      Size = 25
+    end
+    object LLsubmenucounterForServerForEditHarm: TBooleanField
+      FieldName = 'Harm'
+    end
+    object LLsubmenucounterForServerForEditCauseDamage: TSmallintField
+      FieldName = 'CauseDamage'
+    end
+    object LLsubmenucounterForServerForEditswelling: TBooleanField
+      FieldName = 'swelling'
+    end
+    object LLsubmenucounterForServerForEditrupture: TBooleanField
+      FieldName = 'rupture'
+    end
+    object LLsubmenucounterForServerForEditbruises: TBooleanField
+      FieldName = 'bruises'
+    end
+    object LLsubmenucounterForServerForEditother: TBooleanField
+      FieldName = 'other'
+    end
+    object LLsubmenucounterForServerForEditright: TBooleanField
+      FieldName = 'right'
+    end
+    object LLsubmenucounterForServerForEditleft: TBooleanField
+      FieldName = 'left'
+    end
+    object LLsubmenucounterForServerForEditDoor: TBooleanField
+      FieldName = 'Door'
+    end
+    object LLsubmenucounterForServerForEditbehind: TBooleanField
+      FieldName = 'behind'
+    end
+    object LLsubmenucounterForServerForEditRoof: TBooleanField
+      FieldName = 'Roof'
+    end
+    object LLsubmenucounterForServerForEditfloor: TBooleanField
+      FieldName = 'floor'
+    end
+    object LLsubmenucounterForServerForEditexisting: TBooleanField
+      FieldName = 'existing'
+    end
+    object LLsubmenucounterForServerForEditOtherAspects: TBooleanField
+      FieldName = 'OtherAspects'
+    end
+    object LLsubmenucounterForServerForEditRF: TSmallintField
+      FieldName = 'RF'
+    end
+    object LLsubmenucounterForServerForEditNort1: TWideStringField
+      FieldName = 'Nort1'
+      Size = 100
+    end
+    object LLsubmenucounterForServerForEditNumAdmH: TIntegerField
+      FieldName = 'NumAdmH'
+    end
+    object LLsubmenucounterForServerForEditMarks: TSmallintField
+      FieldName = 'Marks'
+    end
+    object LLsubmenucounterForServerForEditEnter_Date: TDateField
+      FieldName = 'Enter_Date'
+    end
+    object LLsubmenucounterForServerForEditEnter_Time: TTimeField
+      FieldName = 'Enter_Time'
+    end
+    object LLsubmenucounterForServerForEditEnter_User: TWideStringField
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LLsubmenucounterForServerForEditN_Amber: TIntegerField
+      FieldName = 'N_Amber'
+    end
+    object LLsubmenucounterForServerForEditN_sidewalk: TIntegerField
+      FieldName = 'N_sidewalk'
+    end
+    object LLsubmenucounterForServerForEditN_thecounter: TIntegerField
+      FieldName = 'N_thecounter'
+    end
+    object LLsubmenucounterForServerForEditN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LLsubmenucounterForServerForEditN_crane: TIntegerField
+      FieldName = 'N_crane'
+    end
+    object LLsubmenucounterForServerForEditN_craneoperator: TIntegerField
+      FieldName = 'N_craneoperator'
+    end
+    object LLsubmenucounterForServerForEditcondition: TSmallintField
+      FieldName = 'condition'
+    end
+    object LLsubmenucounterForServerForEditStatus_type: TSmallintField
+      FieldName = 'Status_type'
+      Required = True
+    end
+    object LLsubmenucounterForServerForEditHandling_type: TSmallintField
+      FieldName = 'Handling_type'
+      Required = True
+    end
+    object LLsubmenucounterForServerForEditIS_CHEMICAL_MATERIAL: TIntegerField
+      FieldName = 'IS_CHEMICAL_MATERIAL'
+    end
+    object LLsubmenucounterForServerForEditgoood_description: TWideStringField
+      FieldName = 'goood_description'
+      Size = 250
+    end
+    object LLsubmenucounterForServerForEditnumAuto: TIntegerField
+      FieldName = 'numAuto'
+    end
+    object LLsubmenucounterForServerForEditAutoUID: TWideStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LLsubmenucounterForServerForEditisdataChanged: TIntegerField
+      FieldName = 'isdataChanged'
+    end
+  end
+  object DLLsubmenucounterForServerForEdit: TUniDataSource
+    DataSet = LLsubmenucounterForServerForEdit
+    Left = 1010
+    Top = 800
+  end
+  object LgetImagesForSubMenuCounter: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO harm_images'
+      '  (ID, AutoUID, img, M_AutoUID)'
+      'VALUES'
+      '  (:ID, :AutoUID, :img, :M_AutoUID)')
+    SQLDelete.Strings = (
+      'DELETE FROM harm_images'
+      'WHERE'
+      '  ID = :Old_ID')
+    SQLUpdate.Strings = (
+      'UPDATE harm_images'
+      'SET'
+      
+        '  ID = :ID, AutoUID = :AutoUID, img = :img, M_AutoUID = :M_AutoU' +
+        'ID'
+      'WHERE'
+      '  ID = :Old_ID')
+    SQLLock.Strings = (
+      'SELECT ID, AutoUID, img, M_AutoUID FROM harm_images'
+      'WHERE'
+      '  ID = :Old_ID'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      'SELECT ID, AutoUID, img, M_AutoUID FROM harm_images'
+      'WHERE'
+      '  ID = :ID')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM harm_images')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL getImagesForSubMenuCounter(:id)')
+    Left = 1310
+    Top = 550
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'id'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'getImagesForSubMenuCounter'
+    object LgetImagesForSubMenuCounterID: TIntegerField
+      FieldName = 'ID'
+    end
+    object LgetImagesForSubMenuCounterAutoUID: TStringField
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LgetImagesForSubMenuCounterimg: TStringField
+      FieldName = 'img'
+      Required = True
+      FixedChar = True
+      Size = 150
+    end
+    object LgetImagesForSubMenuCounterM_AutoUID: TStringField
+      FieldName = 'M_AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+  end
+  object DLgetImagesForSubMenuCounter: TUniDataSource
+    DataSet = LgetImagesForSubMenuCounter
+    Left = 1300
+    Top = 660
+  end
+  object LshipShifts: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `shipshifts`'
+      
+        '  (`AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Date`, ' +
+        '`type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isUpdat' +
+        'ed`, `Container_ID`, `Start_Time`, `End_Time`, `N_crane`, `Nort`' +
+        ', `type1`, `type2`, `numOFVisible`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`N_thecounter`, :`N_bandsupervisor`, :`Enter_Dat' +
+        'e`, :`type`, :`numberofshifts`, :`containertype`, :`M_AutoUID`, ' +
+        ':`isUpdated`, :`Container_ID`, :`Start_Time`, :`End_Time`, :`N_c' +
+        'rane`, :`Nort`, :`type1`, :`type2`, :`numOFVisible`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `shipshifts`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `N_thecounter` = :`N_thecounter`, `N_b' +
+        'andsupervisor` = :`N_bandsupervisor`, `Enter_Date` = :`Enter_Dat' +
+        'e`, `type` = :`type`, `numberofshifts` = :`numberofshifts`, `con' +
+        'tainertype` = :`containertype`, `M_AutoUID` = :`M_AutoUID`, `isU' +
+        'pdated` = :`isUpdated`, `Container_ID` = :`Container_ID`, `Start' +
+        '_Time` = :`Start_Time`, `End_Time` = :`End_Time`, `N_crane` = :`' +
+        'N_crane`, `Nort` = :`Nort`, `type1` = :`type1`, `type2` = :`type' +
+        '2`, `numOFVisible` = :`numOFVisible`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isU' +
+        'pdated`, `Container_ID`, `Start_Time`, `End_Time`, `N_crane`, `N' +
+        'ort`, `type1`, `type2`, `numOFVisible` FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isU' +
+        'pdated`, `Container_ID`, `Start_Time`, `End_Time`, `N_crane`, `N' +
+        'ort`, `type1`, `type2`, `numOFVisible` FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM shipshifts')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL shipShifts(:VNum)')
+    MasterSource = DataModuleFm.Dbandsupervisor
+    AfterInsert = LshipShiftsAfterInsert
+    BeforePost = LshipShiftsBeforePost
+    AfterPost = LshipShiftsAfterPost
+    AfterDelete = LshipShiftsAfterDelete
+    OnCalcFields = LshipShiftsCalcFields
+    Left = 40
+    Top = 800
+    ParamData = <
+      item
+        DataType = ftWideString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'shipShifts'
+    object LshipShiftsAutoUID: TStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LshipShiftsContainer_ID: TStringField
+      DisplayLabel = #1578#1575#1602' '#1575#1604#1581#1575#1608#1610#1577
+      FieldName = 'Container_ID'
+      Size = 200
+    end
+    object LshipShiftsN_bandsupervisor_Nm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_bandsupervisor_Nm'
+      LookupDataSet = Lbandsupervisor
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameBandSupervisor'
+      KeyFields = 'N_bandsupervisor'
+      Lookup = True
+    end
+    object LshipShiftsN_thecounter: TIntegerField
+      FieldName = 'N_thecounter'
+    end
+    object LshipShiftsN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LshipShiftsStart_Time: TTimeField
+      DisplayLabel = #1608#1602#1578' '#1575#1604#1576#1583#1575#1610#1577
+      FieldName = 'Start_Time'
+    end
+    object LshipShiftsEnd_Time: TTimeField
+      DisplayLabel = #1608#1602#1578' '#1575#1604#1606#1607#1575#1610#1577
+      FieldName = 'End_Time'
+    end
+    object LshipShiftsEnter_Date: TDateTimeField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1575#1604#1581#1585#1603#1577
+      FieldName = 'Enter_Date'
+    end
+    object LshipShiftstype: TSmallintField
+      DisplayLabel = #1606#1608#1593' '#1575#1604#1578#1588#1601#1610#1578
+      FieldName = 'type'
+    end
+    object LshipShiftscontainertype: TStringField
+      DisplayLabel = #1606#1608#1593' '#1575#1604#1581#1575#1608#1610#1577
+      FieldName = 'containertype'
+      Size = 50
+    end
+    object LshipShiftsnumberofshifts: TSmallintField
+      DisplayLabel = #1593#1583#1583' '#1575#1604#1581#1585#1603#1575#1578
+      FieldName = 'numberofshifts'
+    end
+    object LshipShiftsM_AutoUID: TStringField
+      DisplayLabel = #1585#1602#1605' '#1575#1604#1585#1581#1604#1577
+      FieldName = 'M_AutoUID'
+      FixedChar = True
+      Size = 36
+    end
+    object LshipShiftsisUpdated: TIntegerField
+      FieldName = 'isUpdated'
+    end
+    object LshipShiftsN_crane: TIntegerField
+      FieldName = 'N_crane'
+    end
+    object LshipShiftsNort: TStringField
+      FieldName = 'Nort'
+      Size = 250
+    end
+    object LshipShiftstype1: TSmallintField
+      DisplayLabel = #1581#1575#1604#1577' '#1575#1604#1581#1575#1608#1610#1577
+      FieldName = 'type1'
+    end
+    object LshipShiftstype2: TSmallintField
+      DisplayLabel = #1606#1608#1593' '#1575#1604#1605#1606#1575#1608#1604#1577
+      FieldName = 'type2'
+    end
+    object LshipShiftsNumm: TIntegerField
+      FieldKind = fkCalculated
+      FieldName = 'Numm'
+      Calculated = True
+    end
+    object LshipShiftsnumOFVisible: TIntegerField
+      DisplayLabel = #1593#1583#1583' '#1605#1585#1575#1578' '#1575#1604#1592#1607#1608#1585
+      FieldName = 'numOFVisible'
+    end
+  end
+  object DLshipShifts: TUniDataSource
+    AutoEdit = False
+    DataSet = LshipShifts
+    Left = 160
+    Top = 800
+  end
+  object LshipCovers: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `shipcovers`'
+      
+        '  (`AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Date`, ' +
+        '`numberofcovers`, `M_AutoUID`, `isUpdated`, `Start_Time`, `End_T' +
+        'ime`, `OperatoinType`, `N_crane`, `Nort`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`N_thecounter`, :`N_bandsupervisor`, :`Enter_Dat' +
+        'e`, :`numberofcovers`, :`M_AutoUID`, :`isUpdated`, :`Start_Time`' +
+        ', :`End_Time`, :`OperatoinType`, :`N_crane`, :`Nort`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `shipcovers`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `shipcovers`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `N_thecounter` = :`N_thecounter`, `N_b' +
+        'andsupervisor` = :`N_bandsupervisor`, `Enter_Date` = :`Enter_Dat' +
+        'e`, `numberofcovers` = :`numberofcovers`, `M_AutoUID` = :`M_Auto' +
+        'UID`, `isUpdated` = :`isUpdated`, `Start_Time` = :`Start_Time`, ' +
+        '`End_Time` = :`End_Time`, `OperatoinType` = :`OperatoinType`, `N' +
+        '_crane` = :`N_crane`, `Nort` = :`Nort`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `numberofcovers`, `M_AutoUID`, `isUpdated`, `Start_Time`, `E' +
+        'nd_Time`, `OperatoinType`, `N_crane`, `Nort` FROM `shipcovers`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `numberofcovers`, `M_AutoUID`, `isUpdated`, `Start_Time`, `E' +
+        'nd_Time`, `OperatoinType`, `N_crane`, `Nort` FROM `shipcovers`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM shipcovers')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL shipcovers(:VNum)')
+    AfterInsert = LshipCoversAfterInsert
+    BeforePost = LshipCoversBeforePost
+    AfterPost = LshipCoversAfterPost
+    Left = 285
+    Top = 820
+    ParamData = <
+      item
+        DataType = ftWideString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'shipcovers'
+    object LshipCoversAutoUID: TStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LshipCoversN_thecounter: TIntegerField
+      DisplayLabel = #1575#1604#1593#1583#1575#1583
+      FieldName = 'N_thecounter'
+    end
+    object LshipCoversN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LshipCoversEnter_Date: TDateTimeField
+      DisplayLabel = #1578#1575#1585#1610#1582' '#1575#1604#1581#1585#1603#1577
+      FieldName = 'Enter_Date'
+    end
+    object LshipCoversnumberofcovers: TSmallintField
+      DisplayLabel = #1593#1583#1583' '#1575#1604#1575#1594#1591#1610#1577
+      FieldName = 'numberofcovers'
+    end
+    object LshipCoversM_AutoUID: TStringField
+      DisplayLabel = #1585#1602#1605' '#1575#1604#1585#1581#1604#1577
+      FieldName = 'M_AutoUID'
+      FixedChar = True
+      Size = 36
+    end
+    object LshipCoversisUpdated: TIntegerField
+      FieldName = 'isUpdated'
+    end
+    object LshipCoversStart_Time: TTimeField
+      FieldName = 'Start_Time'
+    end
+    object LshipCoversEnd_Time: TTimeField
+      FieldName = 'End_Time'
+    end
+    object LshipCoversOperatoinType: TIntegerField
+      FieldName = 'OperatoinType'
+    end
+    object LshipCoversNort: TStringField
+      FieldName = 'Nort'
+      Size = 250
+    end
+    object LshipCoversN_crane: TIntegerField
+      FieldName = 'N_crane'
+      Required = True
+    end
+    object LshipCoversN_bandsupervisor_Nm: TStringField
+      DisplayLabel = #1605#1588#1585#1601' '#1575#1604#1601#1585#1602#1577
+      FieldKind = fkLookup
+      FieldName = 'N_bandsupervisor_Nm'
+      LookupDataSet = Lbandsupervisor
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameBandSupervisor'
+      KeyFields = 'N_bandsupervisor'
+      Lookup = True
+    end
+    object LshipCoversN_crane_Nm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_crane_Nm'
+      LookupDataSet = Lcrane
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameCrane'
+      KeyFields = 'N_crane'
+      Size = 150
+      Lookup = True
+    end
+  end
+  object DLshipCovers: TUniDataSource
+    AutoEdit = False
+    DataSet = LshipCovers
+    Left = 415
+    Top = 820
+  end
+  object LShiftsForThisShipForServer: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `shipshifts`'
+      
+        '  (`AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Date`, ' +
+        '`type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isUpdat' +
+        'ed`, `Container_ID`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`N_thecounter`, :`N_bandsupervisor`, :`Enter_Dat' +
+        'e`, :`type`, :`numberofshifts`, :`containertype`, :`M_AutoUID`, ' +
+        ':`isUpdated`, :`Container_ID`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `shipshifts`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `N_thecounter` = :`N_thecounter`, `N_b' +
+        'andsupervisor` = :`N_bandsupervisor`, `Enter_Date` = :`Enter_Dat' +
+        'e`, `type` = :`type`, `numberofshifts` = :`numberofshifts`, `con' +
+        'tainertype` = :`containertype`, `M_AutoUID` = :`M_AutoUID`, `isU' +
+        'pdated` = :`isUpdated`, `Container_ID` = :`Container_ID`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isU' +
+        'pdated`, `Container_ID` FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isU' +
+        'pdated`, `Container_ID` FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM shipshifts')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL shipShiftsForServer(:x, :VNum)')
+    Left = 530
+    Top = 870
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'x'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'shipShiftsForServer'
+    object LShiftsForThisShipForServerAutoUID: TWideStringField
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LShiftsForThisShipForServerN_thecounter: TIntegerField
+      FieldName = 'N_thecounter'
+    end
+    object LShiftsForThisShipForServerN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LShiftsForThisShipForServerEnter_Date: TDateTimeField
+      FieldName = 'Enter_Date'
+    end
+    object LShiftsForThisShipForServertype: TSmallintField
+      FieldName = 'type'
+    end
+    object LShiftsForThisShipForServernumberofshifts: TWideStringField
+      FieldName = 'numberofshifts'
+      Size = 50
+    end
+    object LShiftsForThisShipForServercontainertype: TWideStringField
+      FieldName = 'containertype'
+      Size = 50
+    end
+    object LShiftsForThisShipForServerM_AutoUID: TWideStringField
+      FieldName = 'M_AutoUID'
+      FixedChar = True
+      Size = 36
+    end
+    object LShiftsForThisShipForServerisUpdated: TIntegerField
+      FieldName = 'isUpdated'
+    end
+    object LShiftsForThisShipForServerContainer_ID: TWideStringField
+      FieldName = 'Container_ID'
+      Size = 200
+    end
+    object LShiftsForThisShipForServerStart_Time: TTimeField
+      FieldName = 'Start_Time'
+    end
+    object LShiftsForThisShipForServerEnd_Time: TTimeField
+      FieldName = 'End_Time'
+    end
+    object LShiftsForThisShipForServerN_crane: TIntegerField
+      FieldName = 'N_crane'
+      Required = True
+    end
+    object LShiftsForThisShipForServerNort: TWideStringField
+      FieldName = 'Nort'
+      Required = True
+      Size = 1500
+    end
+  end
+  object DLShiftsForThisShipForServer: TUniDataSource
+    Left = 770
+    Top = 870
+  end
+  object LshipcoversForServer: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `shipcovers`'
+      
+        '  (`AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Date`, ' +
+        '`numberofcovers`, `M_AutoUID`, `isUpdated`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`N_thecounter`, :`N_bandsupervisor`, :`Enter_Dat' +
+        'e`, :`numberofcovers`, :`M_AutoUID`, :`isUpdated`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `shipcovers`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `shipcovers`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `N_thecounter` = :`N_thecounter`, `N_b' +
+        'andsupervisor` = :`N_bandsupervisor`, `Enter_Date` = :`Enter_Dat' +
+        'e`, `numberofcovers` = :`numberofcovers`, `M_AutoUID` = :`M_Auto' +
+        'UID`, `isUpdated` = :`isUpdated`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `numberofcovers`, `M_AutoUID`, `isUpdated` FROM `shipcovers`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `numberofcovers`, `M_AutoUID`, `isUpdated` FROM `shipcovers`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM shipcovers')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL shipcoversForServer(:x, :VNum)')
+    Left = 1270
+    Top = 790
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'x'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'shipcoversForServer'
+    object LshipcoversForServerAutoUID: TWideStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LshipcoversForServernumberofcovers: TSmallintField
+      FieldName = 'numberofcovers'
+    end
+    object LshipcoversForServerN_thecounter: TIntegerField
+      DisplayLabel = #1575#1604#1593#1583#1575#1583' '#1575#1604#1605#1587#1572#1608#1604
+      FieldName = 'N_thecounter'
+    end
+  end
+  object DLshipShiftsForServer: TUniDataSource
+    DataSet = LshipShiftsForServer
+    Left = 1280
+    Top = 900
+  end
+  object LshipShiftsForServer: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `shipshifts`'
+      
+        '  (`AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Date`, ' +
+        '`type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isUpdat' +
+        'ed`, `Container_ID`, `Start_Time`, `End_Time`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`N_thecounter`, :`N_bandsupervisor`, :`Enter_Dat' +
+        'e`, :`type`, :`numberofshifts`, :`containertype`, :`M_AutoUID`, ' +
+        ':`isUpdated`, :`Container_ID`, :`Start_Time`, :`End_Time`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `shipshifts`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `N_thecounter` = :`N_thecounter`, `N_b' +
+        'andsupervisor` = :`N_bandsupervisor`, `Enter_Date` = :`Enter_Dat' +
+        'e`, `type` = :`type`, `numberofshifts` = :`numberofshifts`, `con' +
+        'tainertype` = :`containertype`, `M_AutoUID` = :`M_AutoUID`, `isU' +
+        'pdated` = :`isUpdated`, `Container_ID` = :`Container_ID`, `Start' +
+        '_Time` = :`Start_Time`, `End_Time` = :`End_Time`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isU' +
+        'pdated`, `Container_ID`, `Start_Time`, `End_Time` FROM `shipshif' +
+        'ts`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isU' +
+        'pdated`, `Container_ID`, `Start_Time`, `End_Time` FROM `shipshif' +
+        'ts`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM shipshifts')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL shipShiftsForServer(:x, :VNum)')
+    Left = 1090
+    Top = 900
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'x'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'shipShiftsForServer'
+    object LshipShiftsForServerAutoUID: TWideStringField
+      DisplayLabel = #1585'.'#1605
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object LshipShiftsForServernumberofshifts: TSmallintField
+      FieldName = 'numberofshifts'
+    end
+    object LshipShiftsForServerN_thecounter: TIntegerField
+      DisplayLabel = #1575#1604#1593#1583#1575#1583' '#1575#1604#1605#1587#1572#1608#1604
+      FieldName = 'N_thecounter'
+    end
+    object LshipShiftsForServerN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LshipShiftsForServerEnter_Date: TDateTimeField
+      FieldName = 'Enter_Date'
+    end
+    object LshipShiftsForServertype: TSmallintField
+      FieldName = 'type'
+    end
+    object LshipShiftsForServercontainertype: TWideStringField
+      FieldName = 'containertype'
+      Size = 50
+    end
+    object LshipShiftsForServerM_AutoUID: TWideStringField
+      FieldName = 'M_AutoUID'
+      FixedChar = True
+      Size = 36
+    end
+    object LshipShiftsForServerisUpdated: TIntegerField
+      FieldName = 'isUpdated'
+    end
+    object LshipShiftsForServerContainer_ID: TWideStringField
+      FieldName = 'Container_ID'
+      Size = 200
+    end
+    object LshipShiftsForServerStart_Time: TTimeField
+      FieldName = 'Start_Time'
+    end
+    object LshipShiftsForServerEnd_Time: TTimeField
+      FieldName = 'End_Time'
+    end
+    object LshipShiftsForServerN_crane: TIntegerField
+      FieldName = 'N_crane'
+      Required = True
+    end
+    object LshipShiftsForServerNort: TWideStringField
+      FieldName = 'Nort'
+      Required = True
+      Size = 1500
+    end
+  end
+  object DLshipcoversForServer: TUniDataSource
+    DataSet = LshipcoversForServer
+    Left = 1440
+    Top = 790
+  end
+  object LHrakTemp: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `hraktemp`'
+      
+        '  (`NumList`, `Enter_Date`, `Enter_Time`, `Enter_User`, `N_Amber' +
+        '`, `N_sidewalk`, `N_thecounter`, `N_bandsupervisor`, `N_crane`, ' +
+        '`N_craneoperator`, `numAuto`)'
+      'VALUES'
+      
+        '  (:`NumList`, :`Enter_Date`, :`Enter_Time`, :`Enter_User`, :`N_' +
+        'Amber`, :`N_sidewalk`, :`N_thecounter`, :`N_bandsupervisor`, :`N' +
+        '_crane`, :`N_craneoperator`, :`numAuto`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `hraktemp`'
+      'WHERE'
+      '  `numAuto` = :`Old_numAuto`')
+    SQLUpdate.Strings = (
+      'UPDATE `hraktemp`'
+      'SET'
+      
+        '  `NumList` = :`NumList`, `Enter_Date` = :`Enter_Date`, `Enter_T' +
+        'ime` = :`Enter_Time`, `Enter_User` = :`Enter_User`, `N_Amber` = ' +
+        ':`N_Amber`, `N_sidewalk` = :`N_sidewalk`, `N_thecounter` = :`N_t' +
+        'hecounter`, `N_bandsupervisor` = :`N_bandsupervisor`, `N_crane` ' +
+        '= :`N_crane`, `N_craneoperator` = :`N_craneoperator`, `numAuto` ' +
+        '= :`numAuto`'
+      'WHERE'
+      '  `numAuto` = :`Old_numAuto`')
+    SQLLock.Strings = (
+      
+        'SELECT `NumList`, `Enter_Date`, `Enter_Time`, `Enter_User`, `N_A' +
+        'mber`, `N_sidewalk`, `N_thecounter`, `N_bandsupervisor`, `N_cran' +
+        'e`, `N_craneoperator`, `numAuto` FROM `hraktemp`'
+      'WHERE'
+      '  `numAuto` = :`Old_numAuto`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `NumList`, `Enter_Date`, `Enter_Time`, `Enter_User`, `N_A' +
+        'mber`, `N_sidewalk`, `N_thecounter`, `N_bandsupervisor`, `N_cran' +
+        'e`, `N_craneoperator`, `numAuto` FROM `hraktemp`'
+      'WHERE'
+      '  `numAuto` = :`numAuto`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM hraktemp')
+    Connection = localConnection
+    SQL.Strings = (
+      'CALL LHrakTemp(:VNum)')
+    RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    BeforePost = LHrakTempBeforePost
+    Left = 40
+    Top = 50
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'VNum'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'LHrakTemp'
+    object LHrakTempNumList: TIntegerField
+      FieldName = 'NumList'
+    end
+    object LHrakTempEnter_Date: TDateField
+      FieldName = 'Enter_Date'
+    end
+    object LHrakTempEnter_Time: TTimeField
+      FieldName = 'Enter_Time'
+    end
+    object LHrakTempEnter_User: TWideStringField
+      FieldName = 'Enter_User'
+      Size = 15
+    end
+    object LHrakTempN_Amber: TIntegerField
+      FieldName = 'N_Amber'
+    end
+    object LHrakTempN_sidewalk: TIntegerField
+      FieldName = 'N_sidewalk'
+    end
+    object LHrakTempN_thecounter: TIntegerField
+      FieldName = 'N_thecounter'
+    end
+    object LHrakTempN_bandsupervisor: TIntegerField
+      FieldName = 'N_bandsupervisor'
+    end
+    object LHrakTempN_crane: TIntegerField
+      FieldName = 'N_crane'
+    end
+    object LHrakTempN_craneoperator: TIntegerField
+      FieldName = 'N_craneoperator'
+    end
+    object LHrakTempN_Amber_Nm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_Amber_Nm'
+      LookupDataSet = Lamber
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameAmber'
+      KeyFields = 'N_Amber'
+      Lookup = True
+    end
+    object LHrakTempN_sidewalk_Nm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_sidewalk_Nm'
+      LookupDataSet = Lsidewalk
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameSidewalk'
+      KeyFields = 'N_sidewalk'
+      Lookup = True
+    end
+    object LHrakTempN_bandsupervisor_Nm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_bandsupervisor_Nm'
+      LookupDataSet = Lbandsupervisor
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameBandSupervisor'
+      KeyFields = 'N_bandsupervisor'
+      Lookup = True
+    end
+    object LHrakTempN_crane_Nm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_crane_Nm'
+      LookupDataSet = Lcrane
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameCrane'
+      KeyFields = 'N_crane'
+      Lookup = True
+    end
+    object LHrakTempN_craneoperator_Nm: TStringField
+      FieldKind = fkLookup
+      FieldName = 'N_craneoperator_Nm'
+      LookupDataSet = Lcraneoperator
+      LookupKeyFields = 'NumAuto'
+      LookupResultField = 'NameCraneOperator'
+      KeyFields = 'N_craneoperator'
+      Lookup = True
+    end
+  end
+  object DLHrakTemp: TUniDataSource
+    DataSet = LHrakTemp
+    Left = 40
+    Top = 140
+  end
+  object Query1: TUniQuery
+    Connection = DB1
+    Left = 70
+    Top = 320
+  end
+  object Starts_And_Stops_Query: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO ship_starts_and_ends'
+      
+        '  (numAuto, AutoUID, Start_Date, End__Date, Start_Time, End_Time' +
+        ', Enter_User, Enter_Date, Shipment_Type)'
+      'VALUES'
+      
+        '  (:numAuto, :AutoUID, :Start_Date, :End__Date, :Start_Time, :En' +
+        'd_Time, :Enter_User, :Enter_Date, :Shipment_Type)')
+    SQLDelete.Strings = (
+      'DELETE FROM ship_starts_and_ends'
+      'WHERE'
+      '  numAuto = :Old_numAuto')
+    SQLUpdate.Strings = (
+      'UPDATE ship_starts_and_ends'
+      'SET'
+      
+        '  numAuto = :numAuto, AutoUID = :AutoUID, Start_Date = :Start_Da' +
+        'te, End__Date = :End__Date, Start_Time = :Start_Time, End_Time =' +
+        ' :End_Time, Enter_User = :Enter_User, Enter_Date = :Enter_Date, ' +
+        'Shipment_Type = :Shipment_Type'
+      'WHERE'
+      '  numAuto = :Old_numAuto')
+    SQLLock.Strings = (
+      
+        'SELECT numAuto, AutoUID, Start_Date, End__Date, Start_Time, End_' +
+        'Time, Enter_User, Enter_Date, Shipment_Type FROM ship_starts_and' +
+        '_ends'
+      'WHERE'
+      '  numAuto = :Old_numAuto'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT numAuto, AutoUID, Start_Date, End__Date, Start_Time, End_' +
+        'Time, Enter_User, Enter_Date, Shipment_Type FROM ship_starts_and' +
+        '_ends'
+      'WHERE'
+      '  numAuto = :numAuto')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ship_starts_and_ends')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL LStartsAndEnds(:VNum)')
+    AfterInsert = Starts_And_Stops_QueryAfterInsert
+    BeforePost = Starts_And_Stops_QueryBeforePost
+    Left = 870
+    Top = 470
+    ParamData = <
+      item
+        DataType = ftWideString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    CommandStoredProcName = 'LStartsAndEnds'
+    object Starts_And_Stops_QuerynumAuto: TIntegerField
+      FieldName = 'numAuto'
+    end
+    object Starts_And_Stops_QueryAutoUID: TStringField
+      FieldName = 'AutoUID'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object Starts_And_Stops_QueryStart_Date: TDateField
+      FieldName = 'Start_Date'
+      Required = True
+    end
+    object Starts_And_Stops_QueryEnd__Date: TDateField
+      FieldName = 'End__Date'
+      Required = True
+    end
+    object Starts_And_Stops_QueryStart_Time: TTimeField
+      FieldName = 'Start_Time'
+      Required = True
+    end
+    object Starts_And_Stops_QueryEnd_Time: TTimeField
+      FieldName = 'End_Time'
+      Required = True
+    end
+    object Starts_And_Stops_QueryEnter_User: TStringField
+      FieldName = 'Enter_User'
+      Required = True
+      Size = 150
+    end
+    object Starts_And_Stops_QueryEnter_Date: TDateField
+      FieldName = 'Enter_Date'
+      Required = True
+    end
+    object Starts_And_Stops_QueryShipment_Type: TStringField
+      FieldName = 'Shipment_Type'
+      Size = 100
+    end
+  end
+  object Starts_And_Stops_DS: TUniDataSource
+    DataSet = Starts_And_Stops_Query
+    Left = 710
+    Top = 320
+  end
+  object SHIPSHIFTSSSS: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `shipshifts`'
+      
+        '  (`AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Date`, ' +
+        '`type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isUpdat' +
+        'ed`, `Container_ID`, `Start_Time`, `End_Time`, `N_crane`, `Nort`' +
+        ', `type1`, `type 2`)'
+      'VALUES'
+      
+        '  (:`AutoUID`, :`N_thecounter`, :`N_bandsupervisor`, :`Enter_Dat' +
+        'e`, :`type`, :`numberofshifts`, :`containertype`, :`M_AutoUID`, ' +
+        ':`isUpdated`, :`Container_ID`, :`Start_Time`, :`End_Time`, :`N_c' +
+        'rane`, :`Nort`, :`type1`, :`type 2`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLUpdate.Strings = (
+      'UPDATE `shipshifts`'
+      'SET'
+      
+        '  `AutoUID` = :`AutoUID`, `N_thecounter` = :`N_thecounter`, `N_b' +
+        'andsupervisor` = :`N_bandsupervisor`, `Enter_Date` = :`Enter_Dat' +
+        'e`, `type` = :`type`, `numberofshifts` = :`numberofshifts`, `con' +
+        'tainertype` = :`containertype`, `M_AutoUID` = :`M_AutoUID`, `isU' +
+        'pdated` = :`isUpdated`, `Container_ID` = :`Container_ID`, `Start' +
+        '_Time` = :`Start_Time`, `End_Time` = :`End_Time`, `N_crane` = :`' +
+        'N_crane`, `Nort` = :`Nort`, `type1` = :`type1`, `type 2` = :`typ' +
+        'e 2`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`')
+    SQLLock.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isU' +
+        'pdated`, `Container_ID`, `Start_Time`, `End_Time`, `N_crane`, `N' +
+        'ort`, `type1`, `type 2` FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`Old_AutoUID`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `AutoUID`, `N_thecounter`, `N_bandsupervisor`, `Enter_Dat' +
+        'e`, `type`, `numberofshifts`, `containertype`, `M_AutoUID`, `isU' +
+        'pdated`, `Container_ID`, `Start_Time`, `End_Time`, `N_crane`, `N' +
+        'ort`, `type1`, `type 2` FROM `shipshifts`'
+      'WHERE'
+      '  `AutoUID` = :`AutoUID`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM shipshifts')
+    Connection = DB1
+    SQL.Strings = (
+      'SELECT * '
+      'FROM shipshifts '
+      'WHERE M_AutoUID = :VNum GROUP BY Container_ID ;')
+    Left = 620
+    Top = 634
+    ParamData = <
+      item
+        DataType = ftWideString
+        Name = 'VNum'
+        ParamType = ptInput
+        Size = 36
+        Value = nil
+      end>
+    object SHIPSHIFTSSSScontainertype: TStringField
+      DisplayLabel = #1606#1608#1593' '#1575#1604#1581#1575#1608#1610#1577
+      FieldName = 'containertype'
+      Size = 50
+    end
+    object SHIPSHIFTSSSSContainer_ID: TStringField
+      DisplayLabel = #1578#1575#1602' '#1575#1604#1581#1575#1608#1610#1577
+      FieldName = 'Container_ID'
+      Size = 200
+    end
+    object SHIPSHIFTSSSStype1: TSmallintField
+      FieldName = 'type1'
+    end
+    object SHIPSHIFTSSSStype2: TSmallintField
+      FieldName = 'type2'
+    end
+    object SHIPSHIFTSSSSnumOFVisible: TIntegerField
+      DisplayLabel = #1593#1583#1583' '#1605#1585#1575#1578' '#1575#1604#1592#1607#1608#1585
+      FieldName = 'numOFVisible'
+    end
+  end
+  object SHIPSHIFTSSSSDS: TUniDataSource
+    DataSet = SHIPSHIFTSSSS
+    Left = 707
+    Top = 720
+  end
+  object localConnection: TUniConnection
+    ProviderName = 'MySQL'
+    Port = 3306
+    Database = 'counting'
+    SpecificOptions.Strings = (
+      'MySQL.UseUnicode=True')
+    Username = 'root'
+    Server = 'localhost'
+    Left = 183
+    Top = 47
+    EncryptedPassword = '9EFF9BFF92FF96FF91FF'
+  end
+  object UniQuery1: TUniQuery
+    Connection = DB1
+    Left = 907
+    Top = 213
+  end
+  object Lsubmenu_counter_log: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO `submenu_counter_log`'
+      
+        '  (`numAuto`, `action`, `Enter_Date`, `Enter_Time`, `Enter_User`' +
+        ', `containerTag`, `Ship_Name`)'
+      'VALUES'
+      
+        '  (:`numAuto`, :`action`, :`Enter_Date`, :`Enter_Time`, :`Enter_' +
+        'User`, :`containerTag`, :`Ship_Name`)')
+    SQLDelete.Strings = (
+      'DELETE FROM `submenu_counter_log`'
+      'WHERE'
+      '  `numAuto` = :`Old_numAuto`')
+    SQLUpdate.Strings = (
+      'UPDATE `submenu_counter_log`'
+      'SET'
+      
+        '  `numAuto` = :`numAuto`, `action` = :`action`, `Enter_Date` = :' +
+        '`Enter_Date`, `Enter_Time` = :`Enter_Time`, `Enter_User` = :`Ent' +
+        'er_User`, `containerTag` = :`containerTag`, `Ship_Name` = :`Ship' +
+        '_Name`'
+      'WHERE'
+      '  `numAuto` = :`Old_numAuto`')
+    SQLLock.Strings = (
+      
+        'SELECT `numAuto`, `action`, `Enter_Date`, `Enter_Time`, `Enter_U' +
+        'ser`, `containerTag`, `Ship_Name` FROM `submenu_counter_log`'
+      'WHERE'
+      '  `numAuto` = :`Old_numAuto`'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT `numAuto`, `action`, `Enter_Date`, `Enter_Time`, `Enter_U' +
+        'ser`, `containerTag`, `Ship_Name` FROM `submenu_counter_log`'
+      'WHERE'
+      '  `numAuto` = :`numAuto`')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM submenu_counter_log')
+    Connection = DB1
+    SQL.Strings = (
+      'CALL Vsubmenu_counter_log()')
+    Left = 353
+    Top = 400
+    CommandStoredProcName = 'Vsubmenu_counter_log'
+    object Lsubmenu_counter_lognumAuto: TIntegerField
+      FieldName = 'numAuto'
+    end
+    object Lsubmenu_counter_logaction: TMemoField
+      FieldName = 'action'
+      Required = True
+      BlobType = ftMemo
+    end
+    object Lsubmenu_counter_logEnter_Date: TDateField
+      FieldName = 'Enter_Date'
+      Required = True
+    end
+    object Lsubmenu_counter_logEnter_Time: TTimeField
+      FieldName = 'Enter_Time'
+      Required = True
+    end
+    object Lsubmenu_counter_logEnter_User: TStringField
+      FieldName = 'Enter_User'
+      Required = True
+      Size = 250
+    end
+    object Lsubmenu_counter_logcontainerTag: TStringField
+      FieldName = 'containerTag'
+      Size = 250
+    end
+    object Lsubmenu_counter_logShip_Name: TStringField
+      FieldName = 'Ship_Name'
+      Size = 250
+    end
+  end
+  object Query2: TUniQuery
+    Connection = localConnection
+    Left = 473
+    Top = 653
+  end
+  object EHHHHHHHHHHHHHH: TUniQuery
+    Connection = localConnection
+    Left = 360
+    Top = 927
+  end
+end

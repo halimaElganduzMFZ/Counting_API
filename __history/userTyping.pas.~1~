@@ -1,0 +1,142 @@
+unit userTyping;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, DBAdvGlowNavigator,
+  Vcl.DBCtrls, sDBLookupComboBox, Vcl.StdCtrls, Vcl.Mask, sDBEdit, acPNG,
+  EnPngGr, sPanel, Vcl.Buttons, sBitBtn, System.ImageList, Vcl.ImgList,
+  acAlphaImageList, sLabel;
+
+type
+  TForm12 = class(TForm)
+    GroupBox1: TGroupBox;
+    Image1: TImage;
+    Image3: TImage;
+    Label7: TLabel;
+    sPanel3: TsPanel;
+    Label2: TLabel;
+    Label1: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label8: TLabel;
+    sDBLookupComboBox2: TsDBLookupComboBox;
+    sDBLookupComboBox3: TsDBLookupComboBox;
+    sDBLookupComboBox4: TsDBLookupComboBox;
+    sDBLookupComboBox5: TsDBLookupComboBox;
+    sDBLookupComboBox7: TsDBLookupComboBox;
+    Label3: TLabel;
+    Mid: TEdit;
+    DBAdvGlowNavigator1: TDBAdvGlowNavigator;
+    sAlphaImageList2: TsAlphaImageList;
+    sBitBtn2: TsBitBtn;
+    sBitBtn3: TsBitBtn;
+    sBitBtn4: TsBitBtn;
+    sBitBtn5: TsBitBtn;
+    sBitBtn1: TsBitBtn;
+    sLabel10: TsLabel;
+    sLabel1: TsLabel;
+    sLabel2: TsLabel;
+    sLabel3: TsLabel;
+    sLabel4: TsLabel;
+    sLabel5: TsLabel;
+    procedure FormShow(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure sBitBtn1Click(Sender: TObject);
+    procedure sBitBtn3Click(Sender: TObject);
+    procedure sBitBtn2Click(Sender: TObject);
+    procedure sBitBtn5Click(Sender: TObject);
+    procedure sBitBtn4Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form12: TForm12;
+
+implementation
+
+{$R *.dfm}
+
+uses DmdUn, Unit14;
+
+procedure TForm12.FormShow(Sender: TObject);
+begin
+  with DmdFm do
+  begin
+    Mid.Text := LsortingtripAutoUID.Value;
+  end;
+end;
+
+procedure TForm12.Image3Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TForm12.sBitBtn1Click(Sender: TObject);
+begin
+
+ with  SearchTxt do
+ begin
+ DBGridEh3.DataSource := DmdFm.DLcraneoperator;
+ SearchTxt.Label1.Caption:= '4';
+ end;
+
+
+ SearchTxt.ShowModal;
+end;
+
+procedure TForm12.sBitBtn2Click(Sender: TObject);
+begin
+ with  SearchTxt do
+ begin
+ DBGridEh3.DataSource := DmdFm.DLcrane;
+ SearchTxt.Label1.Caption:= '3';
+ end;
+
+
+ SearchTxt.ShowModal;
+end;
+
+procedure TForm12.sBitBtn3Click(Sender: TObject);
+begin
+ with  SearchTxt do
+ begin
+
+ DBGridEh3.DataSource := DmdFm.DLbandsupervisor;
+ SearchTxt.Label1.Caption:= '2';
+ end;
+
+
+ SearchTxt.ShowModal;
+end;
+
+procedure TForm12.sBitBtn4Click(Sender: TObject);
+begin
+ with  SearchTxt do
+ begin
+ DBGridEh3.DataSource := DmdFm.DLamber;
+ SearchTxt.Label1.Caption:= '1';
+ end;
+
+
+ SearchTxt.ShowModal;
+end;
+
+procedure TForm12.sBitBtn5Click(Sender: TObject);
+begin
+ with  SearchTxt do
+ begin
+ DBGridEh3.DataSource := DmdFm.DLsidewalk;
+ SearchTxt.Label1.Caption:='5';
+ end;
+
+
+ SearchTxt.ShowModal;
+end;
+
+end.

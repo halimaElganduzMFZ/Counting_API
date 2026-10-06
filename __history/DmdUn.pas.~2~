@@ -1,0 +1,2247 @@
+﻿unit DmdUn;
+
+interface
+
+uses
+  SysUtils, Classes, frxClass, frxDBSet, DB, MemDS, DBAccess, Uni, inifiles,
+  variants, forms, controls, dialogs, messages, windows, Graphics, UniProvider,
+  MySQLUniProvider, DADump, UniDump,
+
+  ExtCtrls, StdCtrls, Buttons, ComCtrls, Grids, DBGrids,
+
+  Mask, DBCtrls, dbcgrids, Gauges, DAScript,
+  UniScript,
+  FileCtrl, ShellAPI, Menus, DBGridEhGrouping, ToolCtrlsEh,
+  DBGridEhToolCtrls, DynVarsEh, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
+  CRGrid, ImgList, System.ImageList, sPanel, sEdit, acAlphaImageList, sBitBtn,
+  sLabel, sDBText, Vcl.Imaging.jpeg, acImage, sMemo, DBAdvGlowNavigator,
+  sMaskEdit, sCustomComboEdit, sToolEdit, sDBDateEdit, sDBEdit,
+  VclTee.TeeGDIPlus, VclTee.TeEngine, VclTee.TeeProcs, VclTee.Chart,
+  VclTee.Series, sGroupBox, sSpinEdit, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinBasic,
+  dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee,
+  dxSkinDarkroom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
+  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinOffice2016Colorful,
+  dxSkinOffice2016Dark, dxSkinOffice2019Black, dxSkinOffice2019Colorful,
+  dxSkinOffice2019DarkGray, dxSkinOffice2019White, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
+  dxSkinSpringtime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
+  dxSkinTheBezier, dxSkinValentine, dxSkinVisualStudio2013Blue,
+  dxSkinVisualStudio2013Dark, dxSkinVisualStudio2013Light, dxSkinVS2010,
+  dxSkinWhiteprint, dxSkinWXI, dxSkinXmas2008Blue, cxTextEdit, cxMaskEdit,
+  cxSpinEdit, cxTimeEdit, cxDBEdit;
+
+type
+  TDmdFm = class(TDataModule)
+    DB1: TUniConnection;
+    MySQLUniProvider1: TMySQLUniProvider;
+    Perm: TUniTable;
+    DPerm: TDataSource;
+    Lsortingtrip: TUniQuery;
+    DLsortingtrip: TUniDataSource;
+    DLsubmenucounter: TUniDataSource;
+    LsortingtripnumAuto: TIntegerField;
+    LsortingtripDateArrival: TDateField;
+    LsortingtripDischargeStartDate: TDateField;
+    LsortingtripEndDischargeDate: TDateField;
+    LsortingtripEnterDate: TDateField;
+    LsortingtripFlightStatus: TSmallintField;
+    LsortingtripStatusH: TSmallintField;
+    LsortingtripShare: TSmallintField;
+    LsortingtripN_sidewalk: TIntegerField;
+    LsortingtripCrane: TSmallintField;
+    LsortingtripN_bandsupervisor: TIntegerField;
+    Lsubmenucounter: TUniQuery;
+    LsubmenucounterNumMainList: TIntegerField;
+    LsubmenucounterHarm: TBooleanField;
+    LsubmenucounterCauseDamage: TSmallintField;
+    Lsubmenucounterswelling: TBooleanField;
+    Lsubmenucounterrupture: TBooleanField;
+    Lsubmenucounterbruises: TBooleanField;
+    Lsubmenucounterother: TBooleanField;
+    Lsubmenucounterright: TBooleanField;
+    Lsubmenucounterleft: TBooleanField;
+    LsubmenucounterDoor: TBooleanField;
+    Lsubmenucounterbehind: TBooleanField;
+    LsubmenucounterRoof: TBooleanField;
+    Lsubmenucounterfloor: TBooleanField;
+    Lsubmenucounterexisting: TBooleanField;
+    LsubmenucounterOtherAspects: TBooleanField;
+    LsubmenucounterRF: TSmallintField;
+    LsubmenucounterNumAdmH: TIntegerField;
+    LsubmenucounterMarks: TSmallintField;
+    LsubmenucounterEnter_Date: TDateField;
+    LsubmenucounterEnter_Time: TTimeField;
+    LsubmenucounterN_Amber: TIntegerField;
+    LsubmenucounterN_sidewalk: TIntegerField;
+    LsubmenucounterN_thecounter: TIntegerField;
+    LsubmenucounterN_bandsupervisor: TIntegerField;
+    LsubmenucounterN_crane: TIntegerField;
+    LsubmenucounterN_craneoperator: TIntegerField;
+    Lsubmenucountercondition: TSmallintField;
+    LsubmenucounternumAuto: TIntegerField;
+    LsubmenucounterN_AmberNm: TStringField;
+    LsubmenucounterN_sidewalkNm: TStringField;
+    LsubmenucounterN_thecounterNm: TStringField;
+    LsubmenucounterN_bandsupervisorNm: TStringField;
+    LsubmenucounterN_craneNm: TStringField;
+    LsubmenucounterN_craneoperatorNm: TStringField;
+    DLsubmenucounterForServer: TUniDataSource;
+    LsubmenucounterForServer: TUniQuery;
+    LsubmenucounterForServerNumMainList: TIntegerField;
+    LsubmenucounterForServerTagNumber: TWideStringField;
+    LsubmenucounterForServerContainerType: TWideStringField;
+    LsubmenucounterForServerHarm: TBooleanField;
+    LsubmenucounterForServerCauseDamage: TSmallintField;
+    LsubmenucounterForServerswelling: TBooleanField;
+    LsubmenucounterForServerrupture: TBooleanField;
+    LsubmenucounterForServerbruises: TBooleanField;
+    LsubmenucounterForServerother: TBooleanField;
+    LsubmenucounterForServerright: TBooleanField;
+    LsubmenucounterForServerleft: TBooleanField;
+    LsubmenucounterForServerDoor: TBooleanField;
+    LsubmenucounterForServerbehind: TBooleanField;
+    LsubmenucounterForServerRoof: TBooleanField;
+    LsubmenucounterForServerfloor: TBooleanField;
+    LsubmenucounterForServerexisting: TBooleanField;
+    LsubmenucounterForServerOtherAspects: TBooleanField;
+    LsubmenucounterForServerRF: TSmallintField;
+    LsubmenucounterForServerNort1: TWideStringField;
+    LsubmenucounterForServerNumAdmH: TIntegerField;
+    LsubmenucounterForServerAutoUID: TWideStringField;
+    LsubmenucounterForServerMarks: TSmallintField;
+    LsubmenucounterForServerEnter_Date: TDateField;
+    LsubmenucounterForServerEnter_Time: TTimeField;
+    LsubmenucounterForServerEnter_User: TWideStringField;
+    LsubmenucounterForServerN_Amber: TIntegerField;
+    LsubmenucounterForServerN_sidewalk: TIntegerField;
+    LsubmenucounterForServerN_thecounter: TIntegerField;
+    LsubmenucounterForServerN_bandsupervisor: TIntegerField;
+    LsubmenucounterForServerN_crane: TIntegerField;
+    LsubmenucounterForServerN_craneoperator: TIntegerField;
+    LsubmenucounterForServercondition: TSmallintField;
+    LsubmenucounterForServerisdataChanged: TIntegerField;
+    LsortingtripFromServer: TUniQuery;
+    DLsortingtripFromServer: TUniDataSource;
+    LsortingtripFromServernumAuto: TIntegerField;
+    LsortingtripFromServerAutoUID: TWideStringField;
+    LsortingtripFromServerFlightNumber: TWideStringField;
+    LsortingtripFromServerShipName: TWideStringField;
+    LsortingtripFromServerShippingAgent: TWideStringField;
+    LsortingtripFromServerDateArrival: TDateField;
+    LsortingtripFromServerDischargeStartDate: TDateField;
+    LsortingtripFromServerEndDischargeDate: TDateField;
+    LsortingtripFromServerUserDate: TWideStringField;
+    LsortingtripFromServerEnterDate: TDateField;
+    LsortingtripFromServerFlightStatus: TSmallintField;
+    LsortingtripFromServerStatusH: TSmallintField;
+    LsortingtripFromServerShare: TSmallintField;
+    LsortingtripFromServerN_sidewalk: TIntegerField;
+    LsortingtripFromServerCrane: TSmallintField;
+    LsortingtripFromServerN_bandsupervisor: TIntegerField;
+    LsortingtripFromServerNort: TWideStringField;
+    LsubmenucounterForMigrate: TUniQuery;
+    DLsubmenucounterForMigrate: TUniDataSource;
+    LsubmenucounterForMigrateNumMainList: TIntegerField;
+    LsubmenucounterForMigrateTagNumber: TWideStringField;
+    LsubmenucounterForMigrateContainerType: TWideStringField;
+    LsubmenucounterForMigrateHarm: TBooleanField;
+    LsubmenucounterForMigrateCauseDamage: TSmallintField;
+    LsubmenucounterForMigrateswelling: TBooleanField;
+    LsubmenucounterForMigraterupture: TBooleanField;
+    LsubmenucounterForMigratebruises: TBooleanField;
+    LsubmenucounterForMigrateother: TBooleanField;
+    LsubmenucounterForMigrateright: TBooleanField;
+    LsubmenucounterForMigrateleft: TBooleanField;
+    LsubmenucounterForMigrateDoor: TBooleanField;
+    LsubmenucounterForMigratebehind: TBooleanField;
+    LsubmenucounterForMigrateRoof: TBooleanField;
+    LsubmenucounterForMigratefloor: TBooleanField;
+    LsubmenucounterForMigrateexisting: TBooleanField;
+    LsubmenucounterForMigrateOtherAspects: TBooleanField;
+    LsubmenucounterForMigrateRF: TSmallintField;
+    LsubmenucounterForMigrateNort1: TWideStringField;
+    LsubmenucounterForMigrateNumAdmH: TIntegerField;
+    LsubmenucounterForMigrateAutoUID: TWideStringField;
+    LsubmenucounterForMigrateMarks: TSmallintField;
+    LsubmenucounterForMigrateEnter_Date: TDateField;
+    LsubmenucounterForMigrateEnter_Time: TTimeField;
+    LsubmenucounterForMigrateEnter_User: TWideStringField;
+    LsubmenucounterForMigrateN_Amber: TIntegerField;
+    LsubmenucounterForMigrateN_sidewalk: TIntegerField;
+    LsubmenucounterForMigrateN_thecounter: TIntegerField;
+    LsubmenucounterForMigrateN_bandsupervisor: TIntegerField;
+    LsubmenucounterForMigrateN_crane: TIntegerField;
+    LsubmenucounterForMigrateN_craneoperator: TIntegerField;
+    LsubmenucounterForMigratecondition: TSmallintField;
+    LsubmenucounterForMigratenumAuto: TIntegerField;
+    LsubmenucounterForMigrateisdataChanged: TIntegerField;
+    LStopsForThisShip: TUniQuery;
+    DLStopsForThisShip: TUniDataSource;
+    LStopsForThisShipStart_Date: TDateTimeField;
+    LStopsForThisShipEnd_Date: TDateTimeField;
+    LStopsForThisShipEnter_Date: TDateTimeField;
+    LStopsForThisShipStart_Time: TTimeField;
+    LStopsForThisShipEnd_Time: TTimeField;
+    LStopsForThisShipReason_Suspension: TSmallintField;
+    LStopsForThisShipisUpdated: TIntegerField;
+    GetKey: TUniQuery;
+    DGetKey: TUniDataSource;
+    LStopsForShipsForServer: TUniQuery;
+    DLStopsForShipsForServer: TUniDataSource;
+    LStopsForShipsForServerAutoUID: TWideStringField;
+    LStopsForShipsForServerStart_Date: TDateTimeField;
+    LStopsForShipsForServerEnd_Date: TDateTimeField;
+    LStopsForShipsForServerStop_Notes: TWideStringField;
+    LStopsForShipsForServerEnter_User: TWideStringField;
+    LStopsForShipsForServerEnter_Date: TDateTimeField;
+    LStopsForShipsForServerM_AutoUID: TWideStringField;
+    LStopsForShipsForServerStart_Time: TTimeField;
+    LStopsForShipsForServerEnd_Time: TTimeField;
+    LStopsForShipsForServerReason_Suspension: TSmallintField;
+    LStopsForShipsForServerisUpdated: TIntegerField;
+    Lunits: TUniQuery;
+    DLunits: TUniDataSource;
+    Lbandsupervisor: TUniQuery;
+    DLbandsupervisor: TUniDataSource;
+    Lcounters: TUniQuery;
+    DLcounters: TUniDataSource;
+    Lcrane: TUniQuery;
+    DLcrane: TUniDataSource;
+    Lcraneoperator: TUniQuery;
+    DLcraneoperator: TUniDataSource;
+    LHARM: TUniQuery;
+    DLHARM: TUniDataSource;
+    Lsidewalk: TUniQuery;
+    DLsidewalk: TUniDataSource;
+    LcraneoperatorNumAuto: TIntegerField;
+    Lamber: TUniQuery;
+    DLamber: TUniDataSource;
+    Dcraneoperator: TUniDataSource;
+    LsubmenucounterForLocalCheck: TUniQuery;
+    DLsubmenucounterForLocalCheck: TUniDataSource;
+    LsubmenucounterForLocalCheckNumMainList: TIntegerField;
+    LsubmenucounterForLocalCheckTagNumber: TWideStringField;
+    LsubmenucounterForLocalCheckContainerType: TWideStringField;
+    LsubmenucounterForLocalCheckHarm: TBooleanField;
+    LsubmenucounterForLocalCheckCauseDamage: TSmallintField;
+    LsubmenucounterForLocalCheckswelling: TBooleanField;
+    LsubmenucounterForLocalCheckrupture: TBooleanField;
+    LsubmenucounterForLocalCheckbruises: TBooleanField;
+    LsubmenucounterForLocalCheckother: TBooleanField;
+    LsubmenucounterForLocalCheckright: TBooleanField;
+    LsubmenucounterForLocalCheckleft: TBooleanField;
+    LsubmenucounterForLocalCheckDoor: TBooleanField;
+    LsubmenucounterForLocalCheckbehind: TBooleanField;
+    LsubmenucounterForLocalCheckRoof: TBooleanField;
+    LsubmenucounterForLocalCheckfloor: TBooleanField;
+    LsubmenucounterForLocalCheckexisting: TBooleanField;
+    LsubmenucounterForLocalCheckOtherAspects: TBooleanField;
+    LsubmenucounterForLocalCheckRF: TSmallintField;
+    LsubmenucounterForLocalCheckNort1: TWideStringField;
+    LsubmenucounterForLocalCheckNumAdmH: TIntegerField;
+    LsubmenucounterForLocalCheckAutoUID: TWideStringField;
+    LsubmenucounterForLocalCheckMarks: TSmallintField;
+    LsubmenucounterForLocalCheckEnter_Date: TDateField;
+    LsubmenucounterForLocalCheckEnter_Time: TTimeField;
+    LsubmenucounterForLocalCheckEnter_User: TWideStringField;
+    LsubmenucounterForLocalCheckN_Amber: TIntegerField;
+    LsubmenucounterForLocalCheckN_sidewalk: TIntegerField;
+    LsubmenucounterForLocalCheckN_thecounter: TIntegerField;
+    LsubmenucounterForLocalCheckN_bandsupervisor: TIntegerField;
+    LsubmenucounterForLocalCheckN_crane: TIntegerField;
+    LsubmenucounterForLocalCheckN_craneoperator: TIntegerField;
+    LsubmenucounterForLocalCheckcondition: TSmallintField;
+    LsubmenucounterForLocalChecknumAuto: TIntegerField;
+    LsubmenucounterForLocalCheckisdataChanged: TIntegerField;
+    LsubmenucounterForLocaloneByone: TUniQuery;
+    DLsubmenucounterForLocaloneByone: TUniDataSource;
+    LsubmenucounterForLocaloneByoneNumMainList: TIntegerField;
+    LsubmenucounterForLocaloneByoneTagNumber: TWideStringField;
+    LsubmenucounterForLocaloneByoneContainerType: TWideStringField;
+    LsubmenucounterForLocaloneByoneHarm: TBooleanField;
+    LsubmenucounterForLocaloneByoneCauseDamage: TSmallintField;
+    LsubmenucounterForLocaloneByoneswelling: TBooleanField;
+    LsubmenucounterForLocaloneByonerupture: TBooleanField;
+    LsubmenucounterForLocaloneByonebruises: TBooleanField;
+    LsubmenucounterForLocaloneByoneother: TBooleanField;
+    LsubmenucounterForLocaloneByoneright: TBooleanField;
+    LsubmenucounterForLocaloneByoneleft: TBooleanField;
+    LsubmenucounterForLocaloneByoneDoor: TBooleanField;
+    LsubmenucounterForLocaloneByonebehind: TBooleanField;
+    LsubmenucounterForLocaloneByoneRoof: TBooleanField;
+    LsubmenucounterForLocaloneByonefloor: TBooleanField;
+    LsubmenucounterForLocaloneByoneexisting: TBooleanField;
+    LsubmenucounterForLocaloneByoneOtherAspects: TBooleanField;
+    LsubmenucounterForLocaloneByoneRF: TSmallintField;
+    LsubmenucounterForLocaloneByoneNort1: TWideStringField;
+    LsubmenucounterForLocaloneByoneNumAdmH: TIntegerField;
+    LsubmenucounterForLocaloneByoneAutoUID: TWideStringField;
+    LsubmenucounterForLocaloneByoneMarks: TSmallintField;
+    LsubmenucounterForLocaloneByoneEnter_Date: TDateField;
+    LsubmenucounterForLocaloneByoneEnter_Time: TTimeField;
+    LsubmenucounterForLocaloneByoneEnter_User: TWideStringField;
+    LsubmenucounterForLocaloneByoneN_Amber: TIntegerField;
+    LsubmenucounterForLocaloneByoneN_sidewalk: TIntegerField;
+    LsubmenucounterForLocaloneByoneN_thecounter: TIntegerField;
+    LsubmenucounterForLocaloneByoneN_bandsupervisor: TIntegerField;
+    LsubmenucounterForLocaloneByoneN_crane: TIntegerField;
+    LsubmenucounterForLocaloneByoneN_craneoperator: TIntegerField;
+    LsubmenucounterForLocaloneByonecondition: TSmallintField;
+    LsubmenucounterForLocaloneByonenumAuto: TIntegerField;
+    LsubmenucounterForLocaloneByoneisdataChanged: TIntegerField;
+    LNotesForThisShip: TUniQuery;
+    DLNotesForThisShip: TUniDataSource;
+    LNotesForThisShipEnter_Date: TDateTimeField;
+    LNotesForThisShipisUpdated: TIntegerField;
+    LNotesForThisShipForServer: TUniQuery;
+    DLNotesForThisShipForServer: TUniDataSource;
+    LNotesForThisShipForServerAutoUID: TWideStringField;
+    LNotesForThisShipForServerNotes: TWideStringField;
+    LNotesForThisShipForServerEnter_User: TWideStringField;
+    LNotesForThisShipForServerEnter_Date: TDateTimeField;
+    LNotesForThisShipForServerM_AutoUID: TWideStringField;
+    LNotesForThisShipForServerisUpdated: TIntegerField;
+    UniDump1: TUniDump;
+    LNotesForThisShipForShowInList: TUniQuery;
+    DLNotesForThisShipForShowInList: TUniDataSource;
+    LNotesForThisShipForShowInListAutoUID: TWideStringField;
+    LNotesForThisShipForShowInListNotes: TWideStringField;
+    LNotesForThisShipForShowInListEnter_User: TWideStringField;
+    LNotesForThisShipForShowInListEnter_Date: TDateTimeField;
+    LNotesForThisShipForShowInListM_AutoUID: TWideStringField;
+    LNotesForThisShipForShowInListisUpdated: TIntegerField;
+    LLsubmenucounterForServerForEdit: TUniQuery;
+    DLLsubmenucounterForServerForEdit: TUniDataSource;
+    LLsubmenucounterForServerForEditNumMainList: TIntegerField;
+    LLsubmenucounterForServerForEditTagNumber: TWideStringField;
+    LLsubmenucounterForServerForEditContainerType: TWideStringField;
+    LLsubmenucounterForServerForEditHarm: TBooleanField;
+    LLsubmenucounterForServerForEditCauseDamage: TSmallintField;
+    LLsubmenucounterForServerForEditswelling: TBooleanField;
+    LLsubmenucounterForServerForEditrupture: TBooleanField;
+    LLsubmenucounterForServerForEditbruises: TBooleanField;
+    LLsubmenucounterForServerForEditother: TBooleanField;
+    LLsubmenucounterForServerForEditright: TBooleanField;
+    LLsubmenucounterForServerForEditleft: TBooleanField;
+    LLsubmenucounterForServerForEditDoor: TBooleanField;
+    LLsubmenucounterForServerForEditbehind: TBooleanField;
+    LLsubmenucounterForServerForEditRoof: TBooleanField;
+    LLsubmenucounterForServerForEditfloor: TBooleanField;
+    LLsubmenucounterForServerForEditexisting: TBooleanField;
+    LLsubmenucounterForServerForEditOtherAspects: TBooleanField;
+    LLsubmenucounterForServerForEditRF: TSmallintField;
+    LLsubmenucounterForServerForEditNort1: TWideStringField;
+    LLsubmenucounterForServerForEditNumAdmH: TIntegerField;
+    LLsubmenucounterForServerForEditAutoUID: TWideStringField;
+    LLsubmenucounterForServerForEditMarks: TSmallintField;
+    LLsubmenucounterForServerForEditEnter_Date: TDateField;
+    LLsubmenucounterForServerForEditEnter_Time: TTimeField;
+    LLsubmenucounterForServerForEditEnter_User: TWideStringField;
+    LLsubmenucounterForServerForEditN_Amber: TIntegerField;
+    LLsubmenucounterForServerForEditN_sidewalk: TIntegerField;
+    LLsubmenucounterForServerForEditN_thecounter: TIntegerField;
+    LLsubmenucounterForServerForEditN_bandsupervisor: TIntegerField;
+    LLsubmenucounterForServerForEditN_crane: TIntegerField;
+    LLsubmenucounterForServerForEditN_craneoperator: TIntegerField;
+    LLsubmenucounterForServerForEditcondition: TSmallintField;
+    LLsubmenucounterForServerForEditnumAuto: TIntegerField;
+    LLsubmenucounterForServerForEditisdataChanged: TIntegerField;
+    LcountersNumAuto: TIntegerField;
+    LHARMNumAuto: TIntegerField;
+    LsidewalkNumAuto: TIntegerField;
+    LcraneNumAuto: TIntegerField;
+    LunitsNumAuto: TIntegerField;
+    LunitsUName: TWideStringField;
+    LunitsStateValue: TFloatField;
+    LunitsTrtepNum: TIntegerField;
+    LunitsKyass: TFloatField;
+    LunitsGroupNo: TSmallintField;
+    LamberNumAuto: TIntegerField;
+    LgetImagesForSubMenuCounter: TUniQuery;
+    DLgetImagesForSubMenuCounter: TUniDataSource;
+    LsubmenucounterStatus_type: TSmallintField;
+    LsubmenucounterHandling_type: TSmallintField;
+    LsubmenucounterHandling_typeNm: TStringField;
+    LsubmenucounterStatus_typeNm: TStringField;
+    LsubmenucounterForServerStatus_type: TSmallintField;
+    LsubmenucounterForServerHandling_type: TSmallintField;
+    LLsubmenucounterForServerForEditStatus_type: TSmallintField;
+    LLsubmenucounterForServerForEditHandling_type: TSmallintField;
+    LshipShifts: TUniQuery;
+    DLshipShifts: TUniDataSource;
+    LshipCovers: TUniQuery;
+    DLshipCovers: TUniDataSource;
+    LshipCoversN_thecounter: TIntegerField;
+    LshipCoversN_bandsupervisor: TIntegerField;
+    LshipCoversEnter_Date: TDateTimeField;
+    LshipCoversisUpdated: TIntegerField;
+    LshipCoversN_bandsupervisor_Nm: TStringField;
+    LShiftsForThisShipForServer: TUniQuery;
+    DLShiftsForThisShipForServer: TUniDataSource;
+    LshipcoversForServer: TUniQuery;
+    DLshipShiftsForServer: TUniDataSource;
+    LshipShiftsForServer: TUniQuery;
+    DLshipcoversForServer: TUniDataSource;
+    LshipcoversForServerAutoUID: TWideStringField;
+    LshipcoversForServerN_thecounter: TIntegerField;
+    LshipShiftsForServerAutoUID: TWideStringField;
+    LshipShiftsForServerN_thecounter: TIntegerField;
+    LshipCoversnumberofcovers: TSmallintField;
+    LshipcoversForServernumberofcovers: TSmallintField;
+    LshipShiftsForServernumberofshifts: TSmallintField;
+    LHrakTemp: TUniQuery;
+    LHrakTempNumList: TIntegerField;
+    LHrakTempEnter_Date: TDateField;
+    LHrakTempEnter_Time: TTimeField;
+    LHrakTempEnter_User: TWideStringField;
+    LHrakTempN_Amber: TIntegerField;
+    LHrakTempN_sidewalk: TIntegerField;
+    LHrakTempN_thecounter: TIntegerField;
+    LHrakTempN_bandsupervisor: TIntegerField;
+    LHrakTempN_crane: TIntegerField;
+    LHrakTempN_craneoperator: TIntegerField;
+    DLHrakTemp: TUniDataSource;
+    LHrakTempN_Amber_Nm: TStringField;
+    LHrakTempN_sidewalk_Nm: TStringField;
+    LHrakTempN_bandsupervisor_Nm: TStringField;
+    LHrakTempN_crane_Nm: TStringField;
+    LHrakTempN_craneoperator_Nm: TStringField;
+    Query1: TUniQuery;
+    LShiftsForThisShipForServerAutoUID: TWideStringField;
+    LShiftsForThisShipForServerN_thecounter: TIntegerField;
+    LShiftsForThisShipForServerN_bandsupervisor: TIntegerField;
+    LShiftsForThisShipForServerEnter_Date: TDateTimeField;
+    LShiftsForThisShipForServertype: TSmallintField;
+    LShiftsForThisShipForServernumberofshifts: TWideStringField;
+    LShiftsForThisShipForServercontainertype: TWideStringField;
+    LShiftsForThisShipForServerM_AutoUID: TWideStringField;
+    LShiftsForThisShipForServerisUpdated: TIntegerField;
+    LbandsupervisorNumAuto: TIntegerField;
+    LshipShiftsForServerN_bandsupervisor: TIntegerField;
+    LshipShiftsForServerEnter_Date: TDateTimeField;
+    LshipShiftsForServertype: TSmallintField;
+    LshipShiftsForServercontainertype: TWideStringField;
+    LshipShiftsForServerM_AutoUID: TWideStringField;
+    LshipShiftsForServerisUpdated: TIntegerField;
+    LshipShiftsForServerContainer_ID: TWideStringField;
+    LShiftsForThisShipForServerContainer_ID: TWideStringField;
+    LShiftsForThisShipForServerStart_Time: TTimeField;
+    LShiftsForThisShipForServerEnd_Time: TTimeField;
+    LshipShiftsForServerStart_Time: TTimeField;
+    LshipShiftsForServerEnd_Time: TTimeField;
+    LshipCoversStart_Time: TTimeField;
+    LshipCoversEnd_Time: TTimeField;
+    LshipCoversOperatoinType: TIntegerField;
+    LshipCoversN_crane: TIntegerField;
+    LshipCoversN_crane_Nm: TStringField;
+    LShiftsForThisShipForServerN_crane: TIntegerField;
+    LShiftsForThisShipForServerNort: TWideStringField;
+    LshipShiftsForServerN_crane: TIntegerField;
+    LshipShiftsForServerNort: TWideStringField;
+    LsubmenucounterIS_CHEMICAL_MATERIAL: TIntegerField;
+    LLsubmenucounterForServerForEditIS_CHEMICAL_MATERIAL: TIntegerField;
+    LLsubmenucounterForServerForEditgoood_description: TWideStringField;
+    LsubmenucounterForLocalCheckIS_CHEMICAL_MATERIAL: TIntegerField;
+    LsubmenucounterForLocalCheckgoood_description: TWideStringField;
+    LsubmenucounterForLocaloneByoneIS_CHEMICAL_MATERIAL: TIntegerField;
+    LsubmenucounterForLocaloneByonegoood_description: TWideStringField;
+    LsubmenucounterForMigrateIS_CHEMICAL_MATERIAL: TIntegerField;
+    LsubmenucounterForMigrategoood_description: TWideStringField;
+    LsubmenucounterForServerIS_CHEMICAL_MATERIAL: TIntegerField;
+    LsubmenucounterForServergoood_description: TWideStringField;
+    LStopsForThisShipHandling_type: TSmallintField;
+    LStopsForShipsForServerHandling_type: TSmallintField;
+    Starts_And_Stops_Query: TUniQuery;
+    Starts_And_Stops_DS: TUniDataSource;
+    SHIPSHIFTSSSS: TUniQuery;
+    SHIPSHIFTSSSSDS: TUniDataSource;
+    LshipShiftsN_thecounter: TIntegerField;
+    LshipShiftsN_bandsupervisor: TIntegerField;
+    LshipShiftsEnter_Date: TDateTimeField;
+    LshipShiftstype: TSmallintField;
+    LshipShiftsnumberofshifts: TSmallintField;
+    LshipShiftsisUpdated: TIntegerField;
+    LshipShiftsStart_Time: TTimeField;
+    LshipShiftsEnd_Time: TTimeField;
+    LshipShiftsN_crane: TIntegerField;
+    LshipShiftstype1: TSmallintField;
+    LshipShiftstype2: TSmallintField;
+    LshipShiftsN_bandsupervisor_Nm: TStringField;
+    LsubmenucounterHazMat: TSmallintField;
+    Lsubmenucounterlatitude: TFloatField;
+    Lsubmenucounterlongitude: TFloatField;
+    Lsubmenucounterlocation_accuracy: TFloatField;
+    Lsubmenucounterlocation_level: TShortintField;
+    Lsubmenucounterlocation_datetime: TDateTimeField;
+    LsubmenucounterMoveReason: TIntegerField;
+    localConnection: TUniConnection;
+    UniQuery1: TUniQuery;
+    Lsubmenu_counter_log: TUniQuery;
+    LshipShiftsNumm: TIntegerField;
+    LshipShiftsnumOFVisible: TIntegerField;
+    Query2: TUniQuery;
+    PermUserNum: TIntegerField;
+    PermUserName: TStringField;
+    PermPass: TStringField;
+    PermShipData: TBooleanField;
+    PermAgent: TBooleanField;
+    PermHelp: TBooleanField;
+    PermIncome: TBooleanField;
+    PermShipp: TBooleanField;
+    PermAdmis: TBooleanField;
+    PermAcList: TBooleanField;
+    PermPerm: TBooleanField;
+    PermReports: TBooleanField;
+    PermConst: TBooleanField;
+    PermLockList: TBooleanField;
+    PermCommList: TBooleanField;
+    PermRsomList: TBooleanField;
+    PermRga: TBooleanField;
+    Permpyan1: TBooleanField;
+    Permpyan2: TBooleanField;
+    PermpyanD: TBooleanField;
+    PermDrevle: TBooleanField;
+    Permpoapa: TBooleanField;
+    PermAdorfrze: TBooleanField;
+    Permkzena: TBooleanField;
+    Permdelload: TBooleanField;
+    Permdelbillload: TBooleanField;
+    Permdeltrans: TBooleanField;
+    PermCarry: TBooleanField;
+    PermArchive: TBooleanField;
+    PermRsomBill: TBooleanField;
+    PermDelList: TBooleanField;
+    PermEnbEdit: TBooleanField;
+    PermCarryRsom: TBooleanField;
+    PermDailyClose: TBooleanField;
+    PermDailyView: TBooleanField;
+    PermUnlockBill: TBooleanField;
+    PermAlterBill: TBooleanField;
+    PermShipRsom: TBooleanField;
+    PermAgentRsom: TBooleanField;
+    PermHelpRsom: TBooleanField;
+    PermCarryDRsom: TBooleanField;
+    PermCloseRsom: TBooleanField;
+    PermUnlockRsom: TBooleanField;
+    PermAlterBillR: TBooleanField;
+    PermDelBillR: TBooleanField;
+    PermReportsRsom: TBooleanField;
+    PermDailyViewR: TBooleanField;
+    PermChType: TBooleanField;
+    PermRetDaily: TBooleanField;
+    PermPrepRep: TBooleanField;
+    PermIncoRep: TBooleanField;
+    PermDelRep: TBooleanField;
+    PermFinalRep: TBooleanField;
+    PermGenRep: TBooleanField;
+    PermGenRepEnt: TBooleanField;
+    PermChTypeR: TBooleanField;
+    PermReCalc: TBooleanField;
+    PermTgValue: TBooleanField;
+    PermEsalTr: TBooleanField;
+    PermAgentsTr: TBooleanField;
+    PermConsTr: TBooleanField;
+    PermSrchTr: TBooleanField;
+    PermRepTr: TBooleanField;
+    PermPermTr: TBooleanField;
+    PermCurrent: TBooleanField;
+    PermDebit: TBooleanField;
+    PermLockEsal: TBooleanField;
+    PermUnLockEsal: TBooleanField;
+    PermAdmArchive: TBooleanField;
+    PermAcclistArch: TBooleanField;
+    PermCreDataBase: TBooleanField;
+    Permoutport: TBooleanField;
+    PermTransit: TBooleanField;
+    PermTrHelp: TBooleanField;
+    PermTrRep: TBooleanField;
+    PermTrIncome: TBooleanField;
+    PermFreezing: TBooleanField;
+    PermPers_Name: TStringField;
+    PermDelBill: TBooleanField;
+    Perminvoice_print: TBooleanField;
+    Permmain_options: TBooleanField;
+    Permsubordination: TSmallintField;
+    Permnumbring: TBooleanField;
+    PermBills_Reviewer: TIntegerField;
+    PermReview: TBooleanField;
+    PermDirect_Delivery: TBooleanField;
+    PermHandling: TBooleanField;
+    PermHandling_Delete: TBooleanField;
+    PermHandling_Edit: TBooleanField;
+    PermHandling_Status: TBooleanField;
+    PermHandling_New: TBooleanField;
+    LsubmenucounterTagNumber: TStringField;
+    Starts_And_Stops_QuerynumAuto: TIntegerField;
+    Starts_And_Stops_QueryAutoUID: TStringField;
+    Starts_And_Stops_QueryStart_Date: TDateField;
+    Starts_And_Stops_QueryEnd__Date: TDateField;
+    Starts_And_Stops_QueryStart_Time: TTimeField;
+    Starts_And_Stops_QueryEnd_Time: TTimeField;
+    Starts_And_Stops_QueryEnter_User: TStringField;
+    Starts_And_Stops_QueryEnter_Date: TDateField;
+    Starts_And_Stops_QueryShipment_Type: TStringField;
+    LcraneoperatorNameCraneOperator: TStringField;
+    LcraneoperatorNumEmp: TStringField;
+    LamberNameAmber: TStringField;
+    LcountersNameTheCounter: TStringField;
+    LcountersNumEmp: TStringField;
+    LcraneNameCrane: TStringField;
+    LHARMNameHarm: TStringField;
+    LbandsupervisorNameBandSupervisor: TStringField;
+    LsidewalkNameSidewalk: TStringField;
+    LsortingtripFlightNumber: TStringField;
+    LsortingtripTransaction_Type: TSmallintField;
+    Lsortingtripggg: TIntegerField;
+    Lsortingtripstar_time: TTimeField;
+    LsortingtripEnd_time: TTimeField;
+    LsortingtripNumLoadList: TIntegerField;
+    LsortingtripsideWalk: TStringField;
+    LsortingtripGantry_Cranes: TSmallintField;
+    Lsortingtripground_cranes: TSmallintField;
+    Lsortingtripforklifts: TSmallintField;
+    LsortingtripAutoUID: TStringField;
+    LsortingtripShipName: TStringField;
+    LsortingtripShippingAgent: TStringField;
+    LsortingtripUserDate: TStringField;
+    LsortingtripNort: TStringField;
+    LshipShiftsAutoUID: TStringField;
+    LshipShiftscontainertype: TStringField;
+    LshipShiftsM_AutoUID: TStringField;
+    LshipShiftsContainer_ID: TStringField;
+    LshipShiftsNort: TStringField;
+    LshipCoversAutoUID: TStringField;
+    LshipCoversM_AutoUID: TStringField;
+    LshipCoversNort: TStringField;
+    LNotesForThisShipAutoUID: TStringField;
+    LNotesForThisShipNotes: TStringField;
+    LNotesForThisShipM_AutoUID: TStringField;
+    LNotesForThisShipEnter_User: TStringField;
+    LStopsForThisShipAutoUID: TStringField;
+    LStopsForThisShipStop_Notes: TStringField;
+    LStopsForThisShipEnter_User: TStringField;
+    LStopsForThisShipM_AutoUID: TStringField;
+    SHIPSHIFTSSSScontainertype: TStringField;
+    SHIPSHIFTSSSSContainer_ID: TStringField;
+    SHIPSHIFTSSSSnumOFVisible: TIntegerField;
+    LsubmenucounterContainerType: TStringField;
+    LsubmenucounterNort1: TStringField;
+    LsubmenucounterEnter_User: TStringField;
+    LsubmenucounterAutoUID: TStringField;
+    Lsubmenucountergoood_description: TStringField;
+    Lsubmenucounterlocation_user: TStringField;
+    Lsubmenucounterlocation_source: TStringField;
+    EHHHHHHHHHHHHHH: TUniQuery;
+    LgetImagesForSubMenuCounterID: TIntegerField;
+    LgetImagesForSubMenuCounterAutoUID: TStringField;
+    LgetImagesForSubMenuCounterimg: TStringField;
+    LgetImagesForSubMenuCounterM_AutoUID: TStringField;
+    Lsubmenu_counter_lognumAuto: TIntegerField;
+    Lsubmenu_counter_logaction: TMemoField;
+    Lsubmenu_counter_logEnter_Date: TDateField;
+    Lsubmenu_counter_logEnter_Time: TTimeField;
+    Lsubmenu_counter_logEnter_User: TStringField;
+    Lsubmenu_counter_logcontainerTag: TStringField;
+    Lsubmenu_counter_logShip_Name: TStringField;
+    SHIPSHIFTSSSStype1: TSmallintField;
+    SHIPSHIFTSSSStype2: TSmallintField;
+    Lsubmenucounterlocation_inside_outside: TShortintField;
+    procedure DataModuleCreate(Sender: TObject);
+    procedure LsubmenucounterBeforePost(DataSet: TDataSet);
+    procedure LsortingtripFromServerBeforeInsert(DataSet: TDataSet);
+    procedure LStopsForThisShipBeforePost(DataSet: TDataSet);
+    procedure LNotesForThisShipBeforePost(DataSet: TDataSet);
+    procedure LsubmenucounterCalcFields(DataSet: TDataSet);
+    procedure LsubmenucounterAfterPost(DataSet: TDataSet);
+    procedure LshipShiftsBeforePost(DataSet: TDataSet);
+    procedure LshipCoversBeforePost(DataSet: TDataSet);
+    procedure LStopsForThisShipAfterInsert(DataSet: TDataSet);
+    procedure LHrakTempBeforePost(DataSet: TDataSet);
+    procedure Starts_And_Stops_QueryBeforePost(DataSet: TDataSet);
+    procedure Starts_And_Stops_QueryAfterInsert(DataSet: TDataSet);
+    procedure LshipShiftsAfterDelete(DataSet: TDataSet);
+    procedure LshipShiftsAfterInsert(DataSet: TDataSet);
+    procedure LshipCoversAfterInsert(DataSet: TDataSet);
+    procedure LshipShiftsAfterPost(DataSet: TDataSet);
+    procedure LshipShiftsCalcFields(DataSet: TDataSet);
+    procedure LshipCoversAfterPost(DataSet: TDataSet);
+    procedure LsubmenucounterBeforeEdit(DataSet: TDataSet);
+    // procedure TDmdFm.UpdateButtonVisibility;
+    // procedure LsubmenucounterHandling_typeChange(Sender: TField);
+  private
+    FIsPosting: Boolean;
+  public
+    prevValue: integer;
+  end;
+
+var
+  DmdFm: TDmdFm;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses Flight_MovementUn, UFEnterPass, DataModuleUn, InvitationUn, Main, MainUn,
+  shiftsUnit, shipCoversUnit, SplashUn, Unit1, Unit10, Unit14, Unit2, Unit3,
+  Unit4, Unit5, Unit6, Unit7, Unit8, Unit9, userTyping, ship_starts_and_stops;
+{$R *.dfm}
+
+procedure TDmdFm.DataModuleCreate(Sender: TObject);
+var
+  VProviderName, VUserName, VPassword, VServer, VDatabase, VPort,
+    Slahia: string;
+  I, J: integer;
+  ruta, servidor, rutaprivate, rutanet: string;
+  // I:Integer;
+begin
+
+  with tinifile.Create(changefileext(paramstr(0), '.INI')) do
+    try
+
+      // IsTahmilMasrofat :=1;
+      VProviderName := readstring('Data', 'ProviderName', '');
+      VUserName := readstring('Data', 'Username', '');
+      VPassword := readstring('Data', 'Password', '');
+      VServer := readstring('Data', 'Server', '');
+      VDatabase := readstring('Data', 'Database', '');
+      VPort := readstring('Data', 'Port', '');
+      Slahia := readstring('Data', 'It is the Slahia', '');
+      // ShowMessage(VServer);
+      if VProviderName = '' then
+      begin
+        while not(VProviderName <> '') do
+          VProviderName := InputBox('ProviderName', 'ProviderName', 'MySQL');
+        writestring('Data', 'ProviderName', VProviderName);
+      end;
+      if VUserName = '' then
+      begin
+        while not(VUserName <> '') do
+          VUserName := InputBox('UserName', 'UserName', 'root');
+        writestring('Data', 'UserName', VUserName);
+      end;
+      if VPassword = '' then
+        writestring('Data', 'PassWord', VPassword);
+
+      if VServer = '' then
+      begin
+        while not(VServer <> '') do
+          VServer := InputBox('Server', 'Server', 'localhost');
+        writestring('Data', 'Server', VServer);
+      end;
+      if VDatabase = '' then
+      begin
+        while not(VDatabase <> '') do
+          VDatabase := InputBox('Database...', 'Database', 'Porte');
+        writestring('Data', 'Database', VDatabase);
+      end;
+      if VPort = '' then
+      begin
+        while not(VPort <> '') do
+          VPort := InputBox('Port...', 'Port', '3306');
+        writestring('Data', 'Port', VPort);
+      end;
+
+      if Slahia = '' then
+      begin
+        while not(Slahia <> '') do
+          Slahia := InputBox('Slahia...', 'It is this team the Slahia?/',
+            'yes/no');
+        if (UpperCase(Slahia) = 'YES') then
+          writestring('Data', 'It is the Slahia', '1')
+        else
+          writestring('Data', 'It is the Slahia', '0');
+      end;
+    finally
+    end;
+
+  /// //////////////////////////
+
+  with DB1 do
+  begin
+    Connected := false;
+    ProviderName := VProviderName;
+    Username := VUserName;
+    Password := VPassword;
+    Server := VServer;
+    Database := VDatabase;
+    Port := StrToInt(VPort);
+    Connected := true;
+  end;
+  J := 0;
+  for I := 0 to DmdFm.ComponentCount - 1 do
+    if (DmdFm.Components[I] is TUniTable) and
+      ((DmdFm.Components[I] as TUniTable).Name <> 'Years') then
+    begin
+      J := J + 1;
+      // SplashFm.sProgressBar1.StepIt;
+      (DmdFm.Components[I] as TUniTable).Open;
+    end;
+
+
+  // DmdFm.checksAll.Close;
+  // DmdFm.checksAll.Open;
+
+end;
+
+procedure TDmdFm.LHrakTempBeforePost(DataSet: TDataSet);
+var
+  str: string;
+  counterNum: integer;
+begin
+  IF (LHrakTempN_sidewalk.IsNull) THEN
+  BEGIN
+    Raise Exception.Create(' حدد الرصيف أولاً   ...');
+  END;
+  IF (LHrakTempN_bandsupervisor.IsNull) THEN
+  BEGIN
+    Raise Exception.Create(' حدد مشرف الفرقة أولاً   ...');
+  END;
+  str := DmdFm.Perm.FieldByName('UserName').AsString;
+
+  // Set common fields for both insert and edit
+  DmdFm.LHrakTempEnter_User.Value := str;
+  DmdFm.LHrakTempEnter_Date.Value := Date;
+  DmdFm.LHrakTempEnter_Time.Value := Time;
+  DmdFm.LHrakTempNumList.Value := DmdFm.LsortingtripnumAuto.Value;
+  str := DmdFm.Perm.FieldByName('UserName').AsString;
+  // DmdFm.lshipc.Value := StrToInt(str);
+
+  if TryStrToInt(str, counterNum) then
+    DmdFm.LHrakTempN_thecounter.Value := counterNum
+  else
+    DmdFm.LHrakTempN_thecounter.Value := 100;
+end;
+
+procedure TDmdFm.LNotesForThisShipBeforePost(DataSet: TDataSet);
+var
+  str: string;
+  DateValue: TDateTime;
+  TimeValue: TTime;
+  uuid: string;
+begin
+  IF (LNotesForThisShipNotes.IsNull) THEN
+  BEGIN
+    Raise Exception.Create('اكتب نص الملاحظة أولاً');
+  END;
+  str := DmdFm.Perm.FieldByName('UserName').AsString;
+
+  // Set common fields for both insert and edit
+  DmdFm.LNotesForThisShip.FieldByName('Enter_User').AsString := str;
+  DmdFm.LNotesForThisShip.FieldByName('Enter_Date').AsDateTime := Now;
+  DmdFm.LNotesForThisShip.FieldByName('isUpdated').AsInteger := 1;
+  DmdFm.LNotesForThisShip.FieldByName('M_AutoUID').AsString :=
+    LsortingtripAutoUID.Value;
+
+  // Check if the dataset is in insert state
+  if DataSet.State = dsInsert then
+  begin
+    try
+      // Initialize the query to call the stored procedure
+      GetKey.Close;
+      GetKey.SQL.Clear;
+      GetKey.SQL.Text := 'CALL counting.createNewKey(@new_uuid)';
+
+      // Execute the stored procedure
+      GetKey.ExecSQL;
+
+      // Retrieve the value of the output parameter
+      GetKey.SQL.Text := 'SELECT @new_uuid AS new_uuid';
+      GetKey.Open;
+
+      // Check if the query returned a result
+      if not GetKey.IsEmpty then
+      begin
+        uuid := GetKey.FieldByName('new_uuid').AsString;
+        DmdFm.LNotesForThisShip.FieldByName('AutoUID').AsString := uuid;
+      end
+      else
+        uuid := '';
+
+    except
+      on E: Exception do
+      begin
+        // Handle exceptions as needed
+        ShowMessage('Error executing stored procedure: ' + E.Message);
+      end;
+    end;
+  end
+  else if DataSet.State = dsEdit then
+  begin
+    str := DmdFm.Perm.FieldByName('UserName').AsString;
+
+    // Set common fields for both insert and edit
+    DmdFm.LNotesForThisShip.FieldByName('Enter_User').AsString := str;
+    DmdFm.LNotesForThisShip.FieldByName('Enter_Date').AsDateTime := Now;
+    DmdFm.LNotesForThisShip.FieldByName('isUpdated').AsInteger := 1;
+    DmdFm.LNotesForThisShip.FieldByName('M_AutoUID').AsString :=
+      LsortingtripAutoUID.Value;
+  end;
+
+end;
+
+procedure TDmdFm.LshipCoversAfterInsert(DataSet: TDataSet);
+begin
+  LshipCoversStart_Time.Value := Now;
+  LshipCoversEnd_Time.Value := Now;
+end;
+
+procedure TDmdFm.LshipCoversAfterPost(DataSet: TDataSet);
+VAR
+  SQLText: string;
+  Numm: integer;
+begin
+  SQLText := 'SELECT SUM(numberofcovers) as MN from shipcovers   where M_AutoUID='''
+    + DmdFm.LsortingtripAutoUID.Value + ''' AND OperatoinType=1';
+
+  DmdFm.Query1.Close;
+  DmdFm.Query1.SQL.Text := SQLText;
+
+  // try
+  // Execute the query
+  DmdFm.Query1.Open;
+
+  // Check if any results were returned
+  if not DmdFm.Query1.IsEmpty then
+  begin
+    while not DmdFm.Query1.Eof do
+    begin
+
+      shipCoversFm.sEdit1.Text :=
+        DmdFm.Query1.FieldByName('MN').AsString;
+      // ShowMessage(inttostr(Numm));
+      DmdFm.Query1.Next;
+
+    end;
+  end;
+  SQLText := 'SELECT SUM(numberofcovers) as MN from shipcovers   where M_AutoUID='''
+    + DmdFm.LsortingtripAutoUID.Value + ''' AND OperatoinType=2';
+
+  DmdFm.Query1.Close;
+  DmdFm.Query1.SQL.Text := SQLText;
+
+  // try
+  // Execute the query
+  DmdFm.Query1.Open;
+
+  // Check if any results were returned
+  if not DmdFm.Query1.IsEmpty then
+  begin
+    while not DmdFm.Query1.Eof do
+    begin
+
+      shipCoversFm.sEdit2.Text :=
+        DmdFm.Query1.FieldByName('MN').AsString;
+      // ShowMessage(inttostr(Numm));
+      DmdFm.Query1.Next;
+
+    end;
+  end;
+
+
+
+end;
+
+procedure TDmdFm.LshipCoversBeforePost(DataSet: TDataSet);
+var
+  str: string;
+  DateValue: TDateTime;
+  TimeValue: TTime;
+  uuid: string;
+  counterNum: integer;
+  SQLText: string;
+  Numm: integer;
+  survivor: integer;
+  survivorStr: String;
+  crane: integer;
+begin
+  // LshipCoversnumberofcovers.Value := StrToInt(shipCoversFm.ComboBox1.Text);
+  IF (LshipCoversnumberofcovers.IsNull) THEN
+  BEGIN
+    Raise Exception.Create('حدد عدد الأغطية أولا ...');
+  END;
+  IF (LshipCoversOperatoinType.IsNull) THEN
+  BEGIN
+    Raise Exception.Create('حدد  نوع العملية أولا ...');
+  END;
+  str := DmdFm.Perm.FieldByName('UserName').AsString;
+  // DmdFm.lshipc.Value := StrToInt(str);
+  DmdFm.LshipCoversEnter_Date.Value := Now;
+  if TryStrToInt(str, counterNum) then
+    DmdFm.LshipCoversN_thecounter.Value := counterNum
+  else
+    DmdFm.LshipCoversN_thecounter.Value := 100;
+  DmdFm.LshipCoversisUpdated.Value := 1;
+  DmdFm.LshipCoversM_AutoUID.Value := LsortingtripAutoUID.Value;
+  SQLText := 'SELECT Max(numAuto) as MN from hraktemp where NumList=' +
+    inttostr(LsortingtripnumAuto.Value) + '';
+
+  // Set up the query
+  shipCoversFm.Query1.Close;
+  shipCoversFm.Query1.SQL.Text := SQLText;
+
+  // Execute the query
+  shipCoversFm.Query1.Open;
+
+  // Check if any results were returned
+  if not shipCoversFm.Query1.IsEmpty then
+  begin
+    while not shipCoversFm.Query1.Eof do
+    begin
+
+      Numm := shipCoversFm.Query1.FieldByName('MN').AsInteger;
+
+      shipCoversFm.Query1.Next;
+
+    end;
+  end;
+
+  SQLText :=
+    'SELECT  N_Amber , N_sidewalk , N_bandsupervisor , N_crane , N_craneoperator from hraktemp where numAuto= '
+    + inttostr(Numm) + '';
+
+  // Set up the query
+  shipCoversFm.Query1.Close;
+  shipCoversFm.Query1.SQL.Text := SQLText;
+
+  // Execute the query
+  shipCoversFm.Query1.Open;
+
+  // Check if any results were returned
+  if not shipCoversFm.Query1.IsEmpty then
+  begin
+    while not shipCoversFm.Query1.Eof do
+    begin
+
+      survivor := shipCoversFm.Query1.FieldByName('N_bandsupervisor').AsInteger;
+      crane := shipCoversFm.Query1.FieldByName('N_crane').AsInteger;
+
+      shipCoversFm.Query1.Next;
+
+    end;
+  end;
+  // ShowMessage(INTTOSTR(survivor));
+  DmdFm.LshipCoversN_bandsupervisor.Value := survivor;
+  DmdFm.LshipCoversN_crane.Value := crane;
+  // Check if the dataset is in insert state
+  if DataSet.State = dsInsert then
+  begin
+    try
+      // Initialize the query to call the stored procedure
+      GetKey.Close;
+      GetKey.SQL.Clear;
+      GetKey.SQL.Text := 'CALL counting.createNewKey(@new_uuid)';
+
+      // Execute the stored procedure
+      GetKey.ExecSQL;
+
+      // Retrieve the value of the output parameter
+      GetKey.SQL.Text := 'SELECT @new_uuid AS new_uuid';
+      GetKey.Open;
+
+      // Check if the query returned a result
+      if not GetKey.IsEmpty then
+      begin
+        uuid := GetKey.FieldByName('new_uuid').AsString;
+        DmdFm.LshipCoversAutoUID.Value := uuid;
+      end
+      else
+        uuid := '';
+
+    except
+      on E: Exception do
+      begin
+        // Handle exceptions as needed
+        ShowMessage('Error executing stored procedure: ' + E.Message);
+      end;
+    end;
+  end
+end;
+
+procedure TDmdFm.LshipShiftsAfterDelete(DataSet: TDataSet);
+begin
+
+  // نتحقق من عدد السجلات بعد الحذف
+
+end;
+
+procedure TDmdFm.LshipShiftsAfterInsert(DataSet: TDataSet);
+begin
+  LHrakTemp.Last;
+
+  DmdFm.LshipShiftsN_bandsupervisor.Value :=
+    LHrakTempN_bandsupervisor.AsInteger;
+
+  DmdFm.LshipShiftsN_crane.Value := LHrakTempN_crane.AsInteger;
+
+  LshipShiftsStart_Time.Value := Now;
+  LshipShiftsEnd_Time.Value := Now;
+  LshipShiftsEnter_Date.Value := Now;
+end;
+
+procedure TDmdFm.LshipShiftsAfterPost(DataSet: TDataSet);
+VAR
+  SQLText: STRING;
+  crane, I: integer;
+  MyArray: array of String;
+begin
+
+  if not SHIPSHIFTSSSS.Active then
+  begin
+    SHIPSHIFTSSSS.Close;
+    SHIPSHIFTSSSS.ParamByName('VNum').Value := LsortingtripAutoUID.Value;
+    SHIPSHIFTSSSS.Execute;
+  end;
+  SHIPSHIFTSSSS.Refresh;
+  // SQLText := 'select DISTINCT Container_ID FROM shipshifts WHERE M_AutoUID=''' +
+  // LsortingtripAutoUID.Value + '''';
+  //
+  // shiftsFm.Query2.Close;
+  // shiftsFm.Query2.SQL.Clear;
+  // shiftsFm.Query2.SQL.Text := SQLText;
+  // shiftsFm.Query2.Open;
+  // I := 0;
+  // if not shiftsFm.Query2.IsEmpty then
+  // begin
+  // while not shiftsFm.Query2.Eof do
+  // begin
+  // MyArray[I] := shiftsFm.Query2.FieldByName('Container_ID').AsString;
+  // ShowMessage(shiftsFm.Query2.FieldByName('Container_ID').AsString);
+  // shiftsFm.Query2.Next;
+  // I:=I+1;
+  // end;
+  // end;
+  // SetLength(MyArray, shiftsFm.Query2.RecordCount);
+  // for I := 0 to High(MyArray) do
+  // begin
+  // SQLText := 'SELECT Count(Container_ID) as MN from shipshifts ' +
+  // 'WHERE M_AutoUID=''' + DmdFm.LsortingtripAutoUID.AsString +
+  // ''' AND Container_ID=''' + MyArray[I] + '''';
+  //
+  // shiftsFm.Query2.Close;
+  // shiftsFm.Query2.SQL.Clear;
+  // shiftsFm.Query2.SQL.Text := SQLText;
+  // shiftsFm.Query2.Open;
+  //
+  // if not shiftsFm.Query2.IsEmpty then
+  // begin
+  // LshipShifts.FieldByName('numOFVisible').Value :=
+  // shiftsFm.Query2.FieldByName('MN').AsInteger;
+  // ShowMessage(shiftsFm.Query2.FieldByName('MN').AsString);
+  // end
+  // else
+  // begin
+  // LshipShifts.FieldByName('numOFVisible').Value := 0;
+  // end;
+  // end;
+
+end;
+
+procedure TDmdFm.LshipShiftsBeforePost(DataSet: TDataSet);
+var
+  str: string;
+  uuid: string;
+  counterNum: integer;
+  SQLText: string;
+  Numm: integer;
+  survivor: integer;
+  survivorStr: String;
+  crane, I: integer;
+  MyArray: array of String;
+  // i: Integer;
+begin
+  // shiftsFm.cxDBTimeEdit1.Time := Time;
+  // shiftsFm.cxDBTimeEdit2.Time := Time;
+  // LshipShiftsStart_Time.Value:=time;
+  //
+  IF (LshipShiftsContainer_ID.IsNull) THEN
+  BEGIN
+    Raise Exception.Create('اكتب تاق الحاوية أولاً');
+  END;
+  IF (LshipShiftstype1.IsNull) THEN
+  BEGIN
+    Raise Exception.Create('حدد حالة الحاوية أولا ');
+  END;
+  IF (LshipShiftstype2.IsNull) THEN
+  BEGIN
+    Raise Exception.Create('حدد حالة المناولة أولا ');
+  END;
+  IF (LshipShiftstype.IsNull) THEN
+  begin
+    Raise Exception.Create('   نوع التشفيت أولا  ');
+
+  end;
+  str := DmdFm.Perm.FieldByName('UserName').AsString;
+  if TryStrToInt(str, counterNum) then
+    DmdFm.LshipShiftsN_thecounter.Value := counterNum
+  else
+    DmdFm.LshipShiftsN_thecounter.Value := 100;
+  DmdFm.LshipShiftsEnter_Date.Value := Now;
+  DmdFm.LshipShiftsisUpdated.Value := 1;
+  DmdFm.LshipShiftsM_AutoUID.Value := LsortingtripAutoUID.Value;
+  SQLText := 'SELECT Max(numAuto) as MN from hraktemp where NumList=' +
+    inttostr(DmdFm.LsortingtripnumAuto.Value) + '';
+
+  // Set up the query
+  EHHHHHHHHHHHHHH.Close;
+  EHHHHHHHHHHHHHH.SQL.Text := SQLText;
+
+  // Execute the query
+  EHHHHHHHHHHHHHH.Open;
+
+  // Check if any results were returned
+  if not EHHHHHHHHHHHHHH.IsEmpty then
+  begin
+    while not EHHHHHHHHHHHHHH.Eof do
+    begin
+
+      Numm := EHHHHHHHHHHHHHH.FieldByName('MN').AsInteger;
+
+      EHHHHHHHHHHHHHH.Next;
+
+    end;
+  end;
+
+  SQLText :=
+    'SELECT  N_Amber , N_sidewalk , N_bandsupervisor , N_crane , N_craneoperator from hraktemp where numAuto= '
+    + inttostr(Numm) + '';
+
+  // Set up the query
+  EHHHHHHHHHHHHHH.Close;
+  EHHHHHHHHHHHHHH.SQL.Text := SQLText;
+
+  // Execute the query
+  EHHHHHHHHHHHHHH.Open;
+
+  // Check if any results were returned
+  if not EHHHHHHHHHHHHHH.IsEmpty then
+  begin
+    while not EHHHHHHHHHHHHHH.Eof do
+    begin
+
+      survivor := EHHHHHHHHHHHHHH.FieldByName('N_bandsupervisor').AsInteger;
+      crane := EHHHHHHHHHHHHHH.FieldByName('N_crane').AsInteger;
+
+      EHHHHHHHHHHHHHH.Next;
+
+    end;
+  end;
+  LHrakTemp.Last;
+
+  survivor := LHrakTempN_bandsupervisor.AsInteger;
+  crane := LHrakTempN_crane.AsInteger;
+
+  DmdFm.LshipShiftsN_bandsupervisor.Value := survivor;
+  // ShowMessage(inttostr(crane));
+  DmdFm.LshipShiftsN_crane.Value := crane;
+  // Check if the dataset is in insert state
+  if DataSet.State = dsInsert then
+  begin
+    try
+      // Initialize the query to call the stored procedure
+      GetKey.Close;
+      GetKey.SQL.Clear;
+      GetKey.SQL.Text := 'CALL counting.createNewKey(@new_uuid)';
+
+      // Execute the stored procedure
+      GetKey.ExecSQL;
+
+      // Retrieve the value of the output parameter
+      GetKey.SQL.Text := 'SELECT @new_uuid AS new_uuid';
+      GetKey.Open;
+
+      // Check if the query returned a result
+      if not GetKey.IsEmpty then
+      begin
+        uuid := GetKey.FieldByName('new_uuid').AsString;
+        DmdFm.LshipShiftsAutoUID.Value := uuid;
+      end
+      else
+        uuid := '';
+
+    except
+      on E: Exception do
+      begin
+        // Handle exceptions as needed
+        ShowMessage('Error executing stored procedure: ' + E.Message);
+      end;
+    end;
+  end
+end;
+
+procedure TDmdFm.LshipShiftsCalcFields(DataSet: TDataSet);
+VAR
+  SQLText: STRING;
+begin
+
+end;
+
+procedure TDmdFm.LsortingtripFromServerBeforeInsert(DataSet: TDataSet);
+
+var
+  str: string;
+
+  DateValue: TDateTime;
+
+  TimeValue: TTime;
+
+  uuid: string;
+begin
+
+  str := DmdFm.Perm.FieldByName('UserName').AsString;
+  // DateValue := StrToDate('yyyy-MM-dd');
+  // TimeValue := StrToTime('HH:MM:SS');
+  DmdFm.LStopsForThisShip.FieldByName('Enter_User').AsString := str;
+  DmdFm.LStopsForThisShip.FieldByName('Enter_Date').AsDateTime := Now;
+  DmdFm.LStopsForThisShip.FieldByName('isUpdated').AsInteger := 1;
+  DmdFm.LStopsForThisShip.FieldByName('M_AutoUID').AsString :=
+    LsortingtripAutoUID.Value;
+
+  try
+    // Initialize the query to call the stored procedure
+    GetKey.Close;
+    GetKey.SQL.Clear;
+    GetKey.SQL.Text := 'CALL counting.createNewKey(@new_uuid)';
+
+    // Execute the stored procedure
+    GetKey.ExecSQL;
+
+    // Retrieve the value of the output parameter
+    GetKey.SQL.Text := 'SELECT @new_uuid AS new_uuid';
+    GetKey.Open;
+
+    // Check if the query returned a result
+    if not GetKey.IsEmpty then
+    BEGIN
+      uuid := GetKey.FieldByName('new_uuid').AsString;
+      DmdFm.LStopsForThisShip.FieldByName('AutoUID').AsString := uuid;
+
+    END
+    else
+      uuid := '';
+
+    // Set the UUID in the dataset field before inserting
+    ShowMessage(uuid);
+  except
+    on E: Exception do
+      ShowMessage('Error: ' + E.Message);
+  end;
+end;
+
+procedure TDmdFm.LStopsForThisShipAfterInsert(DataSet: TDataSet);
+begin
+  // LStopsForThisShipStart_Time.Value := Now;
+  // LStopsForThisShipEnd_Time.Value := Now;
+  // LStopsForThisShipStart_Date.Value := Now;
+  // LStopsForThisShipEnd_Date.Value := Now;
+
+  // DBMemo1.Text := '1';
+  /// xDBTimeEdit1.Time := Time;
+  // cxDBTimeEdit2.Time := Time;
+
+  LStopsForThisShipStart_Time.Value := Time;
+  LStopsForThisShipEnd_Time.Value := Time;
+  LStopsForThisShipStart_Date.Value := Time;
+  LStopsForThisShipStart_Date.Value := Date;
+  LStopsForThisShipEnd_Date.Value := Date;
+
+ // LStopsForThisShipReason_Suspension.Value := 3;
+end;
+
+procedure TDmdFm.LStopsForThisShipBeforePost(DataSet: TDataSet);
+var
+  str: string;
+  DateValue: TDateTime;
+  TimeValue: TTime;
+  uuid: string;
+begin
+  IF (LStopsForThisShipReason_Suspension.IsNull) THEN
+  BEGIN
+    Raise Exception.Create('حدد   مسبب الإيقاف أولا ');
+  END;
+  IF (LStopsForThisShipHandling_type.IsNull) THEN
+  BEGIN
+    Raise Exception.Create('حدد حالة المناولة  أولا ');
+  END;
+  str := DmdFm.Perm.FieldByName('UserName').AsString;
+
+  // Set common fields for both insert and edit
+  DmdFm.LStopsForThisShip.FieldByName('Enter_User').AsString := str;
+  DmdFm.LStopsForThisShip.FieldByName('Enter_Date').AsDateTime := Now;
+  DmdFm.LStopsForThisShip.FieldByName('isUpdated').AsInteger := 1;
+  DmdFm.LStopsForThisShip.FieldByName('M_AutoUID').AsString :=
+    LsortingtripAutoUID.Value;
+
+  // Check if the dataset is in insert state
+  if DataSet.State = dsInsert then
+  begin
+    try
+      // Initialize the query to call the stored procedure
+      GetKey.Close;
+      GetKey.SQL.Clear;
+      GetKey.SQL.Text := 'CALL counting.createNewKey(@new_uuid)';
+
+      // Execute the stored procedure
+      GetKey.ExecSQL;
+
+      // Retrieve the value of the output parameter
+      GetKey.SQL.Text := 'SELECT @new_uuid AS new_uuid';
+      GetKey.Open;
+
+      // Check if the query returned a result
+      if not GetKey.IsEmpty then
+      begin
+        uuid := GetKey.FieldByName('new_uuid').AsString;
+        DmdFm.LStopsForThisShip.FieldByName('AutoUID').AsString := uuid;
+      end
+      else
+        uuid := '';
+
+    except
+      on E: Exception do
+      begin
+        // Handle exceptions as needed
+        ShowMessage('Error executing stored procedure: ' + E.Message);
+      end;
+    end;
+  end
+  else if DataSet.State = dsEdit then
+  begin
+    str := DmdFm.Perm.FieldByName('UserName').AsString;
+
+    // Set common fields for both insert and edit
+    DmdFm.LStopsForThisShip.FieldByName('Enter_User').AsString := str;
+    DmdFm.LStopsForThisShip.FieldByName('Enter_Date').AsDateTime := Now;
+    DmdFm.LStopsForThisShip.FieldByName('isUpdated').AsInteger := 1;
+    DmdFm.LStopsForThisShip.FieldByName('M_AutoUID').AsString :=
+      LsortingtripAutoUID.Value;
+  end;
+end;
+
+procedure TDmdFm.LsubmenucounterAfterPost(DataSet: TDataSet);
+var
+  SQLText: string;
+  BarSeries: TBarSeries;
+  BarColor: TColor;
+  newValue: integer;
+begin
+  IF Flight_MovementFm.Edit1.Text <> '' THEN
+  BEGIN
+    if not Lsubmenu_counter_log.Active then
+
+      Lsubmenu_counter_log.Open;
+    Lsubmenu_counter_log.Insert;
+    Lsubmenu_counter_logaction.Value := Flight_MovementFm.Edit1.Text;
+    Lsubmenu_counter_logEnter_Date.Value := Now;
+    Lsubmenu_counter_logEnter_Time.Value := Now;
+    Lsubmenu_counter_logEnter_User.Value :=
+      DmdFm.Perm.FieldByName('UserName').AsString;
+    Lsubmenu_counter_logcontainerTag.Value := LsubmenucounterTagNumber.Value;
+    Lsubmenu_counter_logShip_Name.Value := LsortingtripShipName.Value;
+    Lsubmenu_counter_log.Post;
+
+  END;
+  IF Flight_MovementFm.Edit2.Text <> '' THEN
+  BEGIN
+    if not Lsubmenu_counter_log.Active then
+
+      Lsubmenu_counter_log.Open;
+    Lsubmenu_counter_log.Insert;
+    Lsubmenu_counter_logaction.Value := Flight_MovementFm.Edit2.Text;
+    Lsubmenu_counter_logEnter_Date.Value := Now;
+    Lsubmenu_counter_logEnter_Time.Value := Now;
+    Lsubmenu_counter_logEnter_User.Value :=
+      DmdFm.Perm.FieldByName('UserName').AsString;
+    Lsubmenu_counter_logcontainerTag.Value := LsubmenucounterTagNumber.Value;
+    Lsubmenu_counter_logShip_Name.Value := LsortingtripShipName.Value;
+    Lsubmenu_counter_log.Post;
+
+  END;
+  IF Flight_MovementFm.Edit3.Text <> '' THEN
+  BEGIN
+    if not Lsubmenu_counter_log.Active then
+
+      Lsubmenu_counter_log.Open;
+    Lsubmenu_counter_log.Insert;
+    Lsubmenu_counter_logaction.Value := Flight_MovementFm.Edit3.Text;
+    Lsubmenu_counter_logEnter_Date.Value := Now;
+    Lsubmenu_counter_logEnter_Time.Value := Now;
+    Lsubmenu_counter_logEnter_User.Value :=
+      DmdFm.Perm.FieldByName('UserName').AsString;
+    Lsubmenu_counter_logcontainerTag.Value := LsubmenucounterTagNumber.Value;
+    Lsubmenu_counter_logShip_Name.Value := LsortingtripShipName.Value;
+    Lsubmenu_counter_log.Post;
+
+  END;
+  IF Flight_MovementFm.Edit4.Text <> '' THEN
+  BEGIN
+    if not Lsubmenu_counter_log.Active then
+
+      Lsubmenu_counter_log.Open;
+    Lsubmenu_counter_log.Insert;
+    Lsubmenu_counter_logaction.Value := Flight_MovementFm.Edit4.Text;
+    Lsubmenu_counter_logEnter_Date.Value := Now;
+    Lsubmenu_counter_logEnter_Time.Value := Now;
+    Lsubmenu_counter_logEnter_User.Value :=
+      DmdFm.Perm.FieldByName('UserName').AsString;
+    Lsubmenu_counter_logcontainerTag.Value := LsubmenucounterTagNumber.Value;
+    Lsubmenu_counter_logShip_Name.Value := LsortingtripShipName.Value;
+    Lsubmenu_counter_log.Post;
+
+  END;
+  SQLText := 'SELECT COUNT(*) AS Count, ' + 'CASE ' +
+    '  WHEN RF = 1 THEN ''عادية'' ' + '  WHEN RF = 2 THEN ''ثلاجة'' ' +
+    'END AS RFtxt ' + 'FROM submenucounter ' + ' ' +
+    'WHERE RF IS NOT NULL  AND  NumMainList=' +
+    DmdFm.LsortingtripnumAuto.AsString + ' GROUP BY RF';
+
+  // Set up the query
+  Query1.Close;
+  Query1.SQL.Text := SQLText;
+  DownloadDataFromServer.Edit1.Text := '2';
+  try
+    // Execute the query
+    Query1.Open;
+
+    // Check if any results were returned
+    if not Query1.IsEmpty then
+    begin
+      // Display the results
+      MainFm.Chart1.SeriesList.Clear;
+
+      BarSeries := TBarSeries.Create(Self);
+      MainFm.Chart1.Legend.Font.Name := 'Tajawal';
+      BarSeries.Marks.Font.Name := 'Tajawal';
+      MainFm.Chart1.Legend.Font.Name := 'Tajawal';
+      MainFm.Chart1.Axes.Left.Title.Font.Name := 'Tajawal';
+      MainFm.Chart1.Axes.Left.LabelsFont.Name := 'Tajawal';
+
+      // Chart1.Axes.Bottom.Title.Caption := 'RF Text';
+      MainFm.Chart1.Axes.Bottom.Title.Font.Name := 'Tajawal';
+      MainFm.Chart1.Axes.Bottom.LabelsFont.Name := 'Tajawal';
+
+      MainFm.Chart1.AddSeries(BarSeries);
+      Query1.First;
+      while not Query1.Eof do
+      begin
+        if Query1.FieldByName('RFtxt').AsString = 'عادية' then
+          BarColor := clRed // Color for 'عادية'
+        else if Query1.FieldByName('RFtxt').AsString = 'ثلاجة' then
+          BarColor := clGreen; // Color for 'ثلاجة'
+
+        BarSeries.Add(Query1.FieldByName('Count').AsInteger,
+          Query1.FieldByName('RFtxt').AsString, BarColor);
+
+        Query1.Next;
+      end;
+    end
+    else
+    begin
+      // ShowMessage('No records found.');
+    end;
+
+  except
+    on E: Exception do
+    begin
+      // ShowMessage('An error occurred: ' + E.Message);
+    end;
+  end;
+
+  Query1.Close;
+  SQLText :=
+    'select count(*)AS Count,CASE WHEN Status_type = 1 THEN ''معبأة'' WHEN Status_type =2  THEN ''فارغة'' end AS RFtxt FROM submenucounter  WHERE Status_type IS NOT NULL AND  NumMainList='
+    + DmdFm.LsortingtripnumAuto.AsString + ' GROUP BY Status_type';
+
+  // Set up the query
+  Query1.Close;
+  Query1.SQL.Text := SQLText;
+
+  try
+    // Execute the query
+    Query1.Open;
+
+    // Check if any results were returned
+    if not Query1.IsEmpty then
+    begin
+      // Display the results
+      MainFm.Chart2.SeriesList.Clear;
+
+      BarSeries := TBarSeries.Create(Self);
+      MainFm.Chart2.Legend.Font.Name := 'Tajawal';
+      BarSeries.Marks.Font.Name := 'Tajawal';
+      MainFm.Chart2.Legend.Font.Name := 'Tajawal';
+      MainFm.Chart2.Axes.Left.Title.Font.Name := 'Tajawal';
+      MainFm.Chart2.Axes.Left.LabelsFont.Name := 'Tajawal';
+
+      // Chart1.Axes.Bottom.Title.Caption := 'RF Text';
+      MainFm.Chart2.Axes.Bottom.Title.Font.Name := 'Tajawal';
+      MainFm.Chart2.Axes.Bottom.LabelsFont.Name := 'Tajawal';
+
+      MainFm.Chart2.AddSeries(BarSeries);
+      Query1.First;
+      while not Query1.Eof do
+      begin
+        if Query1.FieldByName('RFtxt').AsString = 'معبأة' then
+          BarColor := clYellow // Color for 'عادية'
+        else if Query1.FieldByName('RFtxt').AsString = 'فارغة' then
+          BarColor := clBlue; // Color for 'ثلاجة'
+
+        BarSeries.Add(Query1.FieldByName('Count').AsInteger,
+          Query1.FieldByName('RFtxt').AsString, BarColor);
+
+        Query1.Next;
+      end;
+    end
+    else
+    begin
+      // ShowMessage('No records found.');
+    end;
+
+  except
+    on E: Exception do
+    begin
+      // ShowMessage('An error occurred: ' + E.Message);
+    end;
+  end;
+
+  // Query1.Close;
+  // SQLText :=
+  // 'SELECT COUNT(*) AS Count, CASE WHEN Handling_type = 1 THEN ''تفريغ'' WHEN Handling_type = 2 THEN ''شحن'' WHEN Handling_type = 3 THEN ''ترانزيت تفريغ'' WHEN Handling_type = 4 THEN ''ترانزيت شحن'' WHEN Handling_type = 5 THEN ''ترحيل'' WHEN Handling_type = 6 THEN ''الحديد والصلب'' WHEN Handling_type = 7 THEN ''أخرى'' ELSE ''غير محدد'' END AS RFtxt FROM submenucounter WHERE Handling_type IS NOT NULL AND   NumMainList='+DmdFm.LsortingtripnumAuto.AsString+'  GROUP BY Handling_type';
+  // Set up the query
+
+  Query1.Close;
+  SQLText := 'SELECT COUNT(*) AS Count, ' +
+    'CASE WHEN Handling_type = 1 THEN ''تفريغ'' ' +
+    'WHEN Handling_type = 2 THEN ''شحن'' ' +
+    'WHEN Handling_type = 3 THEN ''ترانزيت تفريغ'' ' +
+    'WHEN Handling_type = 4 THEN ''ترانزيت شحن'' ' +
+    'WHEN Handling_type = 5 THEN ''ترحيل'' ' +
+    'WHEN Handling_type = 6 THEN ''الحديد والصلب'' ' +
+    'WHEN Handling_type = 7 THEN ''أخرى'' ' + 'ELSE ''غير محدد'' END AS RFtxt '
+    + 'FROM submenucounter ' + 'WHERE Handling_type IS NOT NULL ' +
+    'AND NumMainList = ' + QuotedStr(DmdFm.LsortingtripnumAuto.AsString) + ' ' +
+    'GROUP BY Handling_type';
+  Query1.SQL.Text := SQLText;
+  Query1.Open;
+  Query1.Close;
+  Query1.SQL.Text := SQLText;
+
+  try
+    // Execute the query
+    Query1.Open;
+
+    // Check if any results were returned
+    if not Query1.IsEmpty then
+    begin
+      // Display the results
+      MainFm.Chart3.SeriesList.Clear;
+
+      BarSeries := TBarSeries.Create(Self);
+      MainFm.Chart3.Legend.Font.Name := 'Tajawal';
+      BarSeries.Marks.Font.Name := 'Tajawal';
+      MainFm.Chart3.Legend.Font.Name := 'Tajawal';
+      MainFm.Chart3.Axes.Left.Title.Font.Name := 'Tajawal';
+      MainFm.Chart3.Axes.Left.LabelsFont.Name := 'Tajawal';
+
+      // Chart1.Axes.Bottom.Title.Caption := 'RF Text';
+      MainFm.Chart3.Axes.Bottom.Title.Font.Name := 'Tajawal';
+      MainFm.Chart3.Axes.Bottom.LabelsFont.Name := 'Tajawal';
+
+      MainFm.Chart3.AddSeries(BarSeries);
+      Query1.First;
+      while not Query1.Eof do
+      begin
+
+        BarSeries.Add(Query1.FieldByName('Count').AsInteger,
+          Query1.FieldByName('RFtxt').AsString);
+
+        Query1.Next;
+      end;
+    end
+    else
+    begin
+      // ShowMessage('No records found.');
+    end;
+  except
+    on E: Exception do
+    begin
+      // ShowMessage('An error occurred: ' + E.Message);
+    end;
+  end;
+
+  Query1.Close;
+  SQLText :=
+    'SELECT COUNT(*) AS Count,CASE WHEN `condition` = 1 THEN ''متسلمة'' WHEN `condition` = 2 THEN ''عجز'' END AS `condition` FROM submenucounter  WHERE `condition` IS NOT NULL   AND  NumMainList='
+    + DmdFm.LsortingtripnumAuto.AsString + ' GROUP BY `condition`';
+  // Set up the query
+  Query1.Close;
+  Query1.SQL.Text := SQLText;
+
+  try
+    // Execute the query
+    Query1.Open;
+
+    // Check if any results were returned
+    if not Query1.IsEmpty then
+    begin
+      // Display the results
+      MainFm.Chart4.SeriesList.Clear;
+
+      BarSeries := TBarSeries.Create(Self);
+      MainFm.Chart4.Legend.Font.Name := 'Tajawal';
+      BarSeries.Marks.Font.Name := 'Tajawal';
+      MainFm.Chart4.Legend.Font.Name := 'Tajawal';
+      MainFm.Chart4.Axes.Left.Title.Font.Name := 'Tajawal';
+      MainFm.Chart4.Axes.Left.LabelsFont.Name := 'Tajawal';
+
+      // Chart1.Axes.Bottom.Title.Caption := 'RF Text';
+      MainFm.Chart4.Axes.Bottom.Title.Font.Name := 'Tajawal';
+      MainFm.Chart4.Axes.Bottom.LabelsFont.Name := 'Tajawal';
+
+      MainFm.Chart4.AddSeries(BarSeries);
+      Query1.First;
+      while not Query1.Eof do
+      begin
+        if Query1.FieldByName('condition').AsString = 'متسلمة' then
+          BarColor := RGB($FB, $86, $47) // Color for 'عادية'
+        else if Query1.FieldByName('condition').AsString = 'عجز' then
+          BarColor := RGB($47, $BB, $FB); // Color for 'ثلاجة'
+
+        BarSeries.Add(Query1.FieldByName('Count').AsInteger,
+          Query1.FieldByName('condition').AsString, BarColor);
+
+        Query1.Next;
+      end;
+    end
+    else
+    begin
+      // ShowMessage('No records found.');
+    end;
+
+  except
+    on E: Exception do
+    begin
+      // ShowMessage('An error occurred: ' + E.Message);
+    end;
+  end;
+
+  Query1.Close;
+
+  Flight_MovementFm.DBRadioGroup5.Enabled := false;
+  Flight_MovementFm.DBRadioGroup2.Enabled := false;
+  // Flight_MovementFm.DBRadioGroup1.Enabled := false;
+  Flight_MovementFm.DBRadioGroup4.Enabled := false;
+  with Flight_MovementFm do
+  begin
+
+    SQLText := 'SELECT COUNT(*) AS Count FROM submenucounter WHERE NumMainList='
+      + inttostr(LsubmenucounterNumMainList.Value) +
+      ' AND  (`Handling_type` =2 OR  `Handling_type` =4) ';
+
+    // Set up the query
+    Query1.Close;
+    Query1.SQL.Text := SQLText;
+
+    try
+      // Execute the query
+      Query1.Open;
+
+      // Check if any results were returned
+      if not Query1.IsEmpty then
+      begin
+        while not Query1.Eof do
+        begin
+
+          Label17.Caption := '   ' + ' ' + Query1.FieldByName('Count').AsString;
+
+          Query1.Next;
+
+        end;
+      end;
+    finally
+
+    end;
+    SQLText := 'SELECT COUNT(*) AS Count FROM submenucounter WHERE NumMainList='
+      + inttostr(LsubmenucounterNumMainList.Value) +
+      ' AND  (`Handling_type` =1 OR  `Handling_type` =3 OR `Handling_type` =6) ';
+
+    // Set up the query
+    Query1.Close;
+    Query1.SQL.Text := SQLText;
+
+    try
+      // Execute the query
+      Query1.Open;
+
+      // Check if any results were returned
+      if not Query1.IsEmpty then
+      begin
+        while not Query1.Eof do
+        begin
+
+          Label18.Caption := '    ' + ' ' + Query1.FieldByName('Count')
+            .AsString;
+
+          Query1.Next;
+
+        end;
+      end;
+    finally
+
+    end;
+    SQLText :=
+      'SELECT COUNT(*)  AS Count from submenucounter WHERE NumMainList=' +
+      inttostr(LsubmenucounterNumMainList.Value) +
+      ' AND  (`Handling_type` =1 OR  `Handling_type` =3 OR `Handling_type` =6 ) and `condition` =1';
+
+    // Set up the query
+    Query1.Close;
+    Query1.SQL.Text := SQLText;
+
+    try
+      // Execute the query
+      Query1.Open;
+
+      // Check if any results were returned
+      if not Query1.IsEmpty then
+      begin
+        while not Query1.Eof do
+        begin
+
+          Label19.Caption := '   ' + ' ' + Query1.FieldByName('Count').AsString;
+
+          Query1.Next;
+
+        end;
+      end;
+    finally
+
+    end;
+    SQLText :=
+      'SELECT COUNT(*)  AS Count from submenucounter WHERE NumMainList=' +
+      inttostr(LsubmenucounterNumMainList.Value) +
+      ' AND  (`Handling_type` =2 OR  `Handling_type` =4 ) and `condition` =1';
+
+    // Set up the query
+    Query1.Close;
+    Query1.SQL.Text := SQLText;
+
+    try
+      // Execute the query
+      Query1.Open;
+
+      // Check if any results were returned
+      if not Query1.IsEmpty then
+      begin
+        while not Query1.Eof do
+        begin
+
+          Label20.Caption := '     ' + ' ' + Query1.FieldByName
+            ('Count').AsString;
+
+          Query1.Next;
+
+        end;
+      end;
+    finally
+
+    end;
+    SQLText :=
+      'SELECT COUNT(*) - (select  COUNT(*)  FROM submenucounter WHERE NumMainList='
+      + inttostr(LsubmenucounterNumMainList.Value) +
+      ' AND  (`Handling_type` =2 OR  `Handling_type` =4 )AND `condition` =1) AS Count from submenucounter WHERE NumMainList='
+      + inttostr(LsubmenucounterNumMainList.Value) +
+      ' AND  (`Handling_type` =2 OR  `Handling_type` =4)';
+
+    // Set up the query
+    Query1.Close;
+    Query1.SQL.Text := SQLText;
+
+    try
+      // Execute the query
+      Query1.Open;
+
+      // Check if any results were returned
+      if not Query1.IsEmpty then
+      begin
+        while not Query1.Eof do
+        begin
+
+          Label25.Caption := '   ' + Query1.FieldByName('Count')
+            .AsString + '   ';
+
+          Query1.Next;
+
+        end;
+      end;
+    finally
+
+    end;
+
+    SQLText :=
+      'SELECT COUNT(*) - (select  COUNT(*)  FROM submenucounter WHERE NumMainList='
+      + inttostr(LsubmenucounterNumMainList.Value) +
+      ' AND  (`Handling_type` =1 OR  `Handling_type` =3 OR `Handling_type` =6  ) AND `condition` =1) AS Count from submenucounter WHERE NumMainList='
+      + inttostr(LsubmenucounterNumMainList.Value) +
+      ' AND  (`Handling_type` =1 OR  `Handling_type` =3 OR `Handling_type` =6 )';
+
+    // Set up the query
+    Query1.Close;
+    Query1.SQL.Text := SQLText;
+
+    try
+      // Execute the query
+      Query1.Open;
+
+      // Check if any results were returned
+      if not Query1.IsEmpty then
+      begin
+        while not Query1.Eof do
+        begin
+
+          Label26.Caption := '   ' + Query1.FieldByName('Count')
+            .AsString + '   ';
+
+          Query1.Next;
+
+        end;
+      end;
+    finally
+
+    end;
+
+  end;
+end;
+
+procedure TDmdFm.LsubmenucounterBeforeEdit(DataSet: TDataSet);
+begin
+  prevValue := Lsubmenucountercondition.Value;
+end;
+
+procedure TDmdFm.LsubmenucounterBeforePost(DataSet: TDataSet);
+var
+  str: string;
+  DateValue: TDateTime;
+  TimeValue: TTime;
+  SQLText: string;
+  Numm: integer;
+  N1, N2, N3, N4, N5: integer;
+  counterNum: integer;
+  newValue: integer;
+begin
+  if Flight_MovementFm.ForEdit.Text = '1' then
+  begin
+    if Flight_MovementFm.conditionTxt.Text <> '1' then
+      if (Lsubmenucountercondition.Value = 0) or
+        (Lsubmenucountercondition.Value = 2) then
+      begin
+        // عرض خيار تأكيد للمستخدم - يُفضّل تنفيذ التأكيد قبل استدعاء Post
+        case MessageDlg('حالة الحاوية الحالية عجز هل تريد المتابعة',
+          mtConfirmation, [mbYes, mbNo], 0) of
+          mrYes:
+            begin
+              // المتابعة: أكمل الـ POST
+              try
+                // تنفيذ أي منطق إضافي عند الضرورة
+              except
+                on E: Exception do
+                  ShowMessage('خطأ أثناء الإرسال: ' + E.Message);
+              end;
+            end;
+          mrNo:
+            begin
+              Lsubmenucounter.Cancel;
+              ShowMessage
+                ('تم إلغاء الإرسال. لم يتم إرسال البيانات إلى الخادم.');
+            end;
+        end;
+      end;
+
+    if LsubmenucounterRF.Value = 0 then
+      Raise Exception.Create('!حدد نوع المعاملة هل هي عادية / ثلاجة ');
+
+    if DataSet.State = dsEdit then
+    begin
+      newValue := Lsubmenucountercondition.Value;
+      // ShowMessage(inttostr(newValue)+'---'+inttostr(prevValue));
+      if (Lsubmenucountercondition.Value = 1) AND (prevValue <> newValue) then
+      begin
+        // الحصول على أقصى numAuto
+        SQLText := 'SELECT Max(numAuto) as MN from hraktemp where NumList=' +
+          inttostr(DmdFm.LsubmenucounterNumMainList.Value);
+
+        EHHHHHHHHHHHHHH.Close;
+        EHHHHHHHHHHHHHH.SQL.Text := SQLText;
+        try
+          EHHHHHHHHHHHHHH.Open;
+          if not EHHHHHHHHHHHHHH.IsEmpty then
+          begin
+            EHHHHHHHHHHHHHH.First;
+            Numm := EHHHHHHHHHHHHHH.FieldByName('MN').AsInteger;
+          end
+          else
+            Numm := 0;
+        finally
+          EHHHHHHHHHHHHHH.Close;
+        end;
+
+        // تعبئة حقول المستخدم والوقت
+        str := DmdFm.Perm.FieldByName('UserName').AsString;
+        DmdFm.Lsubmenucounter.FieldByName('Enter_User').AsString := str;
+        DmdFm.Lsubmenucounter.FieldByName('Enter_Date').AsDateTime := Now;
+        DmdFm.Lsubmenucounter.FieldByName('Enter_Time').AsDateTime := Time;
+        if TryStrToInt(str, counterNum) then
+          DmdFm.LsubmenucounterN_thecounter.Value := counterNum
+        else
+          DmdFm.LsubmenucounterN_thecounter.Value := 100;
+        // DmdFm.Lsubmenucounter.FieldByName('isdataChanged').AsInteger := 1;
+        LHrakTemp.Last;
+        DmdFm.LsubmenucounterN_Amber.Value := LHrakTempN_Amber.Value;
+        DmdFm.LsubmenucounterN_sidewalk.Value := LHrakTempN_sidewalk.Value;
+        DmdFm.LsubmenucounterN_bandsupervisor.Value :=
+          LHrakTempN_bandsupervisor.Value;
+        DmdFm.LsubmenucounterN_crane.Value := LHrakTempN_crane.Value;
+        DmdFm.LsubmenucounterN_craneoperator.Value :=
+          LHrakTempN_craneoperator.Value;
+        // جلب القيم التفصيلية إن وُجد Numm
+        if Numm > 0 then
+        begin
+          SQLText :=
+            'SELECT N_Amber, N_sidewalk, N_bandsupervisor, N_crane, N_craneoperator from hraktemp where numAuto= '
+            + inttostr(Numm);
+
+          EHHHHHHHHHHHHHH.Close;
+          EHHHHHHHHHHHHHH.SQL.Text := SQLText;
+          try
+            EHHHHHHHHHHHHHH.Open;
+            if not EHHHHHHHHHHHHHH.IsEmpty then
+            begin
+              EHHHHHHHHHHHHHH.First;
+              N1 := EHHHHHHHHHHHHHH.FieldByName('N_Amber').AsInteger;
+              N2 := EHHHHHHHHHHHHHH.FieldByName('N_sidewalk').AsInteger;
+              N3 := EHHHHHHHHHHHHHH.FieldByName('N_bandsupervisor').AsInteger;
+              N4 := EHHHHHHHHHHHHHH.FieldByName('N_crane').AsInteger;
+              N5 := EHHHHHHHHHHHHHH.FieldByName('N_craneoperator').AsInteger;
+              LHrakTemp.Last;
+              DmdFm.LsubmenucounterN_Amber.Value := LHrakTempN_Amber.Value;
+              DmdFm.LsubmenucounterN_sidewalk.Value :=
+                LHrakTempN_sidewalk.Value;
+              DmdFm.LsubmenucounterN_bandsupervisor.Value :=
+                LHrakTempN_bandsupervisor.Value;
+              DmdFm.LsubmenucounterN_crane.Value := LHrakTempN_crane.Value;
+              DmdFm.LsubmenucounterN_craneoperator.Value :=
+                LHrakTempN_craneoperator.Value;
+
+              ShowMessage('!تم الحفظ');
+            end;
+          finally
+            EHHHHHHHHHHHHHH.Close;
+          end;
+        end;
+      end;
+
+      if Lsubmenucountercondition.Value = 2 then
+
+      begin
+        DmdFm.Lsubmenucounter.FieldByName('Enter_User').Clear;
+        DmdFm.Lsubmenucounter.FieldByName('Enter_Date').Clear;
+        DmdFm.Lsubmenucounter.FieldByName('Enter_Time').Clear;
+        DmdFm.LsubmenucounterN_Amber.Clear;
+        DmdFm.LsubmenucounterN_sidewalk.Clear;
+        DmdFm.LsubmenucounterN_bandsupervisor.Clear;
+        DmdFm.LsubmenucounterN_thecounter.Clear;
+        DmdFm.LsubmenucounterN_crane.Clear;
+        DmdFm.LsubmenucounterN_craneoperator.Clear;
+
+      end;
+    end;
+  end;
+end;
+
+{ procedure TDmdFm.LsubmenucounterBeforePost(DataSet: TDataSet);
+  var
+  str: string;
+
+  DateValue: TDateTime;
+
+  TimeValue: TTime;
+  SQLText: string;
+  Numm: Integer;
+  N1, N2, N3, N4, N5: Integer;
+  counterNum: Integer;
+
+  begin
+
+  if Flight_MovementFm.ForEdit.Text = '1' then
+
+  begin
+  if Flight_MovementFm.conditionTxt.Text <> '1' then
+
+  if (Lsubmenucountercondition.Value = 0) or
+  (Lsubmenucountercondition.Value = 2) then
+  begin
+  // عرض خيار تأكيد للمستخدم
+  case MessageDlg('حالة الحاوية الحالية عجز هل تريد المتابعة',
+  mtConfirmation, [mbYes, mbNo], 0) of
+  mrYes:
+  begin
+  // المتابعة: أكمل الـ POST
+  try
+  // افترض أن لديك إجراء executesPost أو كتابة استعلام insert/update
+  // مثال افتراضي، استبدله بطريقتك الفعلية
+
+  except
+  on E: Exception do
+  ShowMessage('خطأ أثناء الإرسال: ' + E.Message);
+  end;
+  end;
+  mrNo:
+  begin
+
+  Lsubmenucounter.Cancel;
+  // المستخدم اختار الإيقاف
+  ShowMessage
+  ('تم إلغاء الإرسال. لم يتم إرسال البيانات إلى الخادم.');
+  end;
+  end;
+  end;
+  if LsubmenucounterRF.Value = 0 then
+  Raise Exception.Create('!حدد نوع المعاملة هل هي عادية / ثلاجة ');
+  if DataSet.State = dsEdit then
+  begin
+  // ShowMessage('ffgfgfg');
+  SQLText := 'SELECT Max(numAuto) as MN from hraktemp where NumList=' +
+  inttostr(DmdFm.LsubmenucounterNumMainList.Value) + '';
+
+  // Set up the query
+  Query1.Close;
+  Query1.SQL.Text := SQLText;
+
+  // try
+  // Execute the query
+  Query1.Open;
+
+  // Check if any results were returned
+  if not Query1.IsEmpty then
+  begin
+  while not Query1.Eof do
+  begin
+
+  Numm := Query1.FieldByName('MN').AsInteger;
+
+  Query1.Next;
+
+  end;
+  end;
+  // finally
+  //
+  // end;
+
+  str := DmdFm.Perm.FieldByName('UserName').AsString;
+  // DateValue := StrToDate('yyyy-MM-dd');
+  // TimeValue := StrToTime('HH:MM:SS');
+
+  // if DownloadDataFromServer.Edit1.Text = '2' then
+  // begin
+  // counterNum:=DmdFm.PermUserNum.Value ;
+  DmdFm.Lsubmenucounter.FieldByName('Enter_User').AsString := str;
+  DmdFm.Lsubmenucounter.FieldByName('Enter_Date').AsDateTime := Now;
+  DmdFm.Lsubmenucounter.FieldByName('Enter_Time').AsDateTime := Time;
+  if TryStrToInt(str, counterNum) then
+  DmdFm.LsubmenucounterN_thecounter.Value := counterNum
+  else
+  DmdFm.LsubmenucounterN_thecounter.Value := 100;
+  // DmdFm.Lsubmenucounter.FieldByName('N_thecounter').AsInteger :=
+  // DmdFm.PermUserNum.Value;
+  DmdFm.Lsubmenucounter.FieldByName('isdataChanged').AsInteger := 1;
+  SQLText :=
+  'SELECT  N_Amber , N_sidewalk , N_bandsupervisor , N_crane , N_craneoperator from hraktemp where numAuto= '
+  + inttostr(Numm) + '';
+
+  // Set up the query
+  Query1.Close;
+  Query1.SQL.Text := SQLText;
+
+  // try
+  // Execute the query
+  Query1.Open;
+
+  // Check if any results were returned
+  if not Query1.IsEmpty then
+  begin
+  while not Query1.Eof do
+  begin
+
+  N1 := Query1.FieldByName('N_Amber').AsInteger;
+  N2 := Query1.FieldByName('N_sidewalk').AsInteger;
+  N3 := Query1.FieldByName('N_bandsupervisor').AsInteger;
+  N4 := Query1.FieldByName('N_crane').AsInteger;
+  N5 := Query1.FieldByName('N_craneoperator').AsInteger;
+
+  Query1.Next;
+
+  end;
+  DmdFm.LsubmenucounterN_Amber.Value := N1;
+  DmdFm.LsubmenucounterN_sidewalk.Value := N2;
+  DmdFm.LsubmenucounterN_bandsupervisor.Value := N3;
+  DmdFm.LsubmenucounterN_crane.Value := N4;
+  DmdFm.LsubmenucounterN_craneoperator.Value := N5;
+  ShowMessage('!تم الحفظ');
+
+  end;
+  end;
+  end;
+
+
+  end; }
+
+procedure TDmdFm.LsubmenucounterCalcFields(DataSet: TDataSet);
+begin
+  case LsubmenucounterHandling_type.Value of
+    1:
+      LsubmenucounterHandling_typeNm.Value := 'تفريغ';
+    2:
+      LsubmenucounterHandling_typeNm.Value := 'شحن';
+  end;
+  case LsubmenucounterStatus_type.Value of
+    1:
+      LsubmenucounterStatus_typeNm.Value := 'معبأة';
+    2:
+      LsubmenucounterStatus_typeNm.Value := 'فارغة';
+  end;
+end;
+
+procedure TDmdFm.Starts_And_Stops_QueryAfterInsert(DataSet: TDataSet);
+begin
+  Starts_And_Stops_QueryStart_Time.Value := Now;
+  Starts_And_Stops_QueryEnd__Date.Value := Now;
+  Starts_And_Stops_QueryStart_Date.Value := Now;
+  Starts_And_Stops_QueryEnd_Time.Value := Now;
+end;
+
+procedure TDmdFm.Starts_And_Stops_QueryBeforePost(DataSet: TDataSet);
+VAR
+  str: string;
+begin
+  str := DmdFm.Perm.FieldByName('UserName').AsString;
+
+  IF Starts_And_Stops_QueryFm.sEdit1.Text = '' THEN
+  BEGIN
+    Raise Exception.Create('!!!  اختر الرحلة أولاً');
+  END
+  ELSE
+  BEGIN
+    Starts_And_Stops_QueryAutoUID.Value := LsortingtripAutoUID.Value;
+    Starts_And_Stops_QueryEnter_User.Value := str;
+    Starts_And_Stops_QueryEnter_Date.AsDateTime := Now;
+
+  END;
+end;
+
+end.
